@@ -1,152 +1,201 @@
 division,state,party
-Division 1,Victoria,Liberal
-Division 2,New South Wales,Liberal
-Division 3,Tasmania,Liberal
-Division 4,New South Wales,Liberal
-Division 5,Queensland,Liberal
-Division 6,New South Wales,Labor
-Division 7,Victoria,Liberal
-Division 8,Western Australia,Labor
-Division 9,Western Australia,Greens
-Division 10,Queensland,Labor
-Division 11,Queensland,Labor
-Division 12,Northern Territory,Liberal
-Division 13,New South Wales,Labor
-Division 14,Western Australia,Labor
-Division 15,Western Australia,National
-Division 16,Victoria,Liberal
-Division 17,South Australia,Liberal
-Division 18,Victoria,Liberal
-Division 19,Western Australia,Labor
-Division 20,South Australia,Labor
-Division 21,New South Wales,Liberal
-Division 22,Queensland,Greens
-Division 23,New South Wales,Liberal
-Division 24,New South Wales,Liberal
-Division 25,Queensland,Labor
-Division 26,Victoria,National
-Division 27,New South Wales,Liberal
-Division 28,Queensland,Liberal
-Division 29,Tasmania,Liberal
-Division 30,South Australia,Liberal
-Division 31,New South Wales,Liberal
-Division 32,Victoria,Labor
-Division 33,Tasmania,Liberal
-Division 34,New South Wales,Liberal
-Division 35,Western Australia,Labor
-Division 36,New South Wales,Liberal
-Division 37,Tasmania,Greens
-Division 38,Tasmania,Labor
-Division 39,Victoria,Greens
-Division 40,South Australia,Labor
-Division 41,New South Wales,Other
-Division 42,New South Wales,Other
-Division 43,Tasmania,Labor
-Division 44,Tasmania,National
-Division 45,Queensland,Liberal
-Division 46,Australian Capital Territory,Other
-Division 47,Queensland,Labor
-Division 48,Queensland,Other
-Division 49,South Australia,Liberal
-Division 50,Victoria,National
-Division 51,South Australia,Liberal
-Division 52,Victoria,Labor
-Division 53,South Australia,National
-Division 54,Queensland,Liberal
-Division 55,Queensland,Labor
-Division 56,South Australia,Liberal
-Division 57,New South Wales,Other
-Division 58,Northern Territory,Liberal
-Division 59,New South Wales,Labor
-Division 60,Western Australia,Labor
-Division 61,New South Wales,Liberal
-Division 62,South Australia,Liberal
-Division 63,Queensland,Labor
-Division 64,Tasmania,Labor
-Division 65,South Australia,Labor
-Division 66,Victoria,Labor
-Division 67,Queensland,Liberal
-Division 68,Queensland,Liberal
-Division 69,Tasmania,Labor
-Division 70,South Australia,National
-Division 71,Australian Capital Territory,Labor
-Division 72,Western Australia,Labor
-Division 73,Queensland,National
-Division 74,Victoria,Labor
-Division 75,Western Australia,Labor
-Division 76,Tasmania,Labor
-Division 77,Queensland,Liberal
-Division 78,Western Australia,Liberal
-Division 79,Queensland,Labor
-Division 80,Queensland,Liberal
-Division 81,Victoria,Labor
-Division 82,New South Wales,Liberal
-Division 83,Victoria,Liberal
-Division 84,Queensland,National
-Division 85,Western Australia,Liberal
-Division 86,New South Wales,Labor
-Division 87,Queensland,Liberal
-Division 88,New South Wales,Liberal
-Division 89,Tasmania,Liberal
-Division 90,South Australia,Labor
-Division 91,Victoria,Liberal
-Division 92,New South Wales,Labor
-Division 93,Tasmania,Labor
-Division 94,South Australia,Labor
-Division 95,Victoria,Liberal
-Division 96,Victoria,Labor
-Division 97,Western Australia,Liberal
-Division 98,Queensland,Liberal
-Division 99,South Australia,Liberal
-Division 100,New South Wales,Labor
-Division 101,South Australia,Labor
-Division 102,New South Wales,Labor
-Division 103,Victoria,Labor
-Division 104,Victoria,Labor
-Division 105,South Australia,Other
-Division 106,Western Australia,Labor
-Division 107,Tasmania,Liberal
-Division 108,Victoria,Labor
-Division 109,Queensland,Liberal
-Division 110,Victoria,Labor
-Division 111,Australian Capital Territory,Labor
-Division 112,Victoria,Liberal
-Division 113,Victoria,Liberal
-Division 114,Victoria,Liberal
-Division 115,Tasmania,Labor
-Division 116,Victoria,Labor
-Division 117,New South Wales,Labor
-Division 118,Victoria,Labor
-Division 119,Victoria,Greens
-Division 120,Northern Territory,Labor
-Division 121,South Australia,Liberal
-Division 122,New South Wales,Liberal
-Division 123,New South Wales,Labor
-Division 124,New South Wales,Liberal
-Division 125,New South Wales,National
-Division 126,New South Wales,Labor
-Division 127,Queensland,Labor
-Division 128,New South Wales,Other
-Division 129,Queensland,Labor
-Division 130,Australian Capital Territory,Liberal
-Division 131,Tasmania,Greens
-Division 132,New South Wales,National
-Division 133,New South Wales,Labor
-Division 134,Northern Territory,Labor
-Division 135,South Australia,National
-Division 136,Victoria,Labor
-Division 137,Tasmania,National
-Division 138,South Australia,Liberal
-Division 139,New South Wales,Labor
-Division 140,Victoria,Other
-Division 141,Queensland,Greens
-Division 142,Victoria,National
-Division 143,Western Australia,Labor
-Division 144,Victoria,Labor
-Division 145,Queensland,Liberal
-Division 146,Tasmania,Liberal
-Division 147,South Australia,Liberal
-Division 148,Victoria,Labor
-Division 149,New South Wales,National
-Division 150,New South Wales,Labor
-Division 151,Victoria,Liberal
+Division 1,Montana,REP
+Division 2,North Carolina,GRE
+Division 3,Texas,REP
+Division 4,Florida,REP
+Division 5,Montana,REP
+Division 6,Texas,DEM
+Division 7,Arizona,DEM
+Division 8,Michigan,DEM
+Division 9,Florida,LIB
+Division 10,Ohio,LIB
+Division 11,Pennsylvania,REP
+Division 12,Virginia,DEM
+Division 13,Wisconsin,REP
+Division 14,Texas,REP
+Division 15,Wisconsin,GRE
+Division 16,Texas,GRE
+Division 17,Florida,DEM
+Division 18,Texas,DEM
+Division 19,Michigan,REP
+Division 20,Georgia,DEM
+Division 21,Florida,DEM
+Division 22,Texas,GRE
+Division 23,Texas,REP
+Division 24,Florida,REP
+Division 25,Arizona,GRE
+Division 26,Pennsylvania,PSL
+Division 27,Texas,REP
+Division 28,Virginia,IND
+Division 29,Texas,DEM
+Division 30,Pennsylvania,IND
+Division 31,North Carolina,GRE
+Division 32,Georgia,REP
+Division 33,Arizona,REP
+Division 34,North Carolina,GRE
+Division 35,Wisconsin,PSL
+Division 36,Virginia,REP
+Division 37,Texas,DEM
+Division 38,Pennsylvania,DEM
+Division 39,Florida,GRE
+Division 40,Texas,IND
+Division 41,Florida,GRE
+Division 42,Pennsylvania,DEM
+Division 43,Florida,DEM
+Division 44,Pennsylvania,CON
+Division 45,Arizona,DEM
+Division 46,Ohio,GRE
+Division 47,Ohio,GRE
+Division 48,North Carolina,REP
+Division 49,North Carolina,DEM
+Division 50,Texas,DEM
+Division 51,Ohio,REP
+Division 52,North Carolina,GRE
+Division 53,Georgia,DEM
+Division 54,Pennsylvania,REP
+Division 55,Texas,REP
+Division 56,Florida,DEM
+Division 57,Pennsylvania,REP
+Division 58,Virginia,DEM
+Division 59,Nebraska CD-2,DEM
+Division 60,Georgia,DEM
+Division 61,Texas,DEM
+Division 62,Pennsylvania,IND
+Division 63,Virginia,DEM
+Division 64,Ohio,REP
+Division 65,Wisconsin,DEM
+Division 66,Georgia,GRE
+Division 67,Ohio,DEM
+Division 68,Arizona,REP
+Division 69,Florida,REP
+Division 70,Pennsylvania,IND
+Division 71,Virginia,IND
+Division 72,Texas,GRE
+Division 73,Arizona,REP
+Division 74,Georgia,REP
+Division 75,Wisconsin,REP
+Division 76,North Carolina,REP
+Division 77,North Carolina,LIB
+Division 78,Arizona,DEM
+Division 79,Pennsylvania,IND
+Division 80,Wisconsin,GRE
+Division 81,Pennsylvania,DEM
+Division 82,North Carolina,REP
+Division 83,Texas,DEM
+Division 84,Texas,DEM
+Division 85,Ohio,GRE
+Division 86,Georgia,REP
+Division 87,Virginia,DEM
+Division 88,Pennsylvania,IND
+Division 89,Pennsylvania,REP
+Division 90,Florida,REP
+Division 91,Texas,REP
+Division 92,Texas,DEM
+Division 93,Florida,REP
+Division 94,Texas,DEM
+Division 95,Ohio,REP
+Division 96,Ohio,DEM
+Division 97,Arizona,REP
+Division 98,Texas,DEM
+Division 99,North Carolina,REP
+Division 100,Texas,REP
+Division 101,Texas,IND
+Division 102,Florida,DEM
+Division 103,Texas,DEM
+Division 104,Ohio,DEM
+Division 105,Georgia,IND
+Division 106,Arizona,GRE
+Division 107,Florida,DEM
+Division 108,Ohio,DEM
+Division 109,North Carolina,REP
+Division 110,Florida,DEM
+Division 111,Florida,DEM
+Division 112,Ohio,DEM
+Division 113,Texas,DEM
+Division 114,Florida,REP
+Division 115,Nevada,REP
+Division 116,Texas,DEM
+Division 117,Texas,GRE
+Division 118,North Carolina,DEM
+Division 119,Nevada,REP
+Division 120,North Carolina,GRE
+Division 121,Pennsylvania,DEM
+Division 122,Pennsylvania,REP
+Division 123,Arizona,REP
+Division 124,Florida,DEM
+Division 125,Florida,GRE
+Division 126,Georgia,REP
+Division 127,Texas,REP
+Division 128,Arizona,GRE
+Division 129,Florida,GRE
+Division 130,Texas,DEM
+Division 131,Georgia,LIB
+Division 132,Texas,LIB
+Division 133,Florida,IND
+Division 134,Michigan,GRE
+Division 135,Pennsylvania,REP
+Division 136,Ohio,IND
+Division 137,Arizona,DEM
+Division 138,Florida,DEM
+Division 139,Texas,DEM
+Division 140,Texas,CON
+Division 141,Georgia,GRE
+Division 142,Ohio,CON
+Division 143,Texas,IND
+Division 144,Ohio,GRE
+Division 145,Texas,REP
+Division 146,Texas,REP
+Division 147,Ohio,LIB
+Division 148,Georgia,REP
+Division 149,Georgia,DEM
+Division 150,Pennsylvania,DEM
+Division 151,Pennsylvania,GRE
+Division 152,Florida,GRE
+Division 153,Florida,GRE
+Division 154,Virginia,DEM
+Division 155,Pennsylvania,DEM
+Division 156,Pennsylvania,DEM
+Division 157,Montana,REP
+Division 158,Georgia,GRE
+Division 159,Arizona,REP
+Division 160,Michigan,IND
+Division 161,Nebraska CD-2,REP
+Division 162,Michigan,REP
+Division 163,Michigan,LIB
+Division 164,Texas,REP
+Division 165,Arizona,GRE
+Division 166,Georgia,DEM
+Division 167,Texas,DEM
+Division 168,Texas,CON
+Division 169,Texas,DEM
+Division 170,Virginia,REP
+Division 171,Michigan,DEM
+Division 172,Texas,DEM
+Division 173,Texas,GRE
+Division 174,Texas,GRE
+Division 175,Michigan,DEM
+Division 176,Ohio,REP
+Division 177,Virginia,REP
+Division 178,Texas,DEM
+Division 179,Ohio,DEM
+Division 180,Florida,IND
+Division 181,Florida,REP
+Division 182,Florida,GRE
+Division 183,Arizona,REP
+Division 184,Florida,REP
+Division 185,Florida,DEM
+Division 186,Georgia,CON
+Division 187,Pennsylvania,DEM
+Division 188,Arizona,REP
+Division 189,Pennsylvania,GRE
+Division 190,Pennsylvania,DEM
+Division 191,Michigan,DEM
+Division 192,Texas,REP
+Division 193,North Carolina,IND
+Division 194,Virginia,REP
+Division 195,North Carolina,REP
+Division 196,Texas,DEM
+Division 197,Virginia,REP
+Division 198,Florida,REP
+Division 199,Texas,IND
+Division 200,North Carolina,REP

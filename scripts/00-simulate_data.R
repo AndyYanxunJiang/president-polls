@@ -1,49 +1,53 @@
 #### Preamble ####
-# Purpose: Simulates a dataset of Australian electoral divisions, including the 
-  #state and party that won each division.
-# Author: Rohan Alexander
-# Date: 26 September 2024
-# Contact: rohan.alexander@utoronto.ca
+# Purpose: Simulates a dataset of US electoral divisions, including the 
+#state and party that won each division.
+# Author: Rui Hu, 
+# Date: 22 October 2024
+# Contact: hr.hu@mail.utoronto.ca, 
 # License: MIT
 # Pre-requisites: The `tidyverse` package must be installed
-# Any other information needed? Make sure you are in the `starter_folder` rproj
-
 
 #### Workspace setup ####
 library(tidyverse)
-set.seed(853)
+set.seed(304)
 
 
 #### Simulate data ####
 # State names
 states <- c(
-  "New South Wales",
-  "Victoria",
-  "Queensland",
-  "South Australia",
-  "Western Australia",
-  "Tasmania",
-  "Northern Territory",
-  "Australian Capital Territory"
+  "Pennsylvania",
+  "Arizona",
+  "Montana",
+  "Florida",
+  "Texas",
+  "Nebraska CD-2",
+  "Michigan",
+  "Ohio",
+  "Wisconsin",
+  "Georgia",
+  "North Carolina",
+  "Nevada",
+  "Virginia"
 )
 
 # Political parties
-parties <- c("Labor", "Liberal", "Greens", "National", "Other")
+parties <- c("DEM", "REP", "GRE", "IND", "LIB", "CON", "PSL")
 
 # Create a dataset by randomly assigning states and parties to divisions
 analysis_data <- tibble(
-  division = paste("Division", 1:151),  # Add "Division" to make it a character
+  division = paste("Division", 1:200),  # Add "Division" to make it a character
   state = sample(
     states,
-    size = 151,
+    size = 200,
     replace = TRUE,
-    prob = c(0.25, 0.25, 0.15, 0.1, 0.1, 0.1, 0.025, 0.025) # Rough state population distribution
+    prob = c(0.085, 0.047, 0.007, 0.142, 0.193, 0.005, 0.067, 0.078, 0.039, 
+             0.07, 0.069, 0.021, 0.057) # Rough state population distribution
   ),
   party = sample(
     parties,
-    size = 151,
+    size = 200,
     replace = TRUE,
-    prob = c(0.40, 0.40, 0.05, 0.1, 0.05) # Rough party distribution
+    prob = c(0.35, 0.35, 0.15, 0.07, 0.04, 0.03, 0.01) # Rough party distribution
   )
 )
 
