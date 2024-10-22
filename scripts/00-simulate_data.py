@@ -1,48 +1,57 @@
 #### Preamble ####
-# Purpose: Simulates a dataset of Australian electoral divisions, including the 
-  # state and party that won each division.
+# Purpose: Simulates a dataset of US electoral divisions, including the 
+  #state and party that won each division.
 # Author: Rohan Alexander
 # Date: 26 September 2024
 # Contact: rohan.alexander@utoronto.ca
 # License: MIT
-# Pre-requisites: 
-  # - `polars` must be installed (pip install polars)
-  # - `numpy` must be installed (pip install numpy)
+# Pre-requisites: The `tidyverse` package must be installed
+# Any other information needed? Make sure you are in the `starter_folder` rproj
 
 
 #### Workspace setup ####
-import polars as pl
-import numpy as np
-np.random.seed(853)
+library(tidyverse)
+set.seed(304)
 
 
 #### Simulate data ####
 # State names
-states = [
-    "New South Wales", "Victoria", "Queensland", "South Australia", 
-    "Western Australia", "Tasmania", "Northern Territory", 
-    "Australian Capital Territory"
-]
+states <- c(
+  "Pennsylvania",
+  "Arizona",
+  "Montana",
+  "Florida",
+  "Texas",
+  "Nebraska",
+  "Michigan",
+  "Ohio",
+  "Wisconsin",
+  "Georgia",
+  "North Carolina",
+  "Nevada",
+  "Virginia"
+)
 
 # Political parties
-parties = ["Labor", "Liberal", "Greens", "National", "Other"]
+parties <- c("DEM", "REP", "GRE", "LIB", "IND")
 
-# Probabilities for state and party distribution
-state_probs = [0.25, 0.25, 0.15, 0.1, 0.1, 0.1, 0.025, 0.025]
-party_probs = [0.40, 0.40, 0.05, 0.1, 0.05]
-
-# Generate the data using numpy and polars
-divisions = [f"Division {i}" for i in range(1, 152)]
-states_sampled = np.random.choice(states, size=151, replace=True, p=state_probs)
-parties_sampled = np.random.choice(parties, size=151, replace=True, p=party_probs)
-
-# Create a polars DataFrame
-analysis_data = pl.DataFrame({
-    "division": divisions,
-    "state": states_sampled,
-    "party": parties_sampled
-})
+# Create a dataset by randomly assigning states and parties to divisions
+analysis_data <- tibble(
+  division = paste("Division", 1:151),  # Add "Division" to make it a character
+  state = sample(
+    states,
+    size = 151,
+    replace = TRUE,
+    prob = c(0.25, 0.25, 0.15, 0.1, 0.1, 0.1, 0.025, 0.025) # Rough state population distribution
+  ),
+  party = sample(
+    parties,
+    size = 151,
+    replace = TRUE,
+    prob = c(0.40, 0.40, 0.05, 0.1, 0.05) # Rough party distribution
+  )
+)
 
 
 #### Save data ####
-analysis_data.write_csv("data/00-simulated_data/simulated_data.csv")
+write_csv(analysis_data, "data/00-simulated_data/simulated_data.csv")
