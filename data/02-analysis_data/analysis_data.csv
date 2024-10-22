@@ -1,20 +1,675 @@
-width,length,flying_time
-70,111,1.83
-57,127,2.32
-59,92,2.05
-70,75,1.1
-62,112,2.32
-68,103.5,0.5
-58,108,1.7
-79,114,0.86
-56,186,3.42
-87,68,1.37
-50,118,2.68
-49,186,1.83
-61,116,1.32
-60,127,1
-56,184,2.79
-69,124,1.4
-60,95,1.12
-44,137,1.28
-63,125,1.35
+pollster,state,start_date,end_date,question_id,sample_size,population,party,answer,candidate_name,pct
+Siena/NYT,Pennsylvania,10/7/24,10/10/24,212457,857,rv,DEM,Harris,Kamala Harris,50
+Siena/NYT,Pennsylvania,10/7/24,10/10/24,212457,857,rv,REP,Trump,Donald Trump,47
+Siena/NYT,Pennsylvania,10/7/24,10/10/24,212458,857,rv,DEM,Harris,Kamala Harris,49
+Siena/NYT,Pennsylvania,10/7/24,10/10/24,212458,857,rv,REP,Trump,Donald Trump,45
+Siena/NYT,Pennsylvania,10/7/24,10/10/24,212458,857,rv,GRE,Stein,Jill Stein,2
+Siena/NYT,Pennsylvania,10/7/24,10/10/24,212458,857,rv,LIB,Oliver,Chase Oliver,1
+Siena/NYT,Pennsylvania,10/7/24,10/10/24,212459,857,lv,DEM,Harris,Kamala Harris,50
+Siena/NYT,Pennsylvania,10/7/24,10/10/24,212459,857,lv,REP,Trump,Donald Trump,47
+Siena/NYT,Pennsylvania,10/7/24,10/10/24,212460,857,lv,DEM,Harris,Kamala Harris,49
+Siena/NYT,Pennsylvania,10/7/24,10/10/24,212460,857,lv,REP,Trump,Donald Trump,45
+Siena/NYT,Pennsylvania,10/7/24,10/10/24,212460,857,lv,GRE,Stein,Jill Stein,1
+Siena/NYT,Pennsylvania,10/7/24,10/10/24,212460,857,lv,LIB,Oliver,Chase Oliver,0
+Siena/NYT,Arizona,10/7/24,10/10/24,212461,808,lv,DEM,Harris,Kamala Harris,46
+Siena/NYT,Arizona,10/7/24,10/10/24,212461,808,lv,REP,Trump,Donald Trump,51
+Siena/NYT,Arizona,10/7/24,10/10/24,212462,808,lv,DEM,Harris,Kamala Harris,45
+Siena/NYT,Arizona,10/7/24,10/10/24,212462,808,lv,REP,Trump,Donald Trump,50
+Siena/NYT,Arizona,10/7/24,10/10/24,212462,808,lv,GRE,Stein,Jill Stein,1
+Siena/NYT,Arizona,10/7/24,10/10/24,212462,808,lv,LIB,Oliver,Chase Oliver,0
+Siena/NYT,Arizona,10/7/24,10/10/24,212463,808,rv,DEM,Harris,Kamala Harris,45
+Siena/NYT,Arizona,10/7/24,10/10/24,212463,808,rv,REP,Trump,Donald Trump,51
+Siena/NYT,Arizona,10/7/24,10/10/24,212464,808,rv,DEM,Harris,Kamala Harris,44
+Siena/NYT,Arizona,10/7/24,10/10/24,212464,808,rv,REP,Trump,Donald Trump,49
+Siena/NYT,Arizona,10/7/24,10/10/24,212464,808,rv,GRE,Stein,Jill Stein,2
+Siena/NYT,Arizona,10/7/24,10/10/24,212464,808,rv,LIB,Oliver,Chase Oliver,1
+Siena/NYT,Montana,10/5/24,10/8/24,212204,656,rv,DEM,Harris,Kamala Harris,39
+Siena/NYT,Montana,10/5/24,10/8/24,212204,656,rv,REP,Trump,Donald Trump,57
+Siena/NYT,Montana,10/5/24,10/8/24,212205,656,rv,DEM,Harris,Kamala Harris,38
+Siena/NYT,Montana,10/5/24,10/8/24,212205,656,rv,REP,Trump,Donald Trump,56
+Siena/NYT,Montana,10/5/24,10/8/24,212205,656,rv,GRE,Stein,Jill Stein,0
+Siena/NYT,Montana,10/5/24,10/8/24,212205,656,rv,LIB,Oliver,Chase Oliver,0
+Siena/NYT,Montana,10/5/24,10/8/24,212206,656,lv,DEM,Harris,Kamala Harris,40
+Siena/NYT,Montana,10/5/24,10/8/24,212206,656,lv,REP,Trump,Donald Trump,57
+Siena/NYT,Montana,10/5/24,10/8/24,212207,656,lv,DEM,Harris,Kamala Harris,39
+Siena/NYT,Montana,10/5/24,10/8/24,212207,656,lv,REP,Trump,Donald Trump,56
+Siena/NYT,Montana,10/5/24,10/8/24,212207,656,lv,GRE,Stein,Jill Stein,0
+Siena/NYT,Montana,10/5/24,10/8/24,212207,656,lv,LIB,Oliver,Chase Oliver,0
+Siena/NYT,NA,9/29/24,10/6/24,211846,3385,lv,DEM,Harris,Kamala Harris,49
+Siena/NYT,NA,9/29/24,10/6/24,211846,3385,lv,REP,Trump,Donald Trump,46
+Siena/NYT,NA,9/29/24,10/6/24,211847,3385,lv,DEM,Harris,Kamala Harris,47
+Siena/NYT,NA,9/29/24,10/6/24,211847,3385,lv,REP,Trump,Donald Trump,44
+Siena/NYT,NA,9/29/24,10/6/24,211847,3385,lv,GRE,Stein,Jill Stein,1
+Siena/NYT,NA,9/29/24,10/6/24,211847,3385,lv,LIB,Oliver,Chase Oliver,1
+Siena/NYT,Florida,9/29/24,10/6/24,211848,622,lv,DEM,Harris,Kamala Harris,41
+Siena/NYT,Florida,9/29/24,10/6/24,211848,622,lv,REP,Trump,Donald Trump,55
+Siena/NYT,Florida,9/29/24,10/6/24,211849,622,lv,DEM,Harris,Kamala Harris,40
+Siena/NYT,Florida,9/29/24,10/6/24,211849,622,lv,REP,Trump,Donald Trump,53
+Siena/NYT,Florida,9/29/24,10/6/24,211849,622,lv,GRE,Stein,Jill Stein,0
+Siena/NYT,Florida,9/29/24,10/6/24,211849,622,lv,LIB,Oliver,Chase Oliver,0
+Siena/NYT,Florida,9/29/24,10/6/24,212200,622,rv,DEM,Harris,Kamala Harris,41
+Siena/NYT,Florida,9/29/24,10/6/24,212200,622,rv,REP,Trump,Donald Trump,54
+Siena/NYT,Florida,9/29/24,10/6/24,212201,622,rv,DEM,Harris,Kamala Harris,40
+Siena/NYT,Florida,9/29/24,10/6/24,212201,622,rv,REP,Trump,Donald Trump,53
+Siena/NYT,Florida,9/29/24,10/6/24,212201,622,rv,GRE,Stein,Jill Stein,0
+Siena/NYT,Florida,9/29/24,10/6/24,212201,622,rv,LIB,Oliver,Chase Oliver,1
+Siena/NYT,Texas,9/29/24,10/4/24,211850,617,lv,DEM,Harris,Kamala Harris,44
+Siena/NYT,Texas,9/29/24,10/4/24,211850,617,lv,REP,Trump,Donald Trump,50
+Siena/NYT,Texas,9/29/24,10/4/24,211851,617,lv,DEM,Harris,Kamala Harris,42
+Siena/NYT,Texas,9/29/24,10/4/24,211851,617,lv,REP,Trump,Donald Trump,49
+Siena/NYT,Texas,9/29/24,10/4/24,211851,617,lv,GRE,Stein,Jill Stein,2
+Siena/NYT,Texas,9/29/24,10/4/24,211851,617,lv,LIB,Oliver,Chase Oliver,2
+Siena/NYT,Texas,9/29/24,10/4/24,212202,617,rv,DEM,Harris,Kamala Harris,44
+Siena/NYT,Texas,9/29/24,10/4/24,212202,617,rv,REP,Trump,Donald Trump,50
+Siena/NYT,Texas,9/29/24,10/4/24,212203,617,rv,DEM,Harris,Kamala Harris,41
+Siena/NYT,Texas,9/29/24,10/4/24,212203,617,rv,REP,Trump,Donald Trump,48
+Siena/NYT,Texas,9/29/24,10/4/24,212203,617,rv,GRE,Stein,Jill Stein,2
+Siena/NYT,Texas,9/29/24,10/4/24,212203,617,rv,LIB,Oliver,Chase Oliver,3
+Siena/NYT,Nebraska CD-2,9/24/24,9/26/24,211041,680,rv,DEM,Harris,Kamala Harris,51
+Siena/NYT,Nebraska CD-2,9/24/24,9/26/24,211041,680,rv,REP,Trump,Donald Trump,42
+Siena/NYT,Nebraska CD-2,9/24/24,9/26/24,211042,680,rv,DEM,Harris,Kamala Harris,49
+Siena/NYT,Nebraska CD-2,9/24/24,9/26/24,211042,680,rv,REP,Trump,Donald Trump,41
+Siena/NYT,Nebraska CD-2,9/24/24,9/26/24,211042,680,rv,GRE,Stein,Jill Stein,2
+Siena/NYT,Nebraska CD-2,9/24/24,9/26/24,211042,680,rv,LIB,Oliver,Chase Oliver,2
+Siena/NYT,Nebraska CD-2,9/24/24,9/26/24,211043,680,lv,DEM,Harris,Kamala Harris,52
+Siena/NYT,Nebraska CD-2,9/24/24,9/26/24,211043,680,lv,REP,Trump,Donald Trump,43
+Siena/NYT,Nebraska CD-2,9/24/24,9/26/24,211044,680,lv,DEM,Harris,Kamala Harris,51
+Siena/NYT,Nebraska CD-2,9/24/24,9/26/24,211044,680,lv,REP,Trump,Donald Trump,42
+Siena/NYT,Nebraska CD-2,9/24/24,9/26/24,211044,680,lv,GRE,Stein,Jill Stein,2
+Siena/NYT,Nebraska CD-2,9/24/24,9/26/24,211044,680,lv,LIB,Oliver,Chase Oliver,1
+Siena/NYT,Michigan,9/21/24,9/26/24,211029,688,rv,DEM,Harris,Kamala Harris,45
+Siena/NYT,Michigan,9/21/24,9/26/24,211029,688,rv,REP,Trump,Donald Trump,47
+Siena/NYT,Michigan,9/21/24,9/26/24,211030,688,rv,DEM,Harris,Kamala Harris,43
+Siena/NYT,Michigan,9/21/24,9/26/24,211030,688,rv,REP,Trump,Donald Trump,46
+Siena/NYT,Michigan,9/21/24,9/26/24,211030,688,rv,GRE,Stein,Jill Stein,2
+Siena/NYT,Michigan,9/21/24,9/26/24,211030,688,rv,LIB,Oliver,Chase Oliver,2
+Siena/NYT,Michigan,9/21/24,9/26/24,211031,688,lv,DEM,Harris,Kamala Harris,48
+Siena/NYT,Michigan,9/21/24,9/26/24,211031,688,lv,REP,Trump,Donald Trump,47
+Siena/NYT,Michigan,9/21/24,9/26/24,211032,688,lv,DEM,Harris,Kamala Harris,46
+Siena/NYT,Michigan,9/21/24,9/26/24,211032,688,lv,REP,Trump,Donald Trump,46
+Siena/NYT,Michigan,9/21/24,9/26/24,211032,688,lv,GRE,Stein,Jill Stein,2
+Siena/NYT,Michigan,9/21/24,9/26/24,211032,688,lv,LIB,Oliver,Chase Oliver,1
+Siena/NYT,Ohio,9/21/24,9/26/24,211033,687,rv,DEM,Harris,Kamala Harris,45
+Siena/NYT,Ohio,9/21/24,9/26/24,211033,687,rv,REP,Trump,Donald Trump,49
+Siena/NYT,Ohio,9/21/24,9/26/24,211034,687,rv,DEM,Harris,Kamala Harris,44
+Siena/NYT,Ohio,9/21/24,9/26/24,211034,687,rv,REP,Trump,Donald Trump,47
+Siena/NYT,Ohio,9/21/24,9/26/24,211034,687,rv,GRE,Stein,Jill Stein,2
+Siena/NYT,Ohio,9/21/24,9/26/24,211034,687,rv,LIB,Oliver,Chase Oliver,2
+Siena/NYT,Ohio,9/21/24,9/26/24,211035,687,lv,DEM,Harris,Kamala Harris,44
+Siena/NYT,Ohio,9/21/24,9/26/24,211035,687,lv,REP,Trump,Donald Trump,50
+Siena/NYT,Ohio,9/21/24,9/26/24,211036,687,lv,DEM,Harris,Kamala Harris,43
+Siena/NYT,Ohio,9/21/24,9/26/24,211036,687,lv,REP,Trump,Donald Trump,49
+Siena/NYT,Ohio,9/21/24,9/26/24,211036,687,lv,GRE,Stein,Jill Stein,2
+Siena/NYT,Ohio,9/21/24,9/26/24,211036,687,lv,LIB,Oliver,Chase Oliver,2
+Siena/NYT,Wisconsin,9/21/24,9/26/24,211037,680,rv,DEM,Harris,Kamala Harris,49
+Siena/NYT,Wisconsin,9/21/24,9/26/24,211037,680,rv,REP,Trump,Donald Trump,47
+Siena/NYT,Wisconsin,9/21/24,9/26/24,211038,680,rv,DEM,Harris,Kamala Harris,48
+Siena/NYT,Wisconsin,9/21/24,9/26/24,211038,680,rv,REP,Trump,Donald Trump,45
+Siena/NYT,Wisconsin,9/21/24,9/26/24,211038,680,rv,GRE,Stein,Jill Stein,1
+Siena/NYT,Wisconsin,9/21/24,9/26/24,211038,680,rv,LIB,Oliver,Chase Oliver,2
+Siena/NYT,Wisconsin,9/21/24,9/26/24,211039,680,lv,DEM,Harris,Kamala Harris,49
+Siena/NYT,Wisconsin,9/21/24,9/26/24,211039,680,lv,REP,Trump,Donald Trump,47
+Siena/NYT,Wisconsin,9/21/24,9/26/24,211040,680,lv,DEM,Harris,Kamala Harris,48
+Siena/NYT,Wisconsin,9/21/24,9/26/24,211040,680,lv,REP,Trump,Donald Trump,46
+Siena/NYT,Wisconsin,9/21/24,9/26/24,211040,680,lv,GRE,Stein,Jill Stein,1
+Siena/NYT,Wisconsin,9/21/24,9/26/24,211040,680,lv,LIB,Oliver,Chase Oliver,2
+Siena/NYT,Arizona,9/17/24,9/21/24,210332,713,rv,DEM,Harris,Kamala Harris,45
+Siena/NYT,Arizona,9/17/24,9/21/24,210332,713,rv,REP,Trump,Donald Trump,49
+Siena/NYT,Arizona,9/17/24,9/21/24,210333,713,lv,DEM,Harris,Kamala Harris,45
+Siena/NYT,Arizona,9/17/24,9/21/24,210333,713,lv,REP,Trump,Donald Trump,50
+Siena/NYT,Arizona,9/17/24,9/21/24,210334,713,rv,DEM,Harris,Kamala Harris,42
+Siena/NYT,Arizona,9/17/24,9/21/24,210334,713,rv,REP,Trump,Donald Trump,47
+Siena/NYT,Arizona,9/17/24,9/21/24,210334,713,rv,GRE,Stein,Jill Stein,2
+Siena/NYT,Arizona,9/17/24,9/21/24,210334,713,rv,LIB,Oliver,Chase Oliver,3
+Siena/NYT,Arizona,9/17/24,9/21/24,210335,713,lv,DEM,Harris,Kamala Harris,43
+Siena/NYT,Arizona,9/17/24,9/21/24,210335,713,lv,REP,Trump,Donald Trump,48
+Siena/NYT,Arizona,9/17/24,9/21/24,210335,713,lv,GRE,Stein,Jill Stein,2
+Siena/NYT,Arizona,9/17/24,9/21/24,210335,713,lv,LIB,Oliver,Chase Oliver,2
+Siena/NYT,Georgia,9/17/24,9/21/24,210336,682,rv,DEM,Harris,Kamala Harris,44
+Siena/NYT,Georgia,9/17/24,9/21/24,210336,682,rv,REP,Trump,Donald Trump,48
+Siena/NYT,Georgia,9/17/24,9/21/24,210337,682,lv,DEM,Harris,Kamala Harris,45
+Siena/NYT,Georgia,9/17/24,9/21/24,210337,682,lv,REP,Trump,Donald Trump,49
+Siena/NYT,Georgia,9/17/24,9/21/24,210338,682,rv,DEM,Harris,Kamala Harris,43
+Siena/NYT,Georgia,9/17/24,9/21/24,210338,682,rv,REP,Trump,Donald Trump,46
+Siena/NYT,Georgia,9/17/24,9/21/24,210338,682,rv,GRE,Stein,Jill Stein,2
+Siena/NYT,Georgia,9/17/24,9/21/24,210338,682,rv,LIB,Oliver,Chase Oliver,2
+Siena/NYT,Georgia,9/17/24,9/21/24,210339,682,lv,DEM,Harris,Kamala Harris,44
+Siena/NYT,Georgia,9/17/24,9/21/24,210339,682,lv,REP,Trump,Donald Trump,47
+Siena/NYT,Georgia,9/17/24,9/21/24,210339,682,lv,GRE,Stein,Jill Stein,1
+Siena/NYT,Georgia,9/17/24,9/21/24,210339,682,lv,LIB,Oliver,Chase Oliver,2
+Siena/NYT,North Carolina,9/17/24,9/21/24,210340,682,rv,DEM,Harris,Kamala Harris,47
+Siena/NYT,North Carolina,9/17/24,9/21/24,210340,682,rv,REP,Trump,Donald Trump,48
+Siena/NYT,North Carolina,9/17/24,9/21/24,210341,682,lv,DEM,Harris,Kamala Harris,47
+Siena/NYT,North Carolina,9/17/24,9/21/24,210341,682,lv,REP,Trump,Donald Trump,49
+Siena/NYT,North Carolina,9/17/24,9/21/24,210342,682,rv,DEM,Harris,Kamala Harris,46
+Siena/NYT,North Carolina,9/17/24,9/21/24,210342,682,rv,REP,Trump,Donald Trump,46
+Siena/NYT,North Carolina,9/17/24,9/21/24,210342,682,rv,GRE,Stein,Jill Stein,0
+Siena/NYT,North Carolina,9/17/24,9/21/24,210342,682,rv,LIB,Oliver,Chase Oliver,1
+Siena/NYT,North Carolina,9/17/24,9/21/24,210343,682,lv,DEM,Harris,Kamala Harris,45
+Siena/NYT,North Carolina,9/17/24,9/21/24,210343,682,lv,REP,Trump,Donald Trump,47
+Siena/NYT,North Carolina,9/17/24,9/21/24,210343,682,lv,GRE,Stein,Jill Stein,0
+Siena/NYT,North Carolina,9/17/24,9/21/24,210343,682,lv,LIB,Oliver,Chase Oliver,1
+Siena/NYT,NA,9/11/24,9/16/24,210083,2437,lv,DEM,Harris,Kamala Harris,47
+Siena/NYT,NA,9/11/24,9/16/24,210083,2437,lv,REP,Trump,Donald Trump,47
+Siena/NYT,NA,9/11/24,9/16/24,210084,2437,rv,DEM,Harris,Kamala Harris,46
+Siena/NYT,NA,9/11/24,9/16/24,210084,2437,rv,REP,Trump,Donald Trump,47
+Siena/NYT,NA,9/11/24,9/16/24,210085,2437,rv,DEM,Harris,Kamala Harris,45
+Siena/NYT,NA,9/11/24,9/16/24,210085,2437,rv,REP,Trump,Donald Trump,46
+Siena/NYT,NA,9/11/24,9/16/24,210085,2437,rv,GRE,Stein,Jill Stein,2
+Siena/NYT,NA,9/11/24,9/16/24,210085,2437,rv,LIB,Oliver,Chase Oliver,2
+Siena/NYT,NA,9/11/24,9/16/24,210086,2437,lv,DEM,Harris,Kamala Harris,46
+Siena/NYT,NA,9/11/24,9/16/24,210086,2437,lv,REP,Trump,Donald Trump,46
+Siena/NYT,NA,9/11/24,9/16/24,210086,2437,lv,GRE,Stein,Jill Stein,2
+Siena/NYT,NA,9/11/24,9/16/24,210086,2437,lv,LIB,Oliver,Chase Oliver,2
+Siena/NYT,Pennsylvania,9/11/24,9/16/24,210087,1082,rv,DEM,Harris,Kamala Harris,50
+Siena/NYT,Pennsylvania,9/11/24,9/16/24,210087,1082,rv,REP,Trump,Donald Trump,46
+Siena/NYT,Pennsylvania,9/11/24,9/16/24,210088,1082,lv,DEM,Harris,Kamala Harris,50
+Siena/NYT,Pennsylvania,9/11/24,9/16/24,210088,1082,lv,REP,Trump,Donald Trump,46
+Siena/NYT,Pennsylvania,9/11/24,9/16/24,210089,1082,rv,DEM,Harris,Kamala Harris,48
+Siena/NYT,Pennsylvania,9/11/24,9/16/24,210089,1082,rv,REP,Trump,Donald Trump,45
+Siena/NYT,Pennsylvania,9/11/24,9/16/24,210089,1082,rv,GRE,Stein,Jill Stein,1
+Siena/NYT,Pennsylvania,9/11/24,9/16/24,210089,1082,rv,LIB,Oliver,Chase Oliver,1
+Siena/NYT,Pennsylvania,9/11/24,9/16/24,210090,1082,lv,DEM,Harris,Kamala Harris,49
+Siena/NYT,Pennsylvania,9/11/24,9/16/24,210090,1082,lv,REP,Trump,Donald Trump,45
+Siena/NYT,Pennsylvania,9/11/24,9/16/24,210090,1082,lv,GRE,Stein,Jill Stein,1
+Siena/NYT,Pennsylvania,9/11/24,9/16/24,210090,1082,lv,LIB,Oliver,Chase Oliver,1
+Siena/NYT,NA,9/3/24,9/6/24,207968,1695,lv,DEM,Harris,Kamala Harris,47
+Siena/NYT,NA,9/3/24,9/6/24,207968,1695,lv,REP,Trump,Donald Trump,48
+Siena/NYT,NA,9/3/24,9/6/24,207969,1695,lv,DEM,Harris,Kamala Harris,45
+Siena/NYT,NA,9/3/24,9/6/24,207969,1695,lv,REP,Trump,Donald Trump,47
+Siena/NYT,NA,9/3/24,9/6/24,207969,1695,lv,GRE,Stein,Jill Stein,1
+Siena/NYT,NA,9/3/24,9/6/24,207969,1695,lv,LIB,Oliver,Chase Oliver,2
+Siena/NYT,NA,9/3/24,9/6/24,207970,1695,rv,DEM,Harris,Kamala Harris,46
+Siena/NYT,NA,9/3/24,9/6/24,207970,1695,rv,REP,Trump,Donald Trump,48
+Siena/NYT,NA,9/3/24,9/6/24,207971,1695,rv,DEM,Harris,Kamala Harris,44
+Siena/NYT,NA,9/3/24,9/6/24,207971,1695,rv,REP,Trump,Donald Trump,46
+Siena/NYT,NA,9/3/24,9/6/24,207971,1695,rv,GRE,Stein,Jill Stein,2
+Siena/NYT,NA,9/3/24,9/6/24,207971,1695,rv,LIB,Oliver,Chase Oliver,2
+Siena/NYT,Nevada,8/12/24,8/15/24,206202,677,rv,DEM,Harris,Kamala Harris,46
+Siena/NYT,Nevada,8/12/24,8/15/24,206202,677,rv,REP,Trump,Donald Trump,48
+Siena/NYT,Nevada,8/12/24,8/15/24,206206,677,lv,DEM,Harris,Kamala Harris,47
+Siena/NYT,Nevada,8/12/24,8/15/24,206206,677,lv,REP,Trump,Donald Trump,48
+Siena/NYT,Nevada,8/12/24,8/15/24,206210,677,rv,DEM,Harris,Kamala Harris,42
+Siena/NYT,Nevada,8/12/24,8/15/24,206210,677,rv,REP,Trump,Donald Trump,45
+Siena/NYT,Nevada,8/12/24,8/15/24,206210,677,rv,IND,Kennedy,Robert F. Kennedy,6
+Siena/NYT,Nevada,8/12/24,8/15/24,206210,677,rv,GRE,Stein,Jill Stein,0
+Siena/NYT,Nevada,8/12/24,8/15/24,206210,677,rv,IND,West,Cornel West,0
+Siena/NYT,Nevada,8/12/24,8/15/24,206210,677,rv,LIB,Oliver,Chase Oliver,0
+Siena/NYT,Nevada,8/12/24,8/15/24,206214,677,lv,DEM,Harris,Kamala Harris,44
+Siena/NYT,Nevada,8/12/24,8/15/24,206214,677,lv,REP,Trump,Donald Trump,46
+Siena/NYT,Nevada,8/12/24,8/15/24,206214,677,lv,IND,Kennedy,Robert F. Kennedy,4
+Siena/NYT,Nevada,8/12/24,8/15/24,206214,677,lv,GRE,Stein,Jill Stein,0
+Siena/NYT,Nevada,8/12/24,8/15/24,206214,677,lv,IND,West,Cornel West,0
+Siena/NYT,Nevada,8/12/24,8/15/24,206214,677,lv,LIB,Oliver,Chase Oliver,0
+Siena/NYT,Arizona,8/8/24,8/15/24,206199,677,rv,DEM,Harris,Kamala Harris,49
+Siena/NYT,Arizona,8/8/24,8/15/24,206199,677,rv,REP,Trump,Donald Trump,45
+Siena/NYT,Arizona,8/8/24,8/15/24,206203,677,lv,DEM,Harris,Kamala Harris,50
+Siena/NYT,Arizona,8/8/24,8/15/24,206203,677,lv,REP,Trump,Donald Trump,45
+Siena/NYT,Arizona,8/8/24,8/15/24,206207,677,rv,DEM,Harris,Kamala Harris,45
+Siena/NYT,Arizona,8/8/24,8/15/24,206207,677,rv,REP,Trump,Donald Trump,42
+Siena/NYT,Arizona,8/8/24,8/15/24,206207,677,rv,IND,Kennedy,Robert F. Kennedy,6
+Siena/NYT,Arizona,8/8/24,8/15/24,206207,677,rv,GRE,Stein,Jill Stein,0
+Siena/NYT,Arizona,8/8/24,8/15/24,206207,677,rv,IND,West,Cornel West,0
+Siena/NYT,Arizona,8/8/24,8/15/24,206207,677,rv,LIB,Oliver,Chase Oliver,2
+Siena/NYT,Arizona,8/8/24,8/15/24,206211,677,lv,DEM,Harris,Kamala Harris,47
+Siena/NYT,Arizona,8/8/24,8/15/24,206211,677,lv,REP,Trump,Donald Trump,43
+Siena/NYT,Arizona,8/8/24,8/15/24,206211,677,lv,IND,Kennedy,Robert F. Kennedy,5
+Siena/NYT,Arizona,8/8/24,8/15/24,206211,677,lv,GRE,Stein,Jill Stein,0
+Siena/NYT,Arizona,8/8/24,8/15/24,206211,677,lv,IND,West,Cornel West,0
+Siena/NYT,Arizona,8/8/24,8/15/24,206211,677,lv,LIB,Oliver,Chase Oliver,1
+Siena/NYT,North Carolina,8/9/24,8/14/24,206201,655,rv,DEM,Harris,Kamala Harris,49
+Siena/NYT,North Carolina,8/9/24,8/14/24,206201,655,rv,REP,Trump,Donald Trump,46
+Siena/NYT,North Carolina,8/9/24,8/14/24,206205,655,lv,DEM,Harris,Kamala Harris,49
+Siena/NYT,North Carolina,8/9/24,8/14/24,206205,655,lv,REP,Trump,Donald Trump,47
+Siena/NYT,North Carolina,8/9/24,8/14/24,206209,655,rv,DEM,Harris,Kamala Harris,45
+Siena/NYT,North Carolina,8/9/24,8/14/24,206209,655,rv,REP,Trump,Donald Trump,42
+Siena/NYT,North Carolina,8/9/24,8/14/24,206209,655,rv,IND,Kennedy,Robert F. Kennedy,5
+Siena/NYT,North Carolina,8/9/24,8/14/24,206209,655,rv,GRE,Stein,Jill Stein,2
+Siena/NYT,North Carolina,8/9/24,8/14/24,206209,655,rv,IND,West,Cornel West,0
+Siena/NYT,North Carolina,8/9/24,8/14/24,206209,655,rv,LIB,Oliver,Chase Oliver,1
+Siena/NYT,North Carolina,8/9/24,8/14/24,206213,655,lv,DEM,Harris,Kamala Harris,46
+Siena/NYT,North Carolina,8/9/24,8/14/24,206213,655,lv,REP,Trump,Donald Trump,44
+Siena/NYT,North Carolina,8/9/24,8/14/24,206213,655,lv,IND,Kennedy,Robert F. Kennedy,4
+Siena/NYT,North Carolina,8/9/24,8/14/24,206213,655,lv,GRE,Stein,Jill Stein,1
+Siena/NYT,North Carolina,8/9/24,8/14/24,206213,655,lv,IND,West,Cornel West,0
+Siena/NYT,North Carolina,8/9/24,8/14/24,206213,655,lv,LIB,Oliver,Chase Oliver,0
+Siena/NYT,Georgia,8/9/24,8/14/24,206200,661,rv,DEM,Harris,Kamala Harris,44
+Siena/NYT,Georgia,8/9/24,8/14/24,206200,661,rv,REP,Trump,Donald Trump,51
+Siena/NYT,Georgia,8/9/24,8/14/24,206204,661,lv,DEM,Harris,Kamala Harris,46
+Siena/NYT,Georgia,8/9/24,8/14/24,206204,661,lv,REP,Trump,Donald Trump,50
+Siena/NYT,Georgia,8/9/24,8/14/24,206208,661,rv,DEM,Harris,Kamala Harris,41
+Siena/NYT,Georgia,8/9/24,8/14/24,206208,661,rv,REP,Trump,Donald Trump,47
+Siena/NYT,Georgia,8/9/24,8/14/24,206208,661,rv,IND,Kennedy,Robert F. Kennedy,5
+Siena/NYT,Georgia,8/9/24,8/14/24,206208,661,rv,GRE,Stein,Jill Stein,0
+Siena/NYT,Georgia,8/9/24,8/14/24,206208,661,rv,IND,West,Cornel West,0
+Siena/NYT,Georgia,8/9/24,8/14/24,206208,661,rv,LIB,Oliver,Chase Oliver,2
+Siena/NYT,Georgia,8/9/24,8/14/24,206212,661,lv,DEM,Harris,Kamala Harris,44
+Siena/NYT,Georgia,8/9/24,8/14/24,206212,661,lv,REP,Trump,Donald Trump,47
+Siena/NYT,Georgia,8/9/24,8/14/24,206212,661,lv,IND,Kennedy,Robert F. Kennedy,4
+Siena/NYT,Georgia,8/9/24,8/14/24,206212,661,lv,GRE,Stein,Jill Stein,0
+Siena/NYT,Georgia,8/9/24,8/14/24,206212,661,lv,IND,West,Cornel West,0
+Siena/NYT,Georgia,8/9/24,8/14/24,206212,661,lv,LIB,Oliver,Chase Oliver,0
+Siena/NYT,Pennsylvania,8/6/24,8/9/24,205625,693,rv,DEM,Harris,Kamala Harris,49
+Siena/NYT,Pennsylvania,8/6/24,8/9/24,205625,693,rv,REP,Trump,Donald Trump,46
+Siena/NYT,Pennsylvania,8/6/24,8/9/24,205628,693,lv,DEM,Harris,Kamala Harris,50
+Siena/NYT,Pennsylvania,8/6/24,8/9/24,205628,693,lv,REP,Trump,Donald Trump,46
+Siena/NYT,Pennsylvania,8/6/24,8/9/24,205631,693,rv,DEM,Harris,Kamala Harris,45
+Siena/NYT,Pennsylvania,8/6/24,8/9/24,205631,693,rv,REP,Trump,Donald Trump,43
+Siena/NYT,Pennsylvania,8/6/24,8/9/24,205631,693,rv,IND,Kennedy,Robert F. Kennedy,5
+Siena/NYT,Pennsylvania,8/6/24,8/9/24,205631,693,rv,GRE,Stein,Jill Stein,2
+Siena/NYT,Pennsylvania,8/6/24,8/9/24,205631,693,rv,IND,West,Cornel West,0
+Siena/NYT,Pennsylvania,8/6/24,8/9/24,205631,693,rv,LIB,Oliver,Chase Oliver,1
+Siena/NYT,Pennsylvania,8/6/24,8/9/24,205634,693,lv,DEM,Harris,Kamala Harris,46
+Siena/NYT,Pennsylvania,8/6/24,8/9/24,205634,693,lv,REP,Trump,Donald Trump,44
+Siena/NYT,Pennsylvania,8/6/24,8/9/24,205634,693,lv,IND,Kennedy,Robert F. Kennedy,4
+Siena/NYT,Pennsylvania,8/6/24,8/9/24,205634,693,lv,GRE,Stein,Jill Stein,1
+Siena/NYT,Pennsylvania,8/6/24,8/9/24,205634,693,lv,IND,West,Cornel West,0
+Siena/NYT,Pennsylvania,8/6/24,8/9/24,205634,693,lv,LIB,Oliver,Chase Oliver,0
+Siena/NYT,Michigan,8/5/24,8/8/24,205623,619,rv,DEM,Harris,Kamala Harris,45
+Siena/NYT,Michigan,8/5/24,8/8/24,205623,619,rv,REP,Trump,Donald Trump,48
+Siena/NYT,Michigan,8/5/24,8/8/24,205626,619,lv,DEM,Harris,Kamala Harris,50
+Siena/NYT,Michigan,8/5/24,8/8/24,205626,619,lv,REP,Trump,Donald Trump,46
+Siena/NYT,Michigan,8/5/24,8/8/24,205629,619,rv,DEM,Harris,Kamala Harris,44
+Siena/NYT,Michigan,8/5/24,8/8/24,205629,619,rv,REP,Trump,Donald Trump,43
+Siena/NYT,Michigan,8/5/24,8/8/24,205629,619,rv,IND,Kennedy,Robert F. Kennedy,5
+Siena/NYT,Michigan,8/5/24,8/8/24,205629,619,rv,GRE,Stein,Jill Stein,1
+Siena/NYT,Michigan,8/5/24,8/8/24,205629,619,rv,IND,West,Cornel West,0
+Siena/NYT,Michigan,8/5/24,8/8/24,205629,619,rv,LIB,Oliver,Chase Oliver,0
+Siena/NYT,Michigan,8/5/24,8/8/24,205632,619,lv,DEM,Harris,Kamala Harris,48
+Siena/NYT,Michigan,8/5/24,8/8/24,205632,619,lv,REP,Trump,Donald Trump,43
+Siena/NYT,Michigan,8/5/24,8/8/24,205632,619,lv,IND,Kennedy,Robert F. Kennedy,4
+Siena/NYT,Michigan,8/5/24,8/8/24,205632,619,lv,GRE,Stein,Jill Stein,1
+Siena/NYT,Michigan,8/5/24,8/8/24,205632,619,lv,IND,West,Cornel West,0
+Siena/NYT,Michigan,8/5/24,8/8/24,205632,619,lv,LIB,Oliver,Chase Oliver,0
+Siena/NYT,Wisconsin,8/5/24,8/8/24,205624,661,rv,DEM,Harris,Kamala Harris,50
+Siena/NYT,Wisconsin,8/5/24,8/8/24,205624,661,rv,REP,Trump,Donald Trump,46
+Siena/NYT,Wisconsin,8/5/24,8/8/24,205627,661,lv,DEM,Harris,Kamala Harris,50
+Siena/NYT,Wisconsin,8/5/24,8/8/24,205627,661,lv,REP,Trump,Donald Trump,46
+Siena/NYT,Wisconsin,8/5/24,8/8/24,205630,661,rv,DEM,Harris,Kamala Harris,49
+Siena/NYT,Wisconsin,8/5/24,8/8/24,205630,661,rv,REP,Trump,Donald Trump,42
+Siena/NYT,Wisconsin,8/5/24,8/8/24,205630,661,rv,IND,Kennedy,Robert F. Kennedy,6
+Siena/NYT,Wisconsin,8/5/24,8/8/24,205630,661,rv,GRE,Stein,Jill Stein,0
+Siena/NYT,Wisconsin,8/5/24,8/8/24,205630,661,rv,IND,West,Cornel West,0
+Siena/NYT,Wisconsin,8/5/24,8/8/24,205630,661,rv,LIB,Oliver,Chase Oliver,0
+Siena/NYT,Wisconsin,8/5/24,8/8/24,205633,661,lv,DEM,Harris,Kamala Harris,49
+Siena/NYT,Wisconsin,8/5/24,8/8/24,205633,661,lv,REP,Trump,Donald Trump,43
+Siena/NYT,Wisconsin,8/5/24,8/8/24,205633,661,lv,IND,Kennedy,Robert F. Kennedy,5
+Siena/NYT,Wisconsin,8/5/24,8/8/24,205633,661,lv,GRE,Stein,Jill Stein,0
+Siena/NYT,Wisconsin,8/5/24,8/8/24,205633,661,lv,IND,West,Cornel West,0
+Siena/NYT,Wisconsin,8/5/24,8/8/24,205633,661,lv,LIB,Oliver,Chase Oliver,0
+Siena/NYT,NA,7/22/24,7/24/24,204203,1142,rv,DEM,Harris,Kamala Harris,46
+Siena/NYT,NA,7/22/24,7/24/24,204203,1142,rv,REP,Trump,Donald Trump,48
+Siena/NYT,NA,7/22/24,7/24/24,204204,1142,lv,DEM,Harris,Kamala Harris,47
+Siena/NYT,NA,7/22/24,7/24/24,204204,1142,lv,REP,Trump,Donald Trump,48
+Siena/NYT,NA,7/22/24,7/24/24,204205,1142,rv,DEM,Harris,Kamala Harris,42
+Siena/NYT,NA,7/22/24,7/24/24,204205,1142,rv,REP,Trump,Donald Trump,42
+Siena/NYT,NA,7/22/24,7/24/24,204205,1142,rv,IND,Kennedy,Robert F. Kennedy,6
+Siena/NYT,NA,7/22/24,7/24/24,204205,1142,rv,GRE,Stein,Jill Stein,0
+Siena/NYT,NA,7/22/24,7/24/24,204205,1142,rv,IND,West,Cornel West,0
+Siena/NYT,NA,7/22/24,7/24/24,204205,1142,rv,LIB,Oliver,Chase Oliver,0
+Siena/NYT,NA,7/22/24,7/24/24,204206,1142,lv,DEM,Harris,Kamala Harris,44
+Siena/NYT,NA,7/22/24,7/24/24,204206,1142,lv,REP,Trump,Donald Trump,43
+Siena/NYT,NA,7/22/24,7/24/24,204206,1142,lv,IND,Kennedy,Robert F. Kennedy,5
+Siena/NYT,NA,7/22/24,7/24/24,204206,1142,lv,GRE,Stein,Jill Stein,0
+Siena/NYT,NA,7/22/24,7/24/24,204206,1142,lv,IND,West,Cornel West,0
+Siena/NYT,NA,7/22/24,7/24/24,204206,1142,lv,LIB,Oliver,Chase Oliver,0
+Siena/NYT,Virginia,7/9/24,7/12/24,202976,661,rv,DEM,Biden,Joe Biden,46
+Siena/NYT,Virginia,7/9/24,7/12/24,202976,661,rv,REP,Trump,Donald Trump,44
+Siena/NYT,Virginia,7/9/24,7/12/24,202977,661,lv,DEM,Biden,Joe Biden,48
+Siena/NYT,Virginia,7/9/24,7/12/24,202977,661,lv,REP,Trump,Donald Trump,45
+Siena/NYT,Virginia,7/9/24,7/12/24,202980,661,rv,DEM,Biden,Joe Biden,38
+Siena/NYT,Virginia,7/9/24,7/12/24,202980,661,rv,REP,Trump,Donald Trump,36
+Siena/NYT,Virginia,7/9/24,7/12/24,202980,661,rv,IND,Kennedy,Robert F. Kennedy,9
+Siena/NYT,Virginia,7/9/24,7/12/24,202980,661,rv,GRE,Stein,Jill Stein,2
+Siena/NYT,Virginia,7/9/24,7/12/24,202980,661,rv,IND,West,Cornel West,0
+Siena/NYT,Virginia,7/9/24,7/12/24,202980,661,rv,LIB,Oliver,Chase Oliver,0
+Siena/NYT,Virginia,7/9/24,7/12/24,202981,661,lv,DEM,Biden,Joe Biden,40
+Siena/NYT,Virginia,7/9/24,7/12/24,202981,661,lv,REP,Trump,Donald Trump,38
+Siena/NYT,Virginia,7/9/24,7/12/24,202981,661,lv,IND,Kennedy,Robert F. Kennedy,7
+Siena/NYT,Virginia,7/9/24,7/12/24,202981,661,lv,GRE,Stein,Jill Stein,2
+Siena/NYT,Virginia,7/9/24,7/12/24,202981,661,lv,IND,West,Cornel West,0
+Siena/NYT,Virginia,7/9/24,7/12/24,202981,661,lv,LIB,Oliver,Chase Oliver,0
+Siena/NYT,Virginia,7/9/24,7/12/24,202984,661,rv,DEM,Harris,Kamala Harris,48
+Siena/NYT,Virginia,7/9/24,7/12/24,202984,661,rv,REP,Trump,Donald Trump,44
+Siena/NYT,Virginia,7/9/24,7/12/24,202985,661,lv,DEM,Harris,Kamala Harris,49
+Siena/NYT,Virginia,7/9/24,7/12/24,202985,661,lv,REP,Trump,Donald Trump,44
+Siena/NYT,Virginia,7/9/24,7/12/24,202988,661,rv,DEM,Harris,Kamala Harris,41
+Siena/NYT,Virginia,7/9/24,7/12/24,202988,661,rv,REP,Trump,Donald Trump,38
+Siena/NYT,Virginia,7/9/24,7/12/24,202988,661,rv,IND,Kennedy,Robert F. Kennedy,9
+Siena/NYT,Virginia,7/9/24,7/12/24,202988,661,rv,GRE,Stein,Jill Stein,1
+Siena/NYT,Virginia,7/9/24,7/12/24,202988,661,rv,IND,West,Cornel West,0
+Siena/NYT,Virginia,7/9/24,7/12/24,202988,661,rv,LIB,Oliver,Chase Oliver,0
+Siena/NYT,Virginia,7/9/24,7/12/24,202989,661,lv,DEM,Harris,Kamala Harris,43
+Siena/NYT,Virginia,7/9/24,7/12/24,202989,661,lv,REP,Trump,Donald Trump,39
+Siena/NYT,Virginia,7/9/24,7/12/24,202989,661,lv,IND,Kennedy,Robert F. Kennedy,7
+Siena/NYT,Virginia,7/9/24,7/12/24,202989,661,lv,GRE,Stein,Jill Stein,1
+Siena/NYT,Virginia,7/9/24,7/12/24,202989,661,lv,IND,West,Cornel West,0
+Siena/NYT,Virginia,7/9/24,7/12/24,202989,661,lv,LIB,Oliver,Chase Oliver,0
+Siena/NYT,Pennsylvania,7/9/24,7/11/24,202974,872,rv,DEM,Biden,Joe Biden,44
+Siena/NYT,Pennsylvania,7/9/24,7/11/24,202974,872,rv,REP,Trump,Donald Trump,48
+Siena/NYT,Pennsylvania,7/9/24,7/11/24,202975,872,lv,DEM,Biden,Joe Biden,45
+Siena/NYT,Pennsylvania,7/9/24,7/11/24,202975,872,lv,REP,Trump,Donald Trump,48
+Siena/NYT,Pennsylvania,7/9/24,7/11/24,202978,872,rv,DEM,Biden,Joe Biden,38
+Siena/NYT,Pennsylvania,7/9/24,7/11/24,202978,872,rv,REP,Trump,Donald Trump,41
+Siena/NYT,Pennsylvania,7/9/24,7/11/24,202978,872,rv,IND,Kennedy,Robert F. Kennedy,8
+Siena/NYT,Pennsylvania,7/9/24,7/11/24,202978,872,rv,GRE,Stein,Jill Stein,2
+Siena/NYT,Pennsylvania,7/9/24,7/11/24,202978,872,rv,IND,West,Cornel West,0
+Siena/NYT,Pennsylvania,7/9/24,7/11/24,202978,872,rv,LIB,Oliver,Chase Oliver,0
+Siena/NYT,Pennsylvania,7/9/24,7/11/24,202979,872,lv,DEM,Biden,Joe Biden,40
+Siena/NYT,Pennsylvania,7/9/24,7/11/24,202979,872,lv,REP,Trump,Donald Trump,42
+Siena/NYT,Pennsylvania,7/9/24,7/11/24,202979,872,lv,IND,Kennedy,Robert F. Kennedy,7
+Siena/NYT,Pennsylvania,7/9/24,7/11/24,202979,872,lv,GRE,Stein,Jill Stein,2
+Siena/NYT,Pennsylvania,7/9/24,7/11/24,202979,872,lv,IND,West,Cornel West,0
+Siena/NYT,Pennsylvania,7/9/24,7/11/24,202979,872,lv,LIB,Oliver,Chase Oliver,0
+Siena/NYT,Pennsylvania,7/9/24,7/11/24,202982,872,rv,DEM,Harris,Kamala Harris,46
+Siena/NYT,Pennsylvania,7/9/24,7/11/24,202982,872,rv,REP,Trump,Donald Trump,48
+Siena/NYT,Pennsylvania,7/9/24,7/11/24,202983,872,lv,DEM,Harris,Kamala Harris,47
+Siena/NYT,Pennsylvania,7/9/24,7/11/24,202983,872,lv,REP,Trump,Donald Trump,48
+Siena/NYT,Pennsylvania,7/9/24,7/11/24,202986,872,rv,DEM,Harris,Kamala Harris,40
+Siena/NYT,Pennsylvania,7/9/24,7/11/24,202986,872,rv,REP,Trump,Donald Trump,42
+Siena/NYT,Pennsylvania,7/9/24,7/11/24,202986,872,rv,IND,Kennedy,Robert F. Kennedy,7
+Siena/NYT,Pennsylvania,7/9/24,7/11/24,202986,872,rv,GRE,Stein,Jill Stein,3
+Siena/NYT,Pennsylvania,7/9/24,7/11/24,202986,872,rv,IND,West,Cornel West,0
+Siena/NYT,Pennsylvania,7/9/24,7/11/24,202986,872,rv,LIB,Oliver,Chase Oliver,0
+Siena/NYT,Pennsylvania,7/9/24,7/11/24,202987,872,lv,DEM,Harris,Kamala Harris,42
+Siena/NYT,Pennsylvania,7/9/24,7/11/24,202987,872,lv,REP,Trump,Donald Trump,43
+Siena/NYT,Pennsylvania,7/9/24,7/11/24,202987,872,lv,IND,Kennedy,Robert F. Kennedy,6
+Siena/NYT,Pennsylvania,7/9/24,7/11/24,202987,872,lv,GRE,Stein,Jill Stein,2
+Siena/NYT,Pennsylvania,7/9/24,7/11/24,202987,872,lv,IND,West,Cornel West,0
+Siena/NYT,Pennsylvania,7/9/24,7/11/24,202987,872,lv,LIB,Oliver,Chase Oliver,0
+Siena/NYT,NA,6/28/24,7/2/24,202014,1532,rv,DEM,Biden,Joe Biden,41
+Siena/NYT,NA,6/28/24,7/2/24,202014,1532,rv,REP,Trump,Donald Trump,49
+Siena/NYT,NA,6/28/24,7/2/24,202015,1532,rv,DEM,Biden,Joe Biden,33
+Siena/NYT,NA,6/28/24,7/2/24,202015,1532,rv,REP,Trump,Donald Trump,40
+Siena/NYT,NA,6/28/24,7/2/24,202015,1532,rv,IND,Kennedy,Robert F. Kennedy,10
+Siena/NYT,NA,6/28/24,7/2/24,202015,1532,rv,GRE,Stein,Jill Stein,2
+Siena/NYT,NA,6/28/24,7/2/24,202015,1532,rv,IND,West,Cornel West,0.5
+Siena/NYT,NA,6/28/24,7/2/24,202015,1532,rv,LIB,Oliver,Chase Oliver,1
+Siena/NYT,NA,6/28/24,7/2/24,202016,1532,lv,DEM,Biden,Joe Biden,43
+Siena/NYT,NA,6/28/24,7/2/24,202016,1532,lv,REP,Trump,Donald Trump,49
+Siena/NYT,NA,6/28/24,7/2/24,202017,1532,lv,DEM,Biden,Joe Biden,37
+Siena/NYT,NA,6/28/24,7/2/24,202017,1532,lv,REP,Trump,Donald Trump,42
+Siena/NYT,NA,6/28/24,7/2/24,202017,1532,lv,IND,Kennedy,Robert F. Kennedy,8
+Siena/NYT,NA,6/28/24,7/2/24,202017,1532,lv,GRE,Stein,Jill Stein,2
+Siena/NYT,NA,6/28/24,7/2/24,202017,1532,lv,IND,West,Cornel West,0.5
+Siena/NYT,NA,6/28/24,7/2/24,202017,1532,lv,LIB,Oliver,Chase Oliver,1
+Siena/NYT,NA,6/20/24,6/25/24,201570,1226,rv,DEM,Biden,Joe Biden,42
+Siena/NYT,NA,6/20/24,6/25/24,201570,1226,rv,REP,Trump,Donald Trump,48
+Siena/NYT,NA,6/20/24,6/25/24,201571,1226,lv,DEM,Biden,Joe Biden,44
+Siena/NYT,NA,6/20/24,6/25/24,201571,1226,lv,REP,Trump,Donald Trump,48
+Siena/NYT,NA,6/20/24,6/25/24,201572,1226,rv,DEM,Biden,Joe Biden,32
+Siena/NYT,NA,6/20/24,6/25/24,201572,1226,rv,REP,Trump,Donald Trump,39
+Siena/NYT,NA,6/20/24,6/25/24,201572,1226,rv,IND,Kennedy,Robert F. Kennedy,9
+Siena/NYT,NA,6/20/24,6/25/24,201572,1226,rv,GRE,Stein,Jill Stein,2
+Siena/NYT,NA,6/20/24,6/25/24,201572,1226,rv,IND,West,Cornel West,0
+Siena/NYT,NA,6/20/24,6/25/24,201572,1226,rv,LIB,Oliver,Chase Oliver,2
+Siena/NYT,NA,6/20/24,6/25/24,201573,1226,lv,DEM,Biden,Joe Biden,37
+Siena/NYT,NA,6/20/24,6/25/24,201573,1226,lv,REP,Trump,Donald Trump,40
+Siena/NYT,NA,6/20/24,6/25/24,201573,1226,lv,IND,Kennedy,Robert F. Kennedy,7
+Siena/NYT,NA,6/20/24,6/25/24,201573,1226,lv,GRE,Stein,Jill Stein,2
+Siena/NYT,NA,6/20/24,6/25/24,201573,1226,lv,IND,West,Cornel West,0
+Siena/NYT,NA,6/20/24,6/25/24,201573,1226,lv,LIB,Oliver,Chase Oliver,1
+Siena/NYT,Arizona,4/28/24,5/9/24,198683,626,rv,DEM,Biden,Joe Biden,33
+Siena/NYT,Arizona,4/28/24,5/9/24,198683,626,rv,REP,Trump,Donald Trump,42
+Siena/NYT,Arizona,4/28/24,5/9/24,198683,626,rv,IND,Kennedy,Robert F. Kennedy,10
+Siena/NYT,Arizona,4/28/24,5/9/24,198683,626,rv,GRE,Stein,Jill Stein,2
+Siena/NYT,Arizona,4/28/24,5/9/24,198683,626,rv,IND,West,Cornel West,0
+Siena/NYT,Arizona,4/28/24,5/9/24,198683,626,rv,LIB,Mapstead,Lars Mapstead,1
+Siena/NYT,Arizona,4/28/24,5/9/24,198684,626,rv,DEM,Biden,Joe Biden,42
+Siena/NYT,Arizona,4/28/24,5/9/24,198684,626,rv,REP,Trump,Donald Trump,49
+Siena/NYT,Arizona,4/28/24,5/9/24,198695,626,lv,DEM,Biden,Joe Biden,35
+Siena/NYT,Arizona,4/28/24,5/9/24,198695,626,lv,REP,Trump,Donald Trump,44
+Siena/NYT,Arizona,4/28/24,5/9/24,198695,626,lv,IND,Kennedy,Robert F. Kennedy,8
+Siena/NYT,Arizona,4/28/24,5/9/24,198695,626,lv,GRE,Stein,Jill Stein,2
+Siena/NYT,Arizona,4/28/24,5/9/24,198695,626,lv,IND,West,Cornel West,0
+Siena/NYT,Arizona,4/28/24,5/9/24,198695,626,lv,LIB,Mapstead,Lars Mapstead,1
+Siena/NYT,Arizona,4/28/24,5/9/24,198696,626,lv,DEM,Biden,Joe Biden,43
+Siena/NYT,Arizona,4/28/24,5/9/24,198696,626,lv,REP,Trump,Donald Trump,49
+Siena/NYT,Georgia,4/28/24,5/9/24,198685,604,rv,DEM,Biden,Joe Biden,31
+Siena/NYT,Georgia,4/28/24,5/9/24,198685,604,rv,REP,Trump,Donald Trump,39
+Siena/NYT,Georgia,4/28/24,5/9/24,198685,604,rv,IND,Kennedy,Robert F. Kennedy,9
+Siena/NYT,Georgia,4/28/24,5/9/24,198685,604,rv,GRE,Stein,Jill Stein,1
+Siena/NYT,Georgia,4/28/24,5/9/24,198685,604,rv,IND,West,Cornel West,0
+Siena/NYT,Georgia,4/28/24,5/9/24,198685,604,rv,LIB,Mapstead,Lars Mapstead,1
+Siena/NYT,Georgia,4/28/24,5/9/24,198686,604,rv,DEM,Biden,Joe Biden,39
+Siena/NYT,Georgia,4/28/24,5/9/24,198686,604,rv,REP,Trump,Donald Trump,49
+Siena/NYT,Georgia,4/28/24,5/9/24,198697,604,lv,DEM,Biden,Joe Biden,34
+Siena/NYT,Georgia,4/28/24,5/9/24,198697,604,lv,REP,Trump,Donald Trump,42
+Siena/NYT,Georgia,4/28/24,5/9/24,198697,604,lv,IND,Kennedy,Robert F. Kennedy,8
+Siena/NYT,Georgia,4/28/24,5/9/24,198697,604,lv,GRE,Stein,Jill Stein,0
+Siena/NYT,Georgia,4/28/24,5/9/24,198697,604,lv,IND,West,Cornel West,0
+Siena/NYT,Georgia,4/28/24,5/9/24,198697,604,lv,LIB,Mapstead,Lars Mapstead,2
+Siena/NYT,Georgia,4/28/24,5/9/24,198698,604,lv,DEM,Biden,Joe Biden,41
+Siena/NYT,Georgia,4/28/24,5/9/24,198698,604,lv,REP,Trump,Donald Trump,50
+Siena/NYT,Michigan,4/28/24,5/9/24,198687,616,rv,DEM,Biden,Joe Biden,36
+Siena/NYT,Michigan,4/28/24,5/9/24,198687,616,rv,REP,Trump,Donald Trump,38
+Siena/NYT,Michigan,4/28/24,5/9/24,198687,616,rv,IND,Kennedy,Robert F. Kennedy,9
+Siena/NYT,Michigan,4/28/24,5/9/24,198687,616,rv,GRE,Stein,Jill Stein,1
+Siena/NYT,Michigan,4/28/24,5/9/24,198687,616,rv,IND,West,Cornel West,0
+Siena/NYT,Michigan,4/28/24,5/9/24,198687,616,rv,LIB,Mapstead,Lars Mapstead,1
+Siena/NYT,Michigan,4/28/24,5/9/24,198688,616,rv,DEM,Biden,Joe Biden,42
+Siena/NYT,Michigan,4/28/24,5/9/24,198688,616,rv,REP,Trump,Donald Trump,49
+Siena/NYT,Michigan,4/28/24,5/9/24,198699,616,lv,DEM,Biden,Joe Biden,42
+Siena/NYT,Michigan,4/28/24,5/9/24,198699,616,lv,REP,Trump,Donald Trump,39
+Siena/NYT,Michigan,4/28/24,5/9/24,198699,616,lv,IND,Kennedy,Robert F. Kennedy,7
+Siena/NYT,Michigan,4/28/24,5/9/24,198699,616,lv,GRE,Stein,Jill Stein,1
+Siena/NYT,Michigan,4/28/24,5/9/24,198699,616,lv,IND,West,Cornel West,0
+Siena/NYT,Michigan,4/28/24,5/9/24,198699,616,lv,LIB,Mapstead,Lars Mapstead,1
+Siena/NYT,Michigan,4/28/24,5/9/24,198700,616,lv,DEM,Biden,Joe Biden,47
+Siena/NYT,Michigan,4/28/24,5/9/24,198700,616,lv,REP,Trump,Donald Trump,46
+Siena/NYT,Nevada,4/28/24,5/9/24,198689,614,rv,DEM,Biden,Joe Biden,27
+Siena/NYT,Nevada,4/28/24,5/9/24,198689,614,rv,REP,Trump,Donald Trump,41
+Siena/NYT,Nevada,4/28/24,5/9/24,198689,614,rv,IND,Kennedy,Robert F. Kennedy,12
+Siena/NYT,Nevada,4/28/24,5/9/24,198689,614,rv,GRE,Stein,Jill Stein,2
+Siena/NYT,Nevada,4/28/24,5/9/24,198689,614,rv,IND,West,Cornel West,0
+Siena/NYT,Nevada,4/28/24,5/9/24,198689,614,rv,LIB,Mapstead,Lars Mapstead,2
+Siena/NYT,Nevada,4/28/24,5/9/24,198690,614,rv,DEM,Biden,Joe Biden,38
+Siena/NYT,Nevada,4/28/24,5/9/24,198690,614,rv,REP,Trump,Donald Trump,50
+Siena/NYT,Nevada,4/28/24,5/9/24,198701,614,lv,DEM,Biden,Joe Biden,30
+Siena/NYT,Nevada,4/28/24,5/9/24,198701,614,lv,REP,Trump,Donald Trump,44
+Siena/NYT,Nevada,4/28/24,5/9/24,198701,614,lv,IND,Kennedy,Robert F. Kennedy,11
+Siena/NYT,Nevada,4/28/24,5/9/24,198701,614,lv,GRE,Stein,Jill Stein,1
+Siena/NYT,Nevada,4/28/24,5/9/24,198701,614,lv,IND,West,Cornel West,0
+Siena/NYT,Nevada,4/28/24,5/9/24,198701,614,lv,LIB,Mapstead,Lars Mapstead,2
+Siena/NYT,Nevada,4/28/24,5/9/24,198702,614,lv,DEM,Biden,Joe Biden,38
+Siena/NYT,Nevada,4/28/24,5/9/24,198702,614,lv,REP,Trump,Donald Trump,51
+Siena/NYT,Pennsylvania,4/28/24,5/9/24,198691,1023,rv,DEM,Biden,Joe Biden,36
+Siena/NYT,Pennsylvania,4/28/24,5/9/24,198691,1023,rv,REP,Trump,Donald Trump,40
+Siena/NYT,Pennsylvania,4/28/24,5/9/24,198691,1023,rv,IND,Kennedy,Robert F. Kennedy,10
+Siena/NYT,Pennsylvania,4/28/24,5/9/24,198691,1023,rv,GRE,Stein,Jill Stein,1
+Siena/NYT,Pennsylvania,4/28/24,5/9/24,198691,1023,rv,IND,West,Cornel West,0
+Siena/NYT,Pennsylvania,4/28/24,5/9/24,198691,1023,rv,LIB,Mapstead,Lars Mapstead,0
+Siena/NYT,Pennsylvania,4/28/24,5/9/24,198692,1023,rv,DEM,Biden,Joe Biden,44
+Siena/NYT,Pennsylvania,4/28/24,5/9/24,198692,1023,rv,REP,Trump,Donald Trump,47
+Siena/NYT,Pennsylvania,4/28/24,5/9/24,198703,1023,lv,DEM,Biden,Joe Biden,37
+Siena/NYT,Pennsylvania,4/28/24,5/9/24,198703,1023,lv,REP,Trump,Donald Trump,41
+Siena/NYT,Pennsylvania,4/28/24,5/9/24,198703,1023,lv,IND,Kennedy,Robert F. Kennedy,9
+Siena/NYT,Pennsylvania,4/28/24,5/9/24,198703,1023,lv,GRE,Stein,Jill Stein,1
+Siena/NYT,Pennsylvania,4/28/24,5/9/24,198703,1023,lv,IND,West,Cornel West,0
+Siena/NYT,Pennsylvania,4/28/24,5/9/24,198703,1023,lv,LIB,Mapstead,Lars Mapstead,0
+Siena/NYT,Pennsylvania,4/28/24,5/9/24,198704,1023,lv,DEM,Biden,Joe Biden,45
+Siena/NYT,Pennsylvania,4/28/24,5/9/24,198704,1023,lv,REP,Trump,Donald Trump,48
+Siena/NYT,Wisconsin,4/28/24,5/9/24,198693,614,rv,DEM,Biden,Joe Biden,38
+Siena/NYT,Wisconsin,4/28/24,5/9/24,198693,614,rv,REP,Trump,Donald Trump,38
+Siena/NYT,Wisconsin,4/28/24,5/9/24,198693,614,rv,IND,Kennedy,Robert F. Kennedy,9
+Siena/NYT,Wisconsin,4/28/24,5/9/24,198693,614,rv,GRE,Stein,Jill Stein,1
+Siena/NYT,Wisconsin,4/28/24,5/9/24,198693,614,rv,IND,West,Cornel West,0
+Siena/NYT,Wisconsin,4/28/24,5/9/24,198693,614,rv,LIB,Mapstead,Lars Mapstead,0
+Siena/NYT,Wisconsin,4/28/24,5/9/24,198694,614,rv,DEM,Biden,Joe Biden,47
+Siena/NYT,Wisconsin,4/28/24,5/9/24,198694,614,rv,REP,Trump,Donald Trump,45
+Siena/NYT,Wisconsin,4/28/24,5/9/24,198705,614,lv,DEM,Biden,Joe Biden,39
+Siena/NYT,Wisconsin,4/28/24,5/9/24,198705,614,lv,REP,Trump,Donald Trump,40
+Siena/NYT,Wisconsin,4/28/24,5/9/24,198705,614,lv,IND,Kennedy,Robert F. Kennedy,8
+Siena/NYT,Wisconsin,4/28/24,5/9/24,198705,614,lv,GRE,Stein,Jill Stein,0
+Siena/NYT,Wisconsin,4/28/24,5/9/24,198705,614,lv,IND,West,Cornel West,0
+Siena/NYT,Wisconsin,4/28/24,5/9/24,198705,614,lv,LIB,Mapstead,Lars Mapstead,0
+Siena/NYT,Wisconsin,4/28/24,5/9/24,198706,614,lv,DEM,Biden,Joe Biden,46
+Siena/NYT,Wisconsin,4/28/24,5/9/24,198706,614,lv,REP,Trump,Donald Trump,47
+Siena/NYT,NA,4/7/24,4/11/24,196444,1059,rv,DEM,Biden,Joe Biden,45
+Siena/NYT,NA,4/7/24,4/11/24,196444,1059,rv,REP,Trump,Donald Trump,46
+Siena/NYT,NA,4/7/24,4/11/24,196445,1059,rv,DEM,Biden,Joe Biden,40
+Siena/NYT,NA,4/7/24,4/11/24,196445,1059,rv,REP,Trump,Donald Trump,42
+Siena/NYT,NA,4/7/24,4/11/24,196446,1059,lv,DEM,Biden,Joe Biden,46
+Siena/NYT,NA,4/7/24,4/11/24,196446,1059,lv,REP,Trump,Donald Trump,47
+Siena/NYT,NA,4/7/24,4/11/24,196447,1059,lv,DEM,Biden,Joe Biden,42
+Siena/NYT,NA,4/7/24,4/11/24,196447,1059,lv,REP,Trump,Donald Trump,43
+Siena/NYT,NA,2/25/24,2/28/24,193941,980,rv,DEM,Biden,Joe Biden,43
+Siena/NYT,NA,2/25/24,2/28/24,193941,980,rv,REP,Trump,Donald Trump,48
+Siena/NYT,NA,2/25/24,2/28/24,193942,980,lv,DEM,Biden,Joe Biden,44
+Siena/NYT,NA,2/25/24,2/28/24,193942,980,lv,REP,Trump,Donald Trump,48
+Siena/NYT,NA,2/25/24,2/28/24,193943,980,rv,DEM,Biden,Joe Biden,35
+Siena/NYT,NA,2/25/24,2/28/24,193943,980,rv,REP,Haley,Nikki Haley,45
+Siena/NYT,NA,2/25/24,2/28/24,193944,980,lv,DEM,Biden,Joe Biden,37
+Siena/NYT,NA,2/25/24,2/28/24,193944,980,lv,REP,Haley,Nikki Haley,46
+Siena/NYT,NA,2/25/24,2/28/24,194049,980,rv,DEM,Harris,Kamala Harris,41
+Siena/NYT,NA,2/25/24,2/28/24,194049,980,rv,REP,Trump,Donald Trump,47
+Siena/NYT,NA,2/25/24,2/28/24,194050,980,lv,DEM,Harris,Kamala Harris,42
+Siena/NYT,NA,2/25/24,2/28/24,194050,980,lv,REP,Trump,Donald Trump,48
+Siena/NYT,NA,12/10/23,12/14/23,189203,1016,rv,DEM,Biden,Joe Biden,44
+Siena/NYT,NA,12/10/23,12/14/23,189203,1016,rv,REP,Trump,Donald Trump,46
+Siena/NYT,NA,12/10/23,12/14/23,189204,1016,lv,DEM,Biden,Joe Biden,47
+Siena/NYT,NA,12/10/23,12/14/23,189204,1016,lv,REP,Trump,Donald Trump,45
+Siena/NYT,Arizona,10/22/23,11/3/23,184791,603,rv,DEM,Biden,Joe Biden,44
+Siena/NYT,Arizona,10/22/23,11/3/23,184791,603,rv,REP,Trump,Donald Trump,49
+Siena/NYT,Arizona,10/22/23,11/3/23,184797,603,lv,DEM,Biden,Joe Biden,44
+Siena/NYT,Arizona,10/22/23,11/3/23,184797,603,lv,REP,Trump,Donald Trump,49
+Siena/NYT,Arizona,10/22/23,11/3/23,184803,603,rv,DEM,Harris,Kamala Harris,43
+Siena/NYT,Arizona,10/22/23,11/3/23,184803,603,rv,REP,Trump,Donald Trump,48
+Siena/NYT,Arizona,10/22/23,11/3/23,184809,603,lv,DEM,Harris,Kamala Harris,43
+Siena/NYT,Arizona,10/22/23,11/3/23,184809,603,lv,REP,Trump,Donald Trump,48
+Siena/NYT,Arizona,10/22/23,11/3/23,184817,603,rv,DEM,Biden,Joe Biden,41
+Siena/NYT,Arizona,10/22/23,11/3/23,184817,603,rv,REP,DeSantis,Ron DeSantis,46
+Siena/NYT,Arizona,10/22/23,11/3/23,184823,603,lv,DEM,Biden,Joe Biden,42
+Siena/NYT,Arizona,10/22/23,11/3/23,184823,603,lv,REP,DeSantis,Ron DeSantis,46
+Siena/NYT,Arizona,10/22/23,11/3/23,184829,603,rv,DEM,Biden,Joe Biden,38
+Siena/NYT,Arizona,10/22/23,11/3/23,184829,603,rv,REP,Haley,Nikki Haley,45
+Siena/NYT,Arizona,10/22/23,11/3/23,184835,603,lv,DEM,Biden,Joe Biden,37
+Siena/NYT,Arizona,10/22/23,11/3/23,184835,603,lv,REP,Haley,Nikki Haley,46
+Siena/NYT,Arizona,10/22/23,11/3/23,184996,603,rv,DEM,Biden,Joe Biden,33
+Siena/NYT,Arizona,10/22/23,11/3/23,184996,603,rv,REP,Trump,Donald Trump,33
+Siena/NYT,Arizona,10/22/23,11/3/23,184996,603,rv,IND,Kennedy,Robert F. Kennedy,26
+Siena/NYT,Arizona,10/22/23,11/3/23,185002,603,lv,DEM,Biden,Joe Biden,34
+Siena/NYT,Arizona,10/22/23,11/3/23,185002,603,lv,REP,Trump,Donald Trump,34
+Siena/NYT,Arizona,10/22/23,11/3/23,185002,603,lv,IND,Kennedy,Robert F. Kennedy,24
+Siena/NYT,Georgia,10/22/23,11/3/23,184792,629,rv,DEM,Biden,Joe Biden,43
+Siena/NYT,Georgia,10/22/23,11/3/23,184792,629,rv,REP,Trump,Donald Trump,49
+Siena/NYT,Georgia,10/22/23,11/3/23,184798,629,lv,DEM,Biden,Joe Biden,44
+Siena/NYT,Georgia,10/22/23,11/3/23,184798,629,lv,REP,Trump,Donald Trump,49
+Siena/NYT,Georgia,10/22/23,11/3/23,184804,629,rv,DEM,Harris,Kamala Harris,44
+Siena/NYT,Georgia,10/22/23,11/3/23,184804,629,rv,REP,Trump,Donald Trump,45
+Siena/NYT,Georgia,10/22/23,11/3/23,184810,629,lv,DEM,Harris,Kamala Harris,44
+Siena/NYT,Georgia,10/22/23,11/3/23,184810,629,lv,REP,Trump,Donald Trump,47
+Siena/NYT,Georgia,10/22/23,11/3/23,184818,629,rv,DEM,Biden,Joe Biden,43
+Siena/NYT,Georgia,10/22/23,11/3/23,184818,629,rv,REP,DeSantis,Ron DeSantis,43
+Siena/NYT,Georgia,10/22/23,11/3/23,184824,629,lv,DEM,Biden,Joe Biden,44
+Siena/NYT,Georgia,10/22/23,11/3/23,184824,629,lv,REP,DeSantis,Ron DeSantis,45
+Siena/NYT,Georgia,10/22/23,11/3/23,184830,629,rv,DEM,Biden,Joe Biden,40
+Siena/NYT,Georgia,10/22/23,11/3/23,184830,629,rv,REP,Haley,Nikki Haley,43
+Siena/NYT,Georgia,10/22/23,11/3/23,184836,629,lv,DEM,Biden,Joe Biden,40
+Siena/NYT,Georgia,10/22/23,11/3/23,184836,629,lv,REP,Haley,Nikki Haley,45
+Siena/NYT,Georgia,10/22/23,11/3/23,184997,629,rv,DEM,Biden,Joe Biden,29
+Siena/NYT,Georgia,10/22/23,11/3/23,184997,629,rv,REP,Trump,Donald Trump,36
+Siena/NYT,Georgia,10/22/23,11/3/23,184997,629,rv,IND,Kennedy,Robert F. Kennedy,24
+Siena/NYT,Georgia,10/22/23,11/3/23,185003,629,lv,DEM,Biden,Joe Biden,31
+Siena/NYT,Georgia,10/22/23,11/3/23,185003,629,lv,REP,Trump,Donald Trump,38
+Siena/NYT,Georgia,10/22/23,11/3/23,185003,629,lv,IND,Kennedy,Robert F. Kennedy,23
+Siena/NYT,Michigan,10/22/23,11/3/23,184793,616,rv,DEM,Biden,Joe Biden,43
+Siena/NYT,Michigan,10/22/23,11/3/23,184793,616,rv,REP,Trump,Donald Trump,48
+Siena/NYT,Michigan,10/22/23,11/3/23,184799,616,lv,DEM,Biden,Joe Biden,46
+Siena/NYT,Michigan,10/22/23,11/3/23,184799,616,lv,REP,Trump,Donald Trump,46
+Siena/NYT,Michigan,10/22/23,11/3/23,184805,616,rv,DEM,Harris,Kamala Harris,45
+Siena/NYT,Michigan,10/22/23,11/3/23,184805,616,rv,REP,Trump,Donald Trump,47
+Siena/NYT,Michigan,10/22/23,11/3/23,184811,616,lv,DEM,Harris,Kamala Harris,48
+Siena/NYT,Michigan,10/22/23,11/3/23,184811,616,lv,REP,Trump,Donald Trump,46
+Siena/NYT,Michigan,10/22/23,11/3/23,184819,616,rv,DEM,Biden,Joe Biden,42
+Siena/NYT,Michigan,10/22/23,11/3/23,184819,616,rv,REP,DeSantis,Ron DeSantis,42
+Siena/NYT,Michigan,10/22/23,11/3/23,184825,616,lv,DEM,Biden,Joe Biden,44
+Siena/NYT,Michigan,10/22/23,11/3/23,184825,616,lv,REP,DeSantis,Ron DeSantis,43
+Siena/NYT,Michigan,10/22/23,11/3/23,184831,616,rv,DEM,Biden,Joe Biden,35
+Siena/NYT,Michigan,10/22/23,11/3/23,184831,616,rv,REP,Haley,Nikki Haley,45
+Siena/NYT,Michigan,10/22/23,11/3/23,184837,616,lv,DEM,Biden,Joe Biden,36
+Siena/NYT,Michigan,10/22/23,11/3/23,184837,616,lv,REP,Haley,Nikki Haley,46
+Siena/NYT,Michigan,10/22/23,11/3/23,184998,616,rv,DEM,Biden,Joe Biden,31
+Siena/NYT,Michigan,10/22/23,11/3/23,184998,616,rv,REP,Trump,Donald Trump,34
+Siena/NYT,Michigan,10/22/23,11/3/23,184998,616,rv,IND,Kennedy,Robert F. Kennedy,26
+Siena/NYT,Michigan,10/22/23,11/3/23,185004,616,lv,DEM,Biden,Joe Biden,34
+Siena/NYT,Michigan,10/22/23,11/3/23,185004,616,lv,REP,Trump,Donald Trump,34
+Siena/NYT,Michigan,10/22/23,11/3/23,185004,616,lv,IND,Kennedy,Robert F. Kennedy,25
+Siena/NYT,Nevada,10/22/23,11/3/23,184794,611,rv,DEM,Biden,Joe Biden,41
+Siena/NYT,Nevada,10/22/23,11/3/23,184794,611,rv,REP,Trump,Donald Trump,52
+Siena/NYT,Nevada,10/22/23,11/3/23,184800,611,lv,DEM,Biden,Joe Biden,41
+Siena/NYT,Nevada,10/22/23,11/3/23,184800,611,lv,REP,Trump,Donald Trump,52
+Siena/NYT,Nevada,10/22/23,11/3/23,184806,611,rv,DEM,Harris,Kamala Harris,42
+Siena/NYT,Nevada,10/22/23,11/3/23,184806,611,rv,REP,Trump,Donald Trump,48
+Siena/NYT,Nevada,10/22/23,11/3/23,184812,611,lv,DEM,Harris,Kamala Harris,42
+Siena/NYT,Nevada,10/22/23,11/3/23,184812,611,lv,REP,Trump,Donald Trump,50
+Siena/NYT,Nevada,10/22/23,11/3/23,184820,611,rv,DEM,Biden,Joe Biden,42
+Siena/NYT,Nevada,10/22/23,11/3/23,184820,611,rv,REP,DeSantis,Ron DeSantis,43
+Siena/NYT,Nevada,10/22/23,11/3/23,184826,611,lv,DEM,Biden,Joe Biden,41
+Siena/NYT,Nevada,10/22/23,11/3/23,184826,611,lv,REP,DeSantis,Ron DeSantis,45
+Siena/NYT,Nevada,10/22/23,11/3/23,184832,611,rv,DEM,Biden,Joe Biden,38
+Siena/NYT,Nevada,10/22/23,11/3/23,184832,611,rv,REP,Haley,Nikki Haley,44
+Siena/NYT,Nevada,10/22/23,11/3/23,184838,611,lv,DEM,Biden,Joe Biden,37
+Siena/NYT,Nevada,10/22/23,11/3/23,184838,611,lv,REP,Haley,Nikki Haley,46
+Siena/NYT,Nevada,10/22/23,11/3/23,184999,611,rv,DEM,Biden,Joe Biden,31
+Siena/NYT,Nevada,10/22/23,11/3/23,184999,611,rv,REP,Trump,Donald Trump,38
+Siena/NYT,Nevada,10/22/23,11/3/23,184999,611,rv,IND,Kennedy,Robert F. Kennedy,23
+Siena/NYT,Nevada,10/22/23,11/3/23,185005,611,lv,DEM,Biden,Joe Biden,34
+Siena/NYT,Nevada,10/22/23,11/3/23,185005,611,lv,REP,Trump,Donald Trump,40
+Siena/NYT,Nevada,10/22/23,11/3/23,185005,611,lv,IND,Kennedy,Robert F. Kennedy,19
+Siena/NYT,Pennsylvania,10/22/23,11/3/23,184795,600,rv,DEM,Biden,Joe Biden,44
+Siena/NYT,Pennsylvania,10/22/23,11/3/23,184795,600,rv,REP,Trump,Donald Trump,48
+Siena/NYT,Pennsylvania,10/22/23,11/3/23,184801,600,lv,DEM,Biden,Joe Biden,44
+Siena/NYT,Pennsylvania,10/22/23,11/3/23,184801,600,lv,REP,Trump,Donald Trump,49
+Siena/NYT,Pennsylvania,10/22/23,11/3/23,184807,600,rv,DEM,Harris,Kamala Harris,44
+Siena/NYT,Pennsylvania,10/22/23,11/3/23,184807,600,rv,REP,Trump,Donald Trump,47
+Siena/NYT,Pennsylvania,10/22/23,11/3/23,184813,600,lv,DEM,Harris,Kamala Harris,44
+Siena/NYT,Pennsylvania,10/22/23,11/3/23,184813,600,lv,REP,Trump,Donald Trump,48
+Siena/NYT,Pennsylvania,10/22/23,11/3/23,184821,600,rv,DEM,Biden,Joe Biden,43
+Siena/NYT,Pennsylvania,10/22/23,11/3/23,184821,600,rv,REP,DeSantis,Ron DeSantis,45
+Siena/NYT,Pennsylvania,10/22/23,11/3/23,184827,600,lv,DEM,Biden,Joe Biden,43
+Siena/NYT,Pennsylvania,10/22/23,11/3/23,184827,600,lv,REP,DeSantis,Ron DeSantis,47
+Siena/NYT,Pennsylvania,10/22/23,11/3/23,184833,600,rv,DEM,Biden,Joe Biden,38
+Siena/NYT,Pennsylvania,10/22/23,11/3/23,184833,600,rv,REP,Haley,Nikki Haley,48
+Siena/NYT,Pennsylvania,10/22/23,11/3/23,184839,600,lv,DEM,Biden,Joe Biden,39
+Siena/NYT,Pennsylvania,10/22/23,11/3/23,184839,600,lv,REP,Haley,Nikki Haley,49
+Siena/NYT,Pennsylvania,10/22/23,11/3/23,185000,600,rv,DEM,Biden,Joe Biden,35
+Siena/NYT,Pennsylvania,10/22/23,11/3/23,185000,600,rv,REP,Trump,Donald Trump,35
+Siena/NYT,Pennsylvania,10/22/23,11/3/23,185000,600,rv,IND,Kennedy,Robert F. Kennedy,23
+Siena/NYT,Pennsylvania,10/22/23,11/3/23,185006,600,lv,DEM,Biden,Joe Biden,36
+Siena/NYT,Pennsylvania,10/22/23,11/3/23,185006,600,lv,REP,Trump,Donald Trump,36
+Siena/NYT,Pennsylvania,10/22/23,11/3/23,185006,600,lv,IND,Kennedy,Robert F. Kennedy,21
+Siena/NYT,Wisconsin,10/22/23,11/3/23,184796,603,rv,DEM,Biden,Joe Biden,47
+Siena/NYT,Wisconsin,10/22/23,11/3/23,184796,603,rv,REP,Trump,Donald Trump,45
+Siena/NYT,Wisconsin,10/22/23,11/3/23,184802,603,lv,DEM,Biden,Joe Biden,47
+Siena/NYT,Wisconsin,10/22/23,11/3/23,184802,603,lv,REP,Trump,Donald Trump,45
+Siena/NYT,Wisconsin,10/22/23,11/3/23,184808,603,rv,DEM,Harris,Kamala Harris,46
+Siena/NYT,Wisconsin,10/22/23,11/3/23,184808,603,rv,REP,Trump,Donald Trump,47
+Siena/NYT,Wisconsin,10/22/23,11/3/23,184814,603,lv,DEM,Harris,Kamala Harris,46
+Siena/NYT,Wisconsin,10/22/23,11/3/23,184814,603,lv,REP,Trump,Donald Trump,48
+Siena/NYT,Wisconsin,10/22/23,11/3/23,184822,603,rv,DEM,Biden,Joe Biden,44
+Siena/NYT,Wisconsin,10/22/23,11/3/23,184822,603,rv,REP,DeSantis,Ron DeSantis,48
+Siena/NYT,Wisconsin,10/22/23,11/3/23,184828,603,lv,DEM,Biden,Joe Biden,44
+Siena/NYT,Wisconsin,10/22/23,11/3/23,184828,603,lv,REP,DeSantis,Ron DeSantis,48
+Siena/NYT,Wisconsin,10/22/23,11/3/23,184834,603,rv,DEM,Biden,Joe Biden,39
+Siena/NYT,Wisconsin,10/22/23,11/3/23,184834,603,rv,REP,Haley,Nikki Haley,52
+Siena/NYT,Wisconsin,10/22/23,11/3/23,184840,603,lv,DEM,Biden,Joe Biden,39
+Siena/NYT,Wisconsin,10/22/23,11/3/23,184840,603,lv,REP,Haley,Nikki Haley,53
+Siena/NYT,Wisconsin,10/22/23,11/3/23,185001,603,rv,DEM,Biden,Joe Biden,37
+Siena/NYT,Wisconsin,10/22/23,11/3/23,185001,603,rv,REP,Trump,Donald Trump,35
+Siena/NYT,Wisconsin,10/22/23,11/3/23,185001,603,rv,IND,Kennedy,Robert F. Kennedy,22
+Siena/NYT,Wisconsin,10/22/23,11/3/23,185007,603,lv,DEM,Biden,Joe Biden,37
+Siena/NYT,Wisconsin,10/22/23,11/3/23,185007,603,lv,REP,Trump,Donald Trump,35
+Siena/NYT,Wisconsin,10/22/23,11/3/23,185007,603,lv,IND,Kennedy,Robert F. Kennedy,21
+Siena/NYT,NA,7/23/23,7/27/23,178278,1329,rv,DEM,Biden,Joe Biden,43
+Siena/NYT,NA,7/23/23,7/27/23,178278,1329,rv,REP,Trump,Donald Trump,43
+Siena/NYT,NA,10/9/22,10/12/22,163413,792,lv,DEM,Biden,Joe Biden,44
+Siena/NYT,NA,10/9/22,10/12/22,163413,792,lv,REP,Trump,Donald Trump,45
+Siena/NYT,NA,10/9/22,10/12/22,163483,792,rv,DEM,Biden,Joe Biden,42
+Siena/NYT,NA,10/9/22,10/12/22,163483,792,rv,REP,Trump,Donald Trump,43
+Siena/NYT,NA,10/9/22,10/12/22,163543,792,lv,DEM,Biden,Joe Biden,44
+Siena/NYT,NA,10/9/22,10/12/22,163543,792,lv,REP,Trump,Donald Trump,45
+Siena/NYT,NA,9/6/22,9/14/22,161446,1399,rv,DEM,Biden,Joe Biden,45
+Siena/NYT,NA,9/6/22,9/14/22,161446,1399,rv,REP,Trump,Donald Trump,42
+Siena/NYT,NA,7/5/22,7/7/22,157792,849,rv,DEM,Biden,Joe Biden,44
+Siena/NYT,NA,7/5/22,7/7/22,157792,849,rv,REP,Trump,Donald Trump,41
