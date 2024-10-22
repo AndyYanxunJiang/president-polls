@@ -146,6 +146,26 @@ ggplot(data_avg, aes(x = reorder(state, avg_pct), y = avg_pct, fill = candidate_
 \appendix
 
 # Appendix {-}
+Sampling Methodology Employed by New York Times and Siena College:
+
+	Our analysis and prediction utilizes data collected by a single pollster and it is important to scrutinize the sampling methodology behind the sampling methods used to determine the extent of the external validity of our predictions. Primarily, the data gathered by New York Times was done so with the collaboration with Siena College through live-interviewers reaching voters by telephone. 
+	The poll targets registered voters in the United States, with a particular focus on voters in battleground states for presidential races. Although this focus is emphasized and accounted for, their target population is the population of registered voters in the United States of America. The sampling frame is the voter file, a comprehensive database of registered voters that includes demographic information, voting history, and contact details. And from this sampling frame, respondents are randomly selected, balancing key demographic and political characteristics through both front-end sampling and post-survey weighting pursuant to appropriate representation of the entire target population. 
+	The poll relies on random digit dialing to reach voters, predominantly via cellphones (over 90% of calls). While landlines are also called, the dominance of cellphone usage aligns with contemporary communication trends. This results in their rendition of random sampling, which contributes to the external validity of proper usage of data. However, though the sample was selected randomly, reaching voters by phone has become more difficult due to low response rates (around 2%), requiring many attempts to secure responses from certain individuals. Despite this, the phone methodology is still seen as effective for its ability to quickly reach a diverse voter pool across various states. This also raises the concern of selection bias as younger voters that display a propensity for digital communication might be underrepresentted. 
+	The poll addresses non-response through a combination of front-end sampling adjustments (calling harder-to-reach voters) and post-survey weighting. Weighting is applied to ensure that the final sample aligns with the demographic and political composition of the electorate, based on voter file data. Non-response bias is a persistent challenge, and even though weighting helps, it's impossible to be certain that respondents are fully representative of those who do not respond. Experiments with alternative methods, such as mail surveys, have shown some differences, particularly in political engagement levels, but not in overall vote preferences.
+
+
+	
+Sampling Approach: Stratified Sampling
+
+Method: Stratified sampling is used, where different voter groups are targeted based on their demographic and regional characteristics. For battleground state polls, the sample is drawn from states likely to decide the election, such as Arizona, Georgia, and Pennsylvania.
+
+Trade-offs: While phone polling allows for broad geographic reach and is quick to execute, it faces declining response rates and potential underrepresentation of certain groups. The reliance on phone surveys limits the ability to reach voters without reliable phone access, and it may inadvertently bias results towards those who are more reachable by phone.
+
+
+Questionnaire
+
+The Times/Siena Poll carefully crafts its questions to be fair and balanced, ensuring that respondents from across the political spectrum feel their views are represented. The team devotes significant time to wording questions to avoid leading respondents or introducing bias.
+The questionnaire is kept relatively short (under 15 minutes), helping to reduce respondent fatigue and minimize dropout rates during the interview. Phone polls may not capture the full nuance of voter opinions due to the limited nature of phone conversations compared to online or face-to-face methods. Furthermore, telephone-based interviews with voters presents the danger of selection bias discussed earlier. As a result, while the poll's margin of error for the overall population is typically 3 to 4 percentage points, smaller subgroups may have larger margins of error due to smaller sample sizes.
 
 
 # Additional data details
