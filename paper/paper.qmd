@@ -149,15 +149,21 @@ ggplot(data_avg, aes(x = reorder(state, avg_pct), y = avg_pct, fill = candidate_
 Sampling Methodology Employed by New York Times and Siena College:
 
 	Our analysis and prediction utilizes data collected by a single pollster and it is important to scrutinize the sampling methodology behind the sampling methods used to determine the extent of the external validity of our predictions. Primarily, the data gathered by New York Times was done so with the collaboration with Siena College through live-interviewers reaching voters by telephone. 
-	The poll targets registered voters in the United States, with a particular focus on voters in battleground states for presidential races. Although this focus is emphasized and accounted for, their target population is the population of registered voters in the United States of America. The sampling frame is the voter file, a comprehensive database of registered voters that includes demographic information, voting history, and contact details. And from this sampling frame, respondents are randomly selected, balancing key demographic and political characteristics through both front-end sampling and post-survey weighting pursuant to appropriate representation of the entire target population. 
-	The poll relies on random digit dialing to reach voters, predominantly via cellphones (over 90% of calls). While landlines are also called, the dominance of cellphone usage aligns with contemporary communication trends. This results in their rendition of random sampling, which contributes to the external validity of proper usage of data. However, though the sample was selected randomly, reaching voters by phone has become more difficult due to low response rates (around 2%), requiring many attempts to secure responses from certain individuals. Despite this, the phone methodology is still seen as effective for its ability to quickly reach a diverse voter pool across various states. This also raises the concern of selection bias as younger voters that display a propensity for digital communication might be underrepresentted. 
-	The poll addresses non-response through a combination of front-end sampling adjustments (calling harder-to-reach voters) and post-survey weighting. Weighting is applied to ensure that the final sample aligns with the demographic and political composition of the electorate, based on voter file data. Non-response bias is a persistent challenge, and even though weighting helps, it's impossible to be certain that respondents are fully representative of those who do not respond. Experiments with alternative methods, such as mail surveys, have shown some differences, particularly in political engagement levels, but not in overall vote preferences.
+	The poll targets registered voters in the United States, with a particular focus on voters in swing states for presidential races. Consequently, the target population is registered voters of the United States of America and the sampling frame is the national list of registered voters from which NYC employs random sampling to create their pollsters. And from this sampling frame, respondents are randomly selected, balancing key demographic and political characteristics through both front-end sampling and post-survey weighting pursuant to appropriate representation of the entire target population. 
+	The poll relies on random digit dialing to reach voters, predominantly via cell phones. While landlines are also called, the dominance of cellphone usage aligns with contemporary communication trends. This results in their rendition of random sampling, which contributes to the external validity of data. However, though the sample was selected randomly, reaching voters by phone has become more difficult due to low response rates requiring many attempts to secure responses from certain individuals (response rates are as  low as 2% at NYC). Despite this, the phone methodology is still seen as effective for its ability to quickly reach a diverse voter pool across various states as well as seen as the golden standard for polling. Although this can be seen as random sampling, the concern of low response rates and reliance on dialing to reach voters raises concerns of selection bias. There are questions as to whether a certain demographic will be more responsive to being reached through a cell phone. Moreover, voters that are reached over the phone may feel the urge to provide more ‘socially desirable’ responses that are not reflective of their true opinions. 
+	With a response rate of 2%, there is valid concern over non-response bias underrepresenting certain demographics. The poll addresses non-response through a combination of front-end sampling adjustments (calling harder-to-reach voters) and post-survey weighting. Weighting is applied to ensure that the final sample aligns with the demographic and political composition of the electorate, based on voter file data. Non-response bias is a persistent challenge, and even though weighting helps, it's impossible to be certain that respondents are fully representative of those who do not respond. Experiments with alternative methods, such as mail surveys with incentives of cash vouchers have shown to increase response rate up to 30% (New York Times). 
 
 
 	
+
+
+
+
+
+
 Sampling Approach: Stratified Sampling
 
-Method: Stratified sampling is used, where different voter groups are targeted based on their demographic and regional characteristics. For battleground state polls, the sample is drawn from states likely to decide the election, such as Arizona, Georgia, and Pennsylvania.
+Method: Stratified sampling is used, where different voter groups are targeted based on their demographic and regional characteristics. For battleground state polls, the sample is drawn from states likely to decide the election, such as Arizona, North Carolina, Georgia, and Pennsylvania.
 
 Trade-offs: While phone polling allows for broad geographic reach and is quick to execute, it faces declining response rates and potential underrepresentation of certain groups. The reliance on phone surveys limits the ability to reach voters without reliable phone access, and it may inadvertently bias results towards those who are more reachable by phone.
 
@@ -165,7 +171,84 @@ Trade-offs: While phone polling allows for broad geographic reach and is quick t
 Questionnaire
 
 The Times/Siena Poll carefully crafts its questions to be fair and balanced, ensuring that respondents from across the political spectrum feel their views are represented. The team devotes significant time to wording questions to avoid leading respondents or introducing bias.
-The questionnaire is kept relatively short (under 15 minutes), helping to reduce respondent fatigue and minimize dropout rates during the interview. Phone polls may not capture the full nuance of voter opinions due to the limited nature of phone conversations compared to online or face-to-face methods. Furthermore, telephone-based interviews with voters presents the danger of selection bias discussed earlier. As a result, while the poll's margin of error for the overall population is typically 3 to 4 percentage points, smaller subgroups may have larger margins of error due to smaller sample sizes.
+The questionnaire is kept relatively short (under 15 minutes), helping to reduce respondent fatigue and minimize dropout rates during the interview. Phone polls may not capture the full nuance of voter opinions due to the limited nature of phone conversations compared to online or face-to-face methods. Furthermore, telephone-based interviews with voters presents the danger of selection bias discussed earlier. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2	Idealized Methodology
+
+	Pursuant to accurately predicting the winner of the presidential election with the electoral college system, there are assumptions that need to be assessed. The United States of America’s electoral college system creates a special environment where votes in some states are disproportionately more influential than that of others and candidates are not elected based on popular vote, but on the majority of electoral votes they get. 
+
+Assumption 1:  Nation-level Popular Vote is irrelevant in our methodology since president electors are chosen based on electoral votes. 
+
+Assumption 2:  Based on historical and polling data, some states’ electoral votes are predetermined as either Democrat or Republican. Therefore, it is more prudent to shift focus over to swing states where outcomes are uncertain. This assumption is accompanied with the challenge of determining what states qualify as “swing states”. However, on this issue, there is consensus on which states qualify as battleground states. As of 2024, our methodology should direct all our resources to acquiring voting data on the following states (New York Times).
+Pennsylvania
+Georgia
+North Carolina
+Michigan
+Arizona
+Wisconsin
+Nevada
+
+
+
+
+
+2.1	Feasibility of Reaching Voters: Justification of Online Panels
+
+According to the New York Times, with a sample of 1000 individual votes, there is a margin of error of around three to four percentages. With $100,000, there are limitations on the labor and resources that is required to poll 1000 voters while balancing out demographics through dialing. Furthermore, there is additional filtering of our sample frame to determine likely voters. Assuming New York Times’ 2% voter response rate, to sample 1000 voters, at least 50,000 voters will need to be called. It is likely that our team will be dialing way more than 50,000 times since it is an unreasonable assumption that every voter we call would pick up or be available to provide a response. There is also the fact that our team does not carry the same credibility and history of acquiring poll data as the New York Times does, resulting in more reluctance for voters to share information with us.
+Therefore, it is not feasible for our methodology to employ telephone dialing as our method to reach voters. Instead, we focus on online panels and surveys with incentives for completing the survey correctly. However, online panels and surveys come with their own set of challenges and weaknesses that must be addressed in our methodology. Primarily, the problem of self-selection in online panels disrupts the random selection that allows the external validity of our predictions. There is a strong possibility that we acquire responses from respondents that are not likely to vote, gaining data from outside our target population. Even if we distribute the panels randomly among swing states, responses are still corrupted by selection bias that occurs from responses that are provided from demographics that feel more passionately about the election or are more likely to respond to online panels. As we do with telephone dialing, we have less control over the specific demographic we want to target, resulting in a less stratified data that is representative of the target population overall. 
+
+2.2	Remedies for Online Panels
+
+2.2.1	Weighting Adjustments
+	
+Although online panels offer an imperfect solution to the limited resources our team will work with, there are remedies that can address underrepresentation brought by selection bias. As NYC and Siena College does, post-survey weighting can help us represent our target population more accurately. This is an effective way to adjust our sample based on demographic data and historical turnout patterns within each state. By weighting responses to mirror actual voter demographics, the survey results can approximate a more realistic projection of the electorate.
+	
+2.2.2	Screening for Likely Voters
+
+	To produce accurate predictions of election results, our sample needs to be acquired from a target population that participates in the election. Therefore, it becomes necessary to include screening questions designed to filter for likely voters, based on voting history or engagement levels. Our survey includes questions that pertain to voting history, interest and engagement, voting intention, and eligibility. Responses to these questions will be used to produce an aggregate “likely voter” score that filters for the target population enabling for more accurate predictions of the presidential election. 
+
+
+
+2.3	Elements of Our Survey
+To gather accurate responses from a diverse and representative set of likely voters, our survey design carefully adheres to best practices in methodology. Given our goal to avoid attrition bias, we’ve restricted the estimated survey completion time to under ten minutes. This constraint is stricter than the fifteen-minute benchmark typically used by NYC and Siena College for telephone surveys, as online surveys require shorter durations to maintain respondent engagement. Our survey is divided into three main sections: Preamble, Eligibility, and Party Affiliation. The survey we constructed can be found in Appendix B.
+2.3.1	Preamble
+The Preamble serves as an introductory section that aims to establish transparency and motivate respondents to complete the survey accurately. This introduction begins with an explanation of the lottery-style incentive offered for survey completion. Rather than small individual payments, participants have a chance to win a larger prize if they complete the survey, a choice that aligns with budget constraints while enhancing participation rates. To encourage honest responses, respondents are assured of the anonymity of their answers, as well as the fact that their responses will be used solely for research purposes. This transparency fosters trust and can reduce hesitation when sharing political preferences. Information about the survey’s purpose is provided sparingly to minimize any potential response bias, as we communicate that the survey concerns voting and political engagement while omitting specific details that could influence responses, such as particular issues or candidate names. Additionally, respondents have the option to input a referral code if invited by a friend or family member, which can increase their chances of winning the lottery and encourage participation through word-of-mouth. We also request information on the relationship with the referrer to monitor potential demographic clustering in cases where social or familial ties might influence responses.
+
+2.3.2	Eligibility
+The Eligibility section focuses on ensuring that respondents meet the criteria necessary for inclusion in our target population, specifically targeting likely voters within designated swing states to improve the relevance and accuracy of our sample for election predictions. This section begins by asking for respondents' state of residence, age, race, and other preliminary demographic information. To further narrow our sample to those most likely to vote, we employ several screening questions related to voting history, political engagement, and voting intentions. These questions help exclude individuals who are unlikely to participate in the election, thus refining our sample to reflect the likely voting population. 
+
+
+2.3.3	Party Affiliation
+Party Affiliation addresses respondents’ political leanings and past voting behavior. This section explores their current preference for presidential candidates and parties and asks how they voted in previous elections. By differentiating between party and candidate preference, we can identify any variance in their voting behavior and assess whether respondents’ decisions align more strongly with party or individual candidate considerations. This section also explores whether respondents are informed about their choices, asking questions to determine whether they are aware of both candidates or have researched their policies. By gathering these insights, we can create a profile of the respondent’s political orientation, which allows for a nuanced interpretation of voting intentions that goes beyond simple party preference.
+
+2.4 Distribution of Online Panels
+The online panel method provides valuable flexibility in how surveys are distributed, enabling targeted outreach in regions crucial to our election prediction model. Since the distribution strategy will absorb a significant portion of the budget, this section outlines our plan for cost-effective, targeted, and controlled distribution, aimed at achieving a sample that represents voters in key swing states while addressing biases inherent to online panel surveys.
+
+2.4.1 Swing State Representation
+To capture a meaningful sample for predicting election results, we target respondents exclusively from key swing states where voting outcomes remain uncertain. By focusing our resources on swing states, we enhance the relevance of our sample to the Electoral College system, which relies heavily on swing state outcomes. Achieving this requires not only careful selection of digital platforms but also strategic advertising in locally relevant spaces.
+The lottery-style incentive, with a $5,000 voucher offered to one lucky respondent, serves as an appealing motivator designed to increase participation. We will advertise the survey on websites, forums, and marketplaces that have high traffic within our target states. Examples include social media channels, local news sites, and state-specific online communities. Additionally, we may utilize geo-targeted ads on platforms like Google and Facebook to directly reach residents of these swing states, optimizing our budget by focusing on the digital spaces our target demographic frequents. A significant portion of the budget will thus be allocated to these state-specific online advertisements, which not only promote the survey but also help ensure that respondents fit our target profile.
+
+2.4.2 Referral Mechanics
+To further broaden our reach without exponentially increasing advertising costs, we incorporate a referral system that rewards respondents for inviting others to complete the survey. Each referral allows the original respondent to gain an additional entry in the lottery, increasing their chances of winning. This referral incentive taps into snowball sampling, where respondents refer people within their network to participate, expanding our pool of respondents organically.
+However, using snowball sampling in an election survey introduces potential biases, particularly the risk of overrepresentation of individuals with similar political views, as respondents are likely to refer to close contacts who may share similar ideologies. To mitigate this, we will place specific restrictions on the referral program. Each respondent will be limited to referring only one other individual, minimizing the potential for overly clustered referrals. Additionally, we will require respondents to identify their relationship with each referral, helping us monitor homogeneity in our responses. By balancing the benefits of snowball sampling with these restrictions, we aim to expand the reach of our survey into difficult to reach demographics without compromising the representativeness of the sample.
+
 
 
 # Additional data details
