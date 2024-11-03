@@ -22,3 +22,23 @@ cleaned_data <- raw_data |>
 
 #### Save data ####
 write_csv(cleaned_data, "data/02-analysis_data/analysis_data.csv")
+
+#### Clean data for model####
+# Read the data
+data <- read.csv("data/02-analysis_data/analysis_data.csv")
+
+# Change the form of date
+data$end_date <- mdy(data$end_date)
+data_filtered <- data %>%
+  mutate(end_date_numeric = as.numeric(end_date))
+
+# Selct the true polls
+data_filtered <- data_filtered %>%
+  filter(hypothetical == FALSE, !is.na(sample_size))
+
+data_filtered <- data_filtered %>% 
+  group_by(end_date_numeric, candidate_name, end_date)%>% 
+  summarise(average_pct = mean(pct, na.rm = TRUE))
+
+#### Save data ####
+write_csv(data_filtered, "data/02-analysis_data/model_data.csv")
