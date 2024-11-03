@@ -338,6 +338,25 @@ However, using snowball sampling in an election survey introduces potential bias
 # Additional data details
 
 # Model details {#sec-model-details}
+```{r}
+data_filtered <- read_csv(here::here("data/02-analysis_data/model_data.csv"))
+data_filtered <- data_filtered %>%
+  mutate(predicted_pct = predict(penn_model, newdata = ., type = "response"))
+summary(penn_model)
+
+ggplot(penn, aes(x = start_date_numeric, y = pct, color = candidate_name)) +
+  geom_point(aes(y = pct), alpha = 0.5) + 
+  geom_line(aes(y = predicted_pct), size = 1) + 
+  labs(title = "Pennsylvania - Predicted vs True",
+       x = "Date",
+       y = "Rate of support") +
+  theme_minimal() +
+  scale_y_continuous(labels = scales::percent_format())
+
+
+
+```
+
 
 ## Posterior predictive check
 
