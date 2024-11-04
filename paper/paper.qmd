@@ -24,9 +24,11 @@ library(readr)
 library(here)
 library(knitr)
 library(kableExtra)
+library(scales)
+install.packages("arrow")
+library(arrow)
 
-
-data <- read_csv(here::here("data/02-analysis_data/analysis_data.csv"))
+data <- read_parquet(here::here("data/02-analysis_data/analysis_data.parquet"))
 ```
 
 
@@ -90,15 +92,28 @@ kable(sample_data, caption = "Sample of 10 Random Observations from the Analysis
 
 
 # Model
-
+In this analysis, we utilize a logistic regression model to predict polling percentages for the 2024 U.S. presidential candidates over time. In order to focus on states with historical significance in elections. The model is specified as a Generalized Linear Model (GLM) with a binomial family and a logit link function, appropriate for modeling binary or proportion-based outcomes.
 
 
 ## Model set-up
+The dataset, model_data.csv, provides polling data with average_pct as the observed average polling percentage among 7 swing states. The end_date indicates the polling period's endpoint.
+To predict polling percentages beyond the available data, we created an additional sequence of 20 days beyond the dataset's last recorded date. Because we want to predict the result in November 5. This expansion allows for forecasting near-term polling trends. Also, capturing potential shifts in candidate support leading up to election day. The model was trained on existing data and applied to this extended date range using predict(model, newdata = ., type = "response").
 
+Our model setup and variable selection are as follows:
+$$
+\text{logit}(p_i) = \beta_0 + \beta_1 (\text{Date}) + \beta_2 (\text{Candidate})
+$$
+
+where:
+
+- $$p_i \ \text{represents the probability of support for candidate i at a specific date.}$$
+- $$\beta_0 \ \text{is the intercept, representing baseline support.}$$
+- $$\beta_1 \ \text{captures changes in support over time (date effect).}$$
+- $$\beta_2 \ \text{is a categorical variable accounting for each candidate.}$$
 
 ### Model justification
-
-
+The choice of a logistic regression model was guided by the nature of polling data. Nature of polling data represents proportions that naturally bound between 0 and 1. The logistic function’s S-shaped curve effectively models the relationship between time and polling percentage, accommodating non-linear trends that may arise as election day nears.
+Firstly, candidate names should be included as a categorical predictor in the model. It allows us to capture individual impact in support rates by candidate. In addition, a transformation from date to numeric is made on end_date in order to get a numerical format. It is called the end_date_numeric. It helps put date as a predictor in the model. By structuring the model this way, it can predict the percentage of the poll by both the impact of candidates and trends over time.
 
 # Results
 The analysis of polling data across key swing states for the 2024 U.S. Presidential Election reveals insights into the levels of support for candidates Donald Trump and Kamala Harris. The findings are presented through three primary visualizations: the average polling percentage by state, the distribution of polling percentages, and the difference in average polling percentage between the two candidates.
@@ -202,7 +217,44 @@ ggplot(data_diff, aes(x = reorder(state, diff_pct), y = diff_pct, fill = diff_pc
   theme(legend.position = "bottom")
 ```
 
+## Swing State Polling Prediction Model
+@fig-4 shows the trend of support rate changes for each candidate before the upcoming election, as well as the model's predicted values for the next 20 days.
+```{r}
+#| label: fig-4
+#| fig-cap: "Swing State Polling Prediction Model"
+#| echo: false
+#| warning: false
+#| message: false
 
+invisible(Sys.setlocale("LC_TIME", "en_US"))
+data_filtered <- read_parquet(here::here("data/02-analysis_data/model_data.parquet"))
+model <- readRDS(here::here("models/model.rds"))
+data_filtered <- data_filtered %>%
+  mutate(predicted_pct = predict(model, newdata = ., type = "response"))
+
+last_date <- max(data_filtered$end_date, na.rm = TRUE)
+new_dates <- seq.Date(from = last_date + 1, by = "day", length.out = 20)
+new_data <- expand.grid(
+  end_date = new_dates,
+  candidate_name = unique(data_filtered$candidate_name)
+)
+new_data <- new_data %>%
+  mutate(
+    end_date_numeric = as.numeric(end_date), 
+  ) %>% mutate(predicted_pct = predict(model, newdata = ., type = "response"))
+all_data <- bind_rows(data_filtered, new_data)
+
+ggplot(all_data, aes(x = end_date, y = pct, color = candidate_name)) +
+  geom_point(aes(y = average_pct/100), alpha = 0.5) + 
+  geom_line(aes(y = predicted_pct), size = 1) + 
+  labs(title = "2024 US President Polls - Predicted vs True",
+       x = "Date",
+       y = "Rate of support") +
+  theme_minimal() +
+  scale_x_date(date_labels = "%b", date_breaks = "1 month") +
+  scale_y_continuous(labels = percent_format(), limits = c(0.44, 0.48))
+
+```
 
 
 
@@ -331,31 +383,14 @@ The lottery-style incentive, with a $5,000 voucher offered to one lucky responde
 
 2.4.2 Referral Mechanics
 To further broaden our reach without exponentially increasing advertising costs, we incorporate a referral system that rewards respondents for inviting others to complete the survey. Each referral allows the original respondent to gain an additional entry in the lottery, increasing their chances of winning. This referral incentive taps into snowball sampling, where respondents refer people within their network to participate, expanding our pool of respondents organically.
-However, using snowball sampling in an election survey introduces potential biases, particularly the risk of overrepresentation of individuals with similar political views, as respondents are likely to refer to close contacts who may share similar ideologies. To mitigate this, we will place specific restrictions on the referral program. Each respondent will be limited to referring only one other individual, minimizing the potential for overly clustered referrals. Additionally, we will require respondents to identify their relationship with each referral, helping us monitor homogeneity in our responses. By balancing the benefits of snowball sampling with these restrictions, we aim to expand the reach of our survey into difficult to reach demographics without compromising the representativeness of the sample.
+However, using snowball sampling in an election survey introduces potential biases, particularly the risk of over representation of individuals with similar political views, as respondents are likely to refer to close contacts who may share similar ideologies. To mitigate this, we will place specific restrictions on the referral program. Each respondent will be limited to referring only one other individual, minimizing the potential for overly clustered referrals. Additionally, we will require respondents to identify their relationship with each referral, helping us monitor homogeneity in our responses. By balancing the benefits of snowball sampling with these restrictions, we aim to expand the reach of our survey into difficult to reach demographics without compromising the representativeness of the sample.
 
 
 
 # Additional data details
 
 # Model details {#sec-model-details}
-```{r}
-data_filtered <- read_csv(here::here("data/02-analysis_data/model_data.csv"))
-data_filtered <- data_filtered %>%
-  mutate(predicted_pct = predict(penn_model, newdata = ., type = "response"))
-summary(penn_model)
 
-ggplot(penn, aes(x = start_date_numeric, y = pct, color = candidate_name)) +
-  geom_point(aes(y = pct), alpha = 0.5) + 
-  geom_line(aes(y = predicted_pct), size = 1) + 
-  labs(title = "Pennsylvania - Predicted vs True",
-       x = "Date",
-       y = "Rate of support") +
-  theme_minimal() +
-  scale_y_continuous(labels = scales::percent_format())
-
-
-
-```
 
 
 ## Posterior predictive check
