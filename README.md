@@ -1,8 +1,8 @@
-# president-polls
+# Forecasting the 2024 U.S Presidential Election Through Probit Regression Anaylsis and Bayesian Modelling
 
 ## Overview
 
-The 2024 U.S. presidential election is shaping up to be a highly competitive race, with polling data playing a crucial role in gauging public sentiment and forecasting the potential outcome. This paper aims to build a predictive model using a poll-of-polls approach, aggregating data from multiple pollsters to forecast the winner of the upcoming election.
+The 2024 Presidential Election is shaping up to be a highly competitive race between candidates Donald Trump and Kamala Harris. The purpose of this repo is to using linear models to forecast the outcome of this race and provides a comprehensive overview of the sampling methodologies pollsters such as New York Times and Siena College employs. 
 
 
 ## File Structure
