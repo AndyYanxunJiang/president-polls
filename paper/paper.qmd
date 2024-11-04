@@ -27,7 +27,7 @@ library(scales)
 library(arrow)
 library(bayesplot)
 library(rstanarm)
-
+data_filtered <- read.csv(here::here("data/02-analysis_data/model_data.csv"))
 data <- read_parquet(here::here("data/02-analysis_data/analysis_data.parquet"))
 ```
 
@@ -218,7 +218,7 @@ ggplot(data_diff, aes(x = reorder(state, diff_pct), y = diff_pct, fill = diff_pc
 ```
 
 ## Swing State Polling Prediction Model
-@fig-4 shows the trend of support rate changes for each candidate before the upcoming election, as well as the model's predicted values for the next 20 days.
+@fig-4 shows the trend of support rate changes for each candidate before the upcoming election, as well as the model's predicted values for the next 20 days.We predicts that Donald Trump may win based on our model.
 ```{r}
 #| label: fig-4
 #| fig-cap: "Swing State Polling Prediction Model"
@@ -227,22 +227,22 @@ ggplot(data_diff, aes(x = reorder(state, diff_pct), y = diff_pct, fill = diff_pc
 #| message: false
 
 invisible(Sys.setlocale("LC_TIME", "en_US"))
-data_filtered <- read_parquet(here::here("data/02-analysis_data/model_data.parquet"))
+model_data <- read_csv(here::here("data/02-analysis_data/model_data.csv"))
 model <- readRDS(here::here("models/model.rds"))
-data_filtered <- data_filtered %>%
-  mutate(predicted_pct = predict(model, newdata = ., type = "response"))
 
-last_date <- max(data_filtered$end_date, na.rm = TRUE)
+model_data <- model_data %>%
+  mutate(predicted_pct = predict(model, newdata = ., type = "response"))
+last_date <- max(model_data$end_date, na.rm = TRUE)
 new_dates <- seq.Date(from = last_date + 1, by = "day", length.out = 20)
 new_data <- expand.grid(
   end_date = new_dates,
-  candidate_name = unique(data_filtered$candidate_name)
+  candidate_name = unique(model_data$candidate_name)
 )
 new_data <- new_data %>%
   mutate(
     end_date_numeric = as.numeric(end_date), 
   ) %>% mutate(predicted_pct = predict(model, newdata = ., type = "response"))
-all_data <- bind_rows(data_filtered, new_data)
+all_data <- bind_rows(model_data, new_data)
 
 ggplot(all_data, aes(x = end_date, y = pct, color = candidate_name)) +
   geom_point(aes(y = average_pct/100), alpha = 0.5) + 
@@ -290,11 +290,6 @@ The poll targets registered voters in the United States, with a particular focus
 The poll relies on random digit dialing to reach voters, predominantly via cell phones. While landlines are also called, the dominance of cellphone usage aligns with contemporary communication trends. This results in their rendition of random sampling, which contributes to the external validity of data. However, though the sample was selected randomly, reaching voters by phone has become more difficult due to low response rates requiring many attempts to secure responses from certain individuals (response rates are as  low as 2% at NYC). Despite this, the phone methodology is still seen as effective for its ability to quickly reach a diverse voter pool across various states as well as seen as the golden standard for polling. Although this can be seen as random sampling, the concern of low response rates and reliance on dialing to reach voters raises concerns of selection bias. There are questions as to whether a certain demographic will be more responsive to being reached through a cell phone. Moreover, voters that are reached over the phone may feel the urge to provide more ‘socially desirable’ responses that are not reflective of their true opinions. 
 With a response rate of 2%, there is valid concern over non-response bias underrepresenting certain demographics. The poll addresses non-response through a combination of front-end sampling adjustments (calling harder-to-reach voters) and post-survey weighting. Weighting is applied to ensure that the final sample aligns with the demographic and political composition of the electorate, based on voter file data. Non-response bias is a persistent challenge, and even though weighting helps, it's impossible to be certain that respondents are fully representative of those who do not respond. Experiments with alternative methods, such as mail surveys with incentives of cash vouchers have shown to increase response rate up to 30% (New York Times). 
 
-
-	
-
-
-
 # Sampling Approach: Stratified Sampling
 
 ##  Methodology
@@ -306,24 +301,6 @@ Stratified sampling offers the advantage of higher precision in representing the
 ## Challenges and Trade-offs
 
 Although stratified sampling improves representativeness, it presents certain challenges in execution. First, identifying and reaching a sufficient number of respondents from harder-to-reach groups (such as young voters, minority populations, and those without reliable phone access) can be difficult, especially given the 2% response rate. To counterbalance the low response rates, the poll requires multiple call attempts and careful post-survey weighting to adjust for any potential underrepresentation. Additionally, while phone polling offers broad geographic reach and a standardized mode of data collection, it limits the sample to voters with phone access who are willing to participate in phone interviews, potentially introducing selection bias if certain demographics are less reachable by phone.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # Idealized Methodology
 
@@ -407,26 +384,58 @@ https://docs.google.com/forms/d/117wC8f1rBW_bd5glEdiR-7823-02A3HiD5EzQuT1GVw/edi
 
 # Additional data details
 
+\newpage
+
 # Model details {#sec-model-details}
-
-
 
 ## Posterior predictive check
 
+In @fig-ppcheckandposteriorvsprior-1 we implement a posterior predictive check. This shows that the posterior predictive density closely follows the observed data density. Discrepancies between the two suggest that the model may be missing some aspect of the data structure or variability, which could guide potential model adjustments or refinement.
+
+In @fig-ppcheckandposteriorvsprior-2 we compare the posterior with the prior. This shows the prior for each parameter is centered around zero, but the posterior shows more precise estimates for each candidate and the date variable, reflecting the data's influence. Also, the posterior narrowing suggests that the model successfully extracted information from the data, reducing uncertainty around parameter estimates compared to the prior.
+model_data <- read_parquet(here::here("data/02-analysis_data/model_data.parquet"))
 
 ```{r}
-posterior_predictions <- posterior_predict(model, draws = 100)
-ppc_dens_overlay(y = data_filtered$average_pct/100, yrep = posterior_predictions) +
-  labs(title = "Posterior Predictive Check",
-       x = "Rate of support",
-       y = "Density")
+#| eval: true
+#| echo: false
+#| message: false
+#| warning: false
+#| label: fig-ppcheckandposteriorvsprior
+#| layout-ncol: 2
+#| fig-cap: "Examining how the model fits, and is affected by, the data"
+#| fig-subcap: ["Posterior prediction check", "Comparing the posterior with the prior"]
+pp_check(model) +
+  theme_classic() +
+  theme(legend.position = "bottom")
+
+posterior_vs_prior(model) +
+  theme_minimal() +
+  scale_color_brewer(palette = "Set1") +
+  theme(legend.position = "bottom") +
+  coord_flip()
+
 ```
 
 ## Diagnostics
 
 
-```{r}
+@fig-stanareyouokay-1 is a trace plot. It shows chain mixing, stationarity and no drifting. This suggests that the model's MCMC sampling achieved convergence for each parameter. The chains are well-mixed and stationary, providing confidence in the posterior estimates derived from this sampling process. 
 
+@fig-stanareyouokay-2 is a Rhat plot. It shows the Rhat values for the parameters estimated in the model. Values close to 1 indicate that the chains have mixed well and the posterior distribution has been adequately explored. This suggests that the model has converged successfully and the estimates are reliable for inference.
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+#| label: fig-stanareyouokay
+#| fig-cap: "Checking the convergence of the MCMC algorithm"
+#| fig-subcap: ["Trace plot", "Rhat plot"]
+#| layout-ncol: 2
+
+plot(model, "trace")
+
+plot(model, "rhat")
 ```
 
 \newpage
