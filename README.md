@@ -2,14 +2,14 @@
 
 ## Overview
 
-The 2024 Presidential Election is shaping up to be a highly competitive race between candidates Donald Trump and Kamala Harris. The purpose of this repo is to using linear models to forecast the outcome of this race and provides a comprehensive overview of the sampling methodologies pollsters such as New York Times and Siena College employs. 
+The 2024 Presidential Election is shaping up to be a highly competitive race between candidates Donald Trump and Kamala Harris. The purpose of this repo is to use linear and Bayessian modelling to forecast the outcome of this election and provide a comprehensive overview of the sampling methodologies pollsters such as New York Times and Siena College employs as well as an idealized methodology for sampling poll data with a budget of $100,000. 
 
 
 ## File Structure
 
 The repo is structured as:
 
--   `data/raw_data` contains the raw data as obtained from the website Fivethirtyeight.
+-   `data/raw_data` contains the raw data as obtained from the website Fivethirtyeight. 
 -   `data/analysis_data` contains the cleaned dataset that was constructed.
 -   `model` contains fitted models. 
 -   `other` contains relevant literature, details about LLM chat interactions, and sketches.
