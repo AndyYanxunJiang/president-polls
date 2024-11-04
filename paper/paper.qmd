@@ -421,6 +421,9 @@ https://docs.google.com/forms/d/117wC8f1rBW_bd5glEdiR-7823-02A3HiD5EzQuT1GVw/edi
 
 
 ```{r}
+#| echo: false
+#| warning: false
+#| message: false
 posterior_predictions <- posterior_predict(model, draws = 100)
 ppc_dens_overlay(y = data_filtered$average_pct/100, yrep = posterior_predictions) +
   labs(title = "Posterior Predictive Check",
