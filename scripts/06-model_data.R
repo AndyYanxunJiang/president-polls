@@ -13,10 +13,7 @@ library(tidyverse)
 library(rstanarm)
 
 #### Read data ####
-data_filtered <- read_parquet(here::here("data/02-analysis_data/model_data.parquet"))
-data_filtered <- data_filtered %>% mutate(pct = average_pct / 100)
-
-
+data_filtered <- read_csv(here::here("data/02-analysis_data/model_data.csv"))
 ### Model data ####
 model <- 
   stan_glm(
