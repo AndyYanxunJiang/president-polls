@@ -45,7 +45,13 @@ The analysis will further explore the geographic distribution of support across 
 
 ## Overview
 
-We use the statistical programming language R [@citeR].
+Our analysis was conducted using R [@citeR] along with several supporting packages. We used the **tidyverse** for data manipulation [@tidyverse], **readr** for data import [@readr], and **here** for file management [@here]. 
+
+Dynamic reporting was handled with **knitr** [@knitr], while **kableExtra** allowed for enhanced table formatting [@kableExtra]. We used **scales** to adjust visualization scales [@scales], and **arrow** for efficient data processing [@arrow].
+
+For Bayesian modeling and visualization, we used **bayesplot** [@bayesplot] and **rstanarm** [@rstanarm].
+
+
 
 ## Measurement
 	
