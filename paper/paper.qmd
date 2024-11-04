@@ -96,7 +96,7 @@ Candidate name:
 This categorical variable distinguishes between the main candidates: Donald Trump and Kamala Harris. By including candidate-specific factors, the model can account for differences in support levels attributed to individual characteristics or public perception of each candidate. Additionally, this variable enables the model to gauge the relative standing between the two contenders in different states and overall.
 
 # Model
-In this analysis, we utilize a logistic regression model to predict polling percentages for the 2024 U.S. presidential candidates over time. In order to focus on states with historical significance in elections. The model is specified as a Generalized Linear Model (GLM) with a binomial family and a logit link function, appropriate for modeling binary or proportion-based outcomes.
+In this analysis, we utilize a logistic regression model to predict polling percentages for the 2024 U.S. presidential candidates over time. In order to focus on states with historical significance in elections. The model is specified as a Generalized Linear Model (GLM) with a binomial family and a logit link function, appropriate for modeling binary or proportion-based outcomes.  The United State's electoral college system operates under a winner takes all votes mechanic where all the electoral votes are allocated to whichever candidate receives the larger share of votes within that state. Therefore, our model considers states outside the realm of swing states to have allocated a certain number of electoral votes to each candidate wherein Donald Trump has 219 seats and Kamala Harrris has  226. This initial distribution of electoral votes is provided by New York Times' tracking of swing states [@boyce_swing_states]. Our model will produce projected shares in each state from which the electoral votes of swing states will be allocated to each  candidate to predict the winner of the presidential election.
 
 
 ## Model set-up
@@ -304,13 +304,13 @@ This analysis is limited to examining current polling data in swing states and d
 Our analysis and prediction utilizes data collected by a single pollster and it is important to scrutinize the sampling methodology behind the sampling methods used to determine the extent of the external validity of our predictions. Primarily, the data gathered by New York Times was done so with the collaboration with Sienna College through live-interviewers reaching voters by telephone. 
 
 ## Target Population and Sampling Frame
-The poll targets registered voters in the United States, with a particular focus on voters in swing states for presidential races. Consequently, the target population is registered voters of the United States of America and the sampling frame is the voter file, a national list of registered voters from which NYC employs random sampling to create their pollsters @nyt_poll. This voter file contains information on more than 200 million Americans that includes information about their party affiliation, voting history, and  basic demographic information. From this sampling frame, respondents are randomly selected while balancing key demographic and political characteristics through both front-end sampling and post-survey weighting pursuant to appropriate representation of the entire target population @nyt_poll.
+The poll targets registered voters in the United States, with a particular focus on voters in swing states for presidential races. Consequently, the target population is registered voters of the United States of America and the sampling frame is the voter file, a national list of registered voters from which NYC employs random sampling to create their pollsters [@nyt_poll]. This voter file contains information on more than 200 million Americans that includes information about their party affiliation, voting history, and  basic demographic information. From this sampling frame, respondents are randomly selected while balancing key demographic and political characteristics through both front-end sampling and post-survey weighting pursuant to appropriate representation of the entire target population [@nyt_poll].
 
 ## Recruitment Methods
-The poll relies on random digit dialing to reach voters, predominantly via cell phones. While landlines are also called, the dominance of cellphone usage aligns with contemporary communication trends. This results in their rendition of random sampling, which contributes to the external validity of data. However, reaching voters by phone has become more difficult due to low response rates requiring many attempts to secure responses from certain individuals (response rates are as  low as 2% at NYC). In fact, according to an article by Emerson College, telephone polling has become entirely obsolete @kimball_polling. Despite this, the phone methodology is still seen as effective for its ability to quickly reach a diverse voter pool across various states as well as seen as the golden standard for polling. Although this can be seen as random sampling, the concern of low response rates and reliance on dialing to reach voters raises concerns of selection bias. There are questions as to whether a certain demographic will be more responsive to being reached through a cell phone. Moreover, voters that are reached over the phone may feel the urge to provide more ‘socially desirable’ responses that are not reflective of their true opinions. 
+The poll relies on random digit dialing to reach voters, predominantly via cell phones. While landlines are also called, the dominance of cellphone usage aligns with contemporary communication trends. This results in their rendition of random sampling, which contributes to the external validity of data. However, reaching voters by phone has become more difficult due to low response rates requiring many attempts to secure responses from certain individuals (response rates are as  low as 2% at NYC). In fact, according to an article by Emerson College, telephone polling has become entirely obsolete [@kimball_polling]. Despite this, the phone methodology is still seen as effective for its ability to quickly reach a diverse voter pool across various states as well as seen as the golden standard for polling. Although this can be seen as random sampling, the concern of low response rates and reliance on dialing to reach voters raises concerns of selection bias. There are questions as to whether a certain demographic will be more responsive to being reached through a cell phone. Moreover, voters that are reached over the phone may feel the urge to provide more ‘socially desirable’ responses that are not reflective of their true opinions. 
 
 ## Non-Response Remedies
-With a response rate of 2%, there is valid concern over non-response bias underrepresenting certain demographics. The poll addresses non-response through a combination of front-end sampling adjustments (calling harder-to-reach voters) and post-survey weighting. Weighting is applied to ensure that the final sample aligns with the demographic and political composition of the electorate, based on voter file data. Non-response bias is a persistent challenge, and even though weighting helps, it's impossible to be certain that respondents are fully representative of those who do not respond. Experiments with alternative methods, such as mail surveys with incentives of cash vouchers have shown to increase response rate up to 30% @nyt_poll. 
+With a response rate of 2%, there is valid concern over non-response bias underrepresenting certain demographics. The poll addresses non-response through a combination of front-end sampling adjustments (calling harder-to-reach voters) and post-survey weighting. Weighting is applied to ensure that the final sample aligns with the demographic and political composition of the electorate, based on voter file data. Non-response bias is a persistent challenge, and even though weighting helps, it's impossible to be certain that respondents are fully representative of those who do not respond. Experiments with alternative methods, such as mail surveys with incentives of cash vouchers have shown to increase response rate up to 30% [@nyt_poll]. 
 
 # Sampling Approach: Stratified Sampling
 
@@ -318,11 +318,11 @@ With a response rate of 2%, there is valid concern over non-response bias underr
 The Times/Siena Poll employs a stratified random sampling approach to ensure that the sample accurately represents the diversity within the target population of registered voters in the United States. This method involves dividing the population into distinct subgroups, or “strata,” based on key characteristics such as state, age, gender, race, education level, and political affiliation. For example, in presidential elections, particular emphasis is placed on voters from swing states like Arizona, North Carolina, Georgia, and Pennsylvania. By focusing on these battleground states, the poll aims to capture the opinions of voters who are most likely to influence the election outcome. Once the strata are established, respondents are randomly selected within each group, ensuring that all demographic groups are appropriately represented in proportion to their actual distribution within the electorate. Furthermore, post-survey weighting is employed to more closely resemble this distribution.
 
 ## Advantages
-Stratified sampling offers the advantage of higher precision in representing the population's diversity, as each subgroup is proportionally represented. By breaking down the sample into distinct groups, the Times/Siena Poll can adjust for demographic variations between states or voter groups, which is particularly useful in a diverse electorate. This approach helps to minimize sampling error by ensuring that all significant voter subgroups are included, thus increasing the reliability of the poll’s predictions. It is standard practice for them to sample 1,000 respondents for their polls. Using stratified sampling to have this sample size closely resemble that of the entire target population cuts costs and provides efficient real-time data. 
+Stratified sampling offers the advantage of higher precision in representing the population's diversity, as each subgroup is proportionally represented. By breaking down the sample into distinct groups, the Times/Siena Poll can adjust for demographic variations between states or voter groups, which is particularly useful in a diverse electorate. This approach helps to minimize sampling error by ensuring that all significant voter subgroups are included, thus increasing the reliability of the poll’s predictions. It is standard practice for them to sample 1,000 respondents for their polls [@nytpoll]. Using stratified sampling to have this sample size closely resemble that of the entire target population cuts costs and provides efficient real-time data. 
 
 ## Stratified Sampling over Random Sampling
 
-If the methodology randomly sampled from the target population without regard for the distribution of demographics in the state, significant increases to the sample sizes have to be made. Random sampling will have largely less precision in representing the distribution of different demographics within a given state unless a large enough sample size were to be drawn. Although it is ideal to have probability based sampling increasingly resemble the demographic distribution quota with growing sample sizes, it is unfeasible to conduct such a large scale poll as this approach would encounter a limitation of resources. With declining response rates and the difficulty of reaching voters, New York Times/Siena's nonprobability sampling is a more realistic and efficient method of polling than probability sampling is @tellingstories. As such, the stratified sampling approach allows New York Times/Siena to represent the entire target population with a sample size of 1,000. 
+If the methodology randomly sampled from the target population without regard for the distribution of demographics in the state, significant increases to the sample sizes have to be made. Random sampling will have largely less precision in representing the distribution of different demographics within a given state unless a large enough sample size were to be drawn. Although it is ideal to have probability based sampling increasingly resemble the demographic distribution quota with growing sample sizes, it is unfeasible to conduct such a large scale poll as this approach would encounter a limitation of resources. With declining response rates and the difficulty of reaching voters, New York Times/Siena's nonprobability sampling is a more realistic and efficient method of polling than probability sampling is [@tellingstories]. As such, the stratified sampling approach allows New York Times/Siena to represent the entire target population with a sample size of 1,000. 
 
 ## Challenges and Trade-offs
 
@@ -333,11 +333,11 @@ Although stratified sampling improves representativeness, it presents certain ch
 
 ### Strengths
 
-The Times/Siena Poll’s approach to questionnaire design reflects a careful effort to craft unbiased, relevant, and inclusive questions. By tailoring questions to current events and topics of widespread interest, the poll aims to capture public sentiment on issues that directly affect voters' attitudes, such as economic conditions or recent political debates. This responsiveness to current events strengthens the poll's relevance and allows it to track shifts in opinion over time. The poll’s commitment to neutrality is a significant strength. Each question is designed to ensure that respondents, regardless of their political views, feel that their perspectives are fairly represented. The team behind the poll spends substantial time crafting response options to reflect a balanced spectrum of views, minimizing potential response bias and enhancing the questionnaire's reliability across different demographic and ideological groups @nyt_poll. Clarity is also a central focus in their questionnaire development. The team emphasizes ensuring that each question is clear and unambiguous, minimizing the risk of misinterpretation. This dedication to straightforward, widely understandable questions improves the validity of responses, as it reduces the chance that respondents interpret questions differently based on background or knowledge level.
+The Times/Siena Poll’s approach to questionnaire design reflects a careful effort to craft unbiased, relevant, and inclusive questions. By tailoring questions to current events and topics of widespread interest, the poll aims to capture public sentiment on issues that directly affect voters' attitudes, such as economic conditions or recent political debates. This responsiveness to current events strengthens the poll's relevance and allows it to track shifts in opinion over time. The poll’s commitment to neutrality is a significant strength. Each question is designed to ensure that respondents, regardless of their political views, feel that their perspectives are fairly represented. The team behind the poll spends substantial time crafting response options to reflect a balanced spectrum of views, minimizing potential response bias and enhancing the questionnaire's reliability across different demographic and ideological groups [@nyt_poll]. Clarity is also a central focus in their questionnaire development. The team emphasizes ensuring that each question is clear and unambiguous, minimizing the risk of misinterpretation. This dedication to straightforward, widely understandable questions improves the validity of responses, as it reduces the chance that respondents interpret questions differently based on background or knowledge level.
 
 ### Limitations
 
-Despite the strengths of the Times/Siena Poll’s questionnaire design, there are some limitations. One notable concern is that, although the poll tries to avoid leading questions, any standardized questionnaire may still unintentionally prime respondents or introduce subtle biases, especially when questions involve sensitive or polarizing topics. Although the pollster tries to avoid attrition bias by keeping each interview less than 15 minutes, in seeking to make questions clear and concise, the questionnaire may not capture the full nuance of voter opinions, especially on multifaceted issues like economic policy or social justice. While the poll strives to capture real views without introducing new ideas, respondents are still prone to a social desirability bias. This is especially possible in phone interviews, where respondents may be more inclined to provide answers they perceive as socially acceptable rather than expressing their true opinions. Although the design aims to be fair, the influence of an interviewer’s presence may subtly affect responses @psychology_survey_response.
+Despite the strengths of the Times/Siena Poll’s questionnaire design, there are some limitations. One notable concern is that, although the poll tries to avoid leading questions, any standardized questionnaire may still unintentionally prime respondents or introduce subtle biases, especially when questions involve sensitive or polarizing topics. Although the pollster tries to avoid attrition bias by keeping each interview less than 15 minutes, in seeking to make questions clear and concise, the questionnaire may not capture the full nuance of voter opinions, especially on multifaceted issues like economic policy or social justice. While the poll strives to capture real views without introducing new ideas, respondents are still prone to a social desirability bias. This is especially possible in phone interviews, where respondents may be more inclined to provide answers they perceive as socially acceptable rather than expressing their true opinions. Although the design aims to be fair, the influence of an interviewer’s presence may subtly affect responses [@psychology_survey_response].
 
 \newpage
 
@@ -351,12 +351,12 @@ Nation-level Popular Vote is irrelevant in our methodology since president elect
 
 ##  Assumption 2:  
 
-Based on historical and polling data, some states’ electoral votes are predetermined as either Democrat or Republican. Therefore, it is more prudent to shift focus over to swing states where outcomes are uncertain. This assumption is accompanied with the challenge of determining what states qualify as “swing states”. However, on this issue, there is consensus on which states qualify as swing states. Pollsters such as  New York Times have their metric for determining which  states are 'battleground states'. As of 2024, our methodology should direct all our resources to acquiring voting data on the following states (New York Times). This assumption results in each presidential candidate starting off with a set number of electoral votes.
+Based on historical and polling data, some states’ electoral votes are predetermined as either Democrat or Republican. Therefore, it is more prudent to shift focus over to swing states where outcomes are uncertain. This assumption is accompanied with the challenge of determining what states qualify as “swing states”. However, on this issue, there is consensus on which states qualify as swing states. Pollsters such as  New York Times have their metric for determining which  states are 'battleground states'. As of 2024, our methodology should direct all our resources to acquiring voting data on the states discussed in the swing states section. This assumption results in each presidential candidate starting off with a set number of electoral votes.
 
 
 ##  Swing States
 
-According to 2024 polling data conducted by New York Times, the swing states are determined to be the following @boyce_swing_states:
+According to 2024 polling data conducted by New York Times, the swing states are determined to be the following [@boyce_swing_states]:
 
 Pennsylvania
 Georgia
@@ -379,7 +379,7 @@ Therefore, it is not feasible for our methodology to employ telephone dialing as
 
 ### Weighting Adjustments
 	
-Although online panels offer an imperfect solution to the limited resources our team will work with, there are remedies that can address underrepresentation brought by selection bias. As NYC and Siena College does, post-survey weighting can help us represent our target population more accurately. This is an effective way to adjust our sample based on demographic data and historical turnout patterns within each state. By weighting responses to mirror actual voter demographics from a particular state, the survey results can approximate a more realistic projection of the electorate. These weighting adjustments help to maintain the integrity of our sample, closely resembling the target population of a state. 
+Although online panels offer an imperfect solution to the limited resources our team will work with, there are remedies that can address underrepresentation brought by selection bias. As with NYC and Siena College, post-survey weighting can help us represent our target population more accurately. This is an effective way to adjust our sample based on demographic data and historical turnout patterns within each state. By weighting responses to mirror actual voter demographics from a particular state, the survey results can approximate a more realistic projection of the electorate. These weighting adjustments help to maintain the integrity of our sample, closely resembling the target population of a state. 
 	
 ### Screening for Likely Voters
 
@@ -409,7 +409,7 @@ To capture a meaningful sample for predicting election results, we target respon
 The lottery-style incentive, with a $5,000 voucher offered to one lucky respondent, serves as an appealing motivator designed to increase participation. We will advertise the survey on websites, forums, and marketplaces that have high traffic within our target states. Examples include social media channels, local news sites, and state-specific online communities. Additionally, we may utilize geo-targeted ads on platforms like Google and Facebook to directly reach residents of these swing states, optimizing our budget by focusing on the digital spaces our target demographic frequents. A significant portion of the budget will thus be allocated to these state-specific online advertisements, which not only promote the survey but also help ensure that respondents fit our target profile.
 
 ###   Referral Mechanics
-To further broaden our reach without exponentially increasing advertising costs, we incorporate a referral system that rewards respondents for inviting others to complete the survey. Each referral allows the original respondent to gain an additional entry in the lottery, increasing their chances of winning. This referral incentive taps into snowball sampling, where respondents refer people within their network to participate, expanding our pool of respondents organically.
+To further broaden our reach without exponentially increasing advertising costs, we incorporate a referral system that rewards respondents for inviting others to complete the survey [@tellingstories]. Each referral allows the original respondent to gain an additional entry in the lottery, increasing their chances of winning. This referral incentive taps into snowball sampling, where respondents refer people within their network to participate, expanding our pool of respondents organically.
 However, using snowball sampling in an election survey introduces potential biases, particularly the risk of overrepresentation of individuals with similar political views, as respondents are likely to refer to close contacts who may share similar ideologies. To mitigate this, we will place specific restrictions on the referral program. Each respondent will be limited to referring only one other individual, minimizing the potential for overly clustered referrals. Additionally, we will require respondents to identify their relationship with each referral, helping us monitor homogeneity in our responses. By balancing the benefits of snowball sampling with these restrictions, we aim to expand the reach of our survey into difficult to reach demographics without compromising the representativeness of the sample.
 
 # Budget Allocation
@@ -424,13 +424,14 @@ However, using snowball sampling in an election survey introduces potential bias
 
 https://docs.google.com/forms/d/117wC8f1rBW_bd5glEdiR-7823-02A3HiD5EzQuT1GVw/edit
 
-# Structure
 
-## Preamble
+# Preamble
 
-Title: 2024 Presidential Election Poll Data
+## Title: 2024 Presidential Election Poll Data
 
-Introduction: Thank you for your participation in our $5,000 giveaway program. 
+## Introduction: 
+
+Thank you for your participation in our $5,000 giveaway program. 
 
 For entry, please complete the survey in its entirety below. Please be informed that your answers are strictly confidential and will, under no circumstances, be shared with any party, group, or persons of affiliation. 
 
@@ -443,93 +444,92 @@ Finally, we wish to clarify that this survey is conducted purely for research pu
 
   
 
-Referral Code (please ignore if inapplicable)
+## Referral Code (please ignore if inapplicable)
 
-If you have entered a referral code above, please indicate the relationship with the referee from the best choice below.
-Friend
-Associate
-Relative
-Other…
+## If you have entered a referral code above, please indicate the relationship with the referee from the best choice below.
+	Friend
+	Associate
+	Relative
+	Other…
 
-## Eligibility
-Do you meet your state's residency requirements?
-Yes
-No (End Survey)
-Please select "N/A" from the options below if you reside in North Dakota. 
-Which of the following best describes you?
-I am registered to vote
-I am not registered to vote
-I plan to register
-N/A
-Full Name (For identification of $5,000 cash winner)
-From which state will you be vote for the next president of the United States of America?
-Where can we reach you when we announce the winner?
-E-mail
-Telephone
-Other…
-Contact information
-**We will not use this for any other purpose than to announce winners. It will only be used to reach our lucky winner for instructions on receiving the cash prize.
-Which of the following age groups best describes you?
-18-25
-26-31
-32-40
-41-50
-51-60
-61-80
-81-125
-Under 18
-Which of the following best describes you?
-American Indian or Alaskan Native
-Asian
-African American
-Hispanic or Latino
-Native Hawaiian or Pacific Islander
-White
-Middle Eastern or North African
-Other…
-What is your gender?
-Male
-Female
-Prefer not to say
-Other…
-Which of the following situations best describe you?
-I did not vote in the 2020 presidential election
-I planned to vote but wasn’t able to
-I voted in the 2020 presidential election
-How likely are you to vote in the upcoming election?
-Very unlikely
-1
-2
-3
-Very likely
-Have you attended a presidential rally or their campaigns this year?
-Yes
-No
-Only in the past
-On a scale of 1 to 3, how closely do you follow the presidential race?
-Not at all
-1
-2
-3
-4
-5
-Very closely
+# Eligibility
+## Do you meet your state's residency requirements?
+	Yes
+	No (End Survey)
+	Please select "N/A" from the options below if you reside in North Dakota. 
+## Which of the following best describes you?
+	I am registered to vote
+	I am not registered to vote
+	I plan to register
+	N/A
+## Full Name (For identification of $5,000 cash winner)
+	Please type your response
 
-## Party Affiliation
-Which party do you prefer a candidate to be chosen from?
-Democratic Party's candidate
-Republican Party's candidate
-Another Party's candidate
-In the 2020 presidential election, who did you vote for?  If you did not vote, who would you have voted for?
-Donald Trump
-Joe Biden
-Neither
-Other…
-If planning to vote, which presidential candidate are you planning to vote for?
-If you are abstaining, please select which candidate you feel more strongly about.
-Donald Trump
-Kamala Harris
-Other...
+## From which state will you be casting your ballot for the presidential candidate?
+	Please select a state from the dropdown menu below
+## Where can we reach you when we announce the winner?
+	E-mail
+	Telephone
+	Other…
+## Contact information **We will not use this for any other purpose than to announce winners. It will only be used to reach our lucky winner for instructions on receiving the cash prize.**
+	Please type your response
+## Which of the following age groups best describes you?
+	18-25
+	26-31
+	32-40
+	41-50
+	51-60
+	61-80
+	81-125
+	Under 18
+## Which of the following best describes you?
+	American Indian or Alaskan Native
+	Asian
+	African American
+	Hispanic or Latino
+	Native Hawaiian or Pacific Islander
+	White
+	Middle Eastern or North African
+	Other…
+## What is your gender?
+	Male
+	Female
+	Prefer not to say
+	Other…
+## Which of the following situations best describe you?
+	I did not vote in the 2020 presidential election
+	I planned to vote but wasn’t able to
+	I voted in the 2020 presidential election
+## How likely are you to vote in the upcoming election from a scale of 1 to 3? 1 is very unlikely and 3 is very likely.
+	
+	1
+	2
+	3
+## Have you attended a presidential rally or their campaigns this year?
+	Yes
+	No
+	Only in the past
+## On a scale of 1 to 3, how closely do you follow the presidential race? 1 is not at all and 5 is very closely.
+	1
+	2
+	3
+	4
+	5
+
+# Party Affiliation
+## Which party do you prefer a candidate to be chosen from?
+	Democratic Party's candidate
+	Republican Party's candidate
+	Another Party's candidate
+## In the 2020 presidential election, who did you vote for?  If you did not vote, who would you have voted for?
+	Donald Trump
+	Joe Biden
+	Neither
+	Other…
+## If planning to vote, which presidential candidate are you planning to vote for? If you are abstaining, please select which candidate you feel more strongly about.
+	Donald Trump
+	Kamala Harris
+	Other...
 
 \newpage
 
