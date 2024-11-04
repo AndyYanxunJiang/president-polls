@@ -1,6 +1,6 @@
 ---
-title: "Forecast of the 2024 Presidential Election through the Lens of Turbulent Battleground States"
-subtitle: "Kamala Harris Leads the Race With 276 Electoral Votes With Support in 3 of 4 Swing States"
+title: "Forecast of the 2024 Presidential Election through the Lens of Turbulent Swing States"
+subtitle: "Kamala Harris Leads the Race With 276 Electoral Votes With Support in 4 of 7 Swing States"
 author: 
   - Andy Jiang
   - Onon Burentuvshin
@@ -35,11 +35,11 @@ data <- read_parquet(here::here("data/02-analysis_data/analysis_data.parquet"))
 
 
 # Introduction
-The 2024 U.S. presidential election is shaping up to be one of the most closely watched and potentially pivotal elections in recent history. As public opinion shifts and political dynamics evolve, polling data has emerged as a critical tool for forecasting the outcome and understanding voter preferences. Polls provide a snapshot of where candidates stand at various points in time, reflecting the impact of campaigns, debates, and major events. However, the reliability and accuracy of individual polls can vary significantly based on methodology, sample size, and other factors, making it necessary to aggregate multiple sources of data for a more robust prediction.
+As the 2024 U.S. presidential election approaches, the race between Kamala Harris and Donald Trump reflects a deeply polarized electorate, particularly within key swing states. In an era where public opinion is continually shaped by a fast-paced media cycle and partisan divides, accurate election forecasting has never been more challenging or crucial. Swing states, where voter sentiment can tip the balance of the electoral college, have garnered particular attention. Traditional polls provide a snapshot of public opinion, but varying methodologies and sample biases limit their reliability. Thus, this paper seeks to bridge the gap in predictive accuracy by employing an aggregated “poll-of-polls” approach focused on capturing nuanced insights into voter behavior within these pivotal states.
 
-This paper aims to forecast the outcome of the 2024 U.S. presidential election by leveraging a "poll-of-polls" approach, which aggregates data from various pollsters to create a more comprehensive picture of the race. Poll-of-polls approach allows us to access a wide breatdth of data that mitigates potential biases and errors committed by any single pollster. By focusing on high-quality polls and conducting a detailed analysis of the polling trends for the two main candidates, Donald Trump and Kamala Harris, we seek to uncover patterns in voter support and potential factors influencing shifts in public opinion. Additionally, the paper examines the methodologies of different pollsters to assess their strengths and weaknesses, which can help identify possible biases in the aggregated data.
+This study builds a predictive model using aggregated polling data from a selection of high-quality pollsters, each rated above a minimum quality threshold. By concentrating on states historically known to sway election outcomes—such as Pennsylvania, Wisconsin, Nevada, and Michigan—this approach aims to provide a more resilient forecast against individual poll biases. The model examines demographic influences, candidate-specific factors, and recent endorsements, all while accounting for each state’s unique political landscape. Additionally, this paper critiques traditional polling methods, suggesting improvements in sampling and weighting techniques to achieve greater external validity. Given the substantial financial and temporal constraints inherent in polling, we propose an idealized methodology to enhance forecasting accuracy within a manageable budget of $100,000.
 
-The analysis will further explore the geographic distribution of support across key swing states, providing insights into the electoral landscape. Thus, our estimand will be the share of voter support for each presidential candidate in each swing state. Finally, the paper presents an idealized polling methodology with a $100,000 budget, designed to improve the accuracy and representativeness of election forecasts. By integrating multiple data sources and critically evaluating polling practices, this study aims to contribute to the ongoing discussion on the role of polling in democratic processes and election forecasting.
+The results of this analysis reveal a tentative lead for Kamala Harris, projecting 276 electoral votes in her favor, slightly above the 270 required to win. While she holds narrow but consistent margins in four critical swing states, her lead remains precarious in light of late-stage shifts in voter sentiment. These results emphasize the importance of demographic factors—such as Harris’s appeal among younger and immigrant voters—as well as the impact of recent high-profile endorsements for Trump, which could mobilize his base. The analysis suggests that the 2024 election will likely hinge on voter turnout in these contested states, highlighting the significance of demographic-targeted campaigns and last-minute electoral efforts in shaping the final outcome.
 
 
 
@@ -299,49 +299,49 @@ This analysis is limited to examining current polling data in swing states and d
 
 \appendix
 
-# Appendix {-}
+# Appendix A{-}
 
-# Sampling Methodology Employed by New York Times and Siena College {#sec-Methodology}
+## Sampling Methodology Employed by New York Times and Siena College {#sec-Methodology}
 
 Our analysis and prediction utilizes data collected by a single pollster and it is important to scrutinize the sampling methodology behind the sampling methods used to determine the extent of the external validity of our predictions. Primarily, the data gathered by New York Times was done so with the collaboration with Sienna College through live-interviewers reaching voters by telephone. 
 
-## Target Population and Sampling Frame
+### Target Population and Sampling Frame
 The poll targets registered voters in the United States, with a particular focus on voters in swing states for presidential races. Consequently, the target population is registered voters of the United States of America and the sampling frame is the voter file, a national list of registered voters from which NYC employs random sampling to create their pollsters [@nytpoll]. This voter file contains information on more than 200 million Americans that includes information about their party affiliation, voting history, and  basic demographic information. From this sampling frame, respondents are randomly selected while balancing key demographic and political characteristics through both front-end sampling and post-survey weighting pursuant to appropriate representation of the entire target population [@nytpoll].
 
-## Recruitment Methods
+### Recruitment Methods
 The poll relies on random digit dialing to reach voters, predominantly via cell phones. While landlines are also called, the dominance of cellphone usage aligns with contemporary communication trends. This results in their rendition of random sampling, which contributes to the external validity of data. However, reaching voters by phone has become more difficult due to low response rates requiring many attempts to secure responses from certain individuals (response rates are as  low as 2% at NYC). In fact, according to an article by Emerson College, telephone polling has become entirely obsolete [@kimball_polling]. Despite this, the phone methodology is still seen as effective for its ability to quickly reach a diverse voter pool across various states as well as seen as the golden standard for polling. Although this can be seen as random sampling, the concern of low response rates and reliance on dialing to reach voters raises concerns of selection bias. There are questions as to whether a certain demographic will be more responsive to being reached through a cell phone. Moreover, voters that are reached over the phone may feel the urge to provide more ‘socially desirable’ responses that are not reflective of their true opinions. 
 
-## Non-Response Remedies
+### Non-Response Remedies
 With a response rate of 2%, there is valid concern over non-response bias underrepresenting certain demographics. The poll addresses non-response through a combination of front-end sampling adjustments (calling harder-to-reach voters) and post-survey weighting. Weighting is applied to ensure that the final sample aligns with the demographic and political composition of the electorate, based on voter file data. Non-response bias is a persistent challenge, and even though weighting helps, it's impossible to be certain that respondents are fully representative of those who do not respond. Experiments with alternative methods, such as mail surveys with incentives of cash vouchers have shown to increase response rate up to 30% [@nytpoll]. 
 
-# Sampling Approach: Stratified Sampling {#sec-stratified-sampling}
+## Sampling Approach: Stratified Sampling {#sec-stratified-sampling}
 
-##  Methodology
+###  Methodology
 The Times/Siena Poll employs a stratified random sampling approach to ensure that the sample accurately represents the diversity within the target population of registered voters in the United States. This method involves dividing the population into distinct subgroups, or “strata,” based on key characteristics such as state, age, gender, race, education level, and political affiliation. For example, in presidential elections, particular emphasis is placed on voters from swing states like Arizona, North Carolina, Georgia, and Pennsylvania. By focusing on these battleground states, the poll aims to capture the opinions of voters who are most likely to influence the election outcome. Once the strata are established, respondents are randomly selected within each group, ensuring that all demographic groups are appropriately represented in proportion to their actual distribution within the electorate. Furthermore, post-survey weighting is employed to more closely resemble this distribution.
 
-## Advantages
+### Advantages
 Stratified sampling offers the advantage of higher precision in representing the population's diversity, as each subgroup is proportionally represented. By breaking down the sample into distinct groups, the Times/Siena Poll can adjust for demographic variations between states or voter groups, which is particularly useful in a diverse electorate. This approach helps to minimize sampling error by ensuring that all significant voter subgroups are included, thus increasing the reliability of the poll’s predictions. It is standard practice for them to sample 1,000 respondents for their polls [@nytpoll]. Using stratified sampling to have this sample size closely resemble that of the entire target population cuts costs and provides efficient real-time data. 
 
-## Stratified Sampling over Random Sampling
+### Stratified Sampling over Random Sampling
 
 If the methodology randomly sampled from the target population without regard for the distribution of demographics in the state, significant increases to the sample sizes have to be made. Random sampling will have largely less precision in representing the distribution of different demographics within a given state unless a large enough sample size were to be drawn. Although it is ideal to have probability based sampling increasingly resemble the demographic distribution quota with growing sample sizes, it is unfeasible to conduct such a large scale poll as this approach would encounter a limitation of resources. With declining response rates and the difficulty of reaching voters, New York Times/Siena's nonprobability sampling is a more realistic and efficient method of polling than probability sampling is [@tellingstories]. As such, the stratified sampling approach allows New York Times/Siena to represent the entire target population with a sample size of 1,000. 
 
-## Challenges and Trade-offs
+### Challenges and Trade-offs
 
 Although stratified sampling improves representativeness, it presents certain challenges in execution. First, identifying and reaching a sufficient number of respondents from harder-to-reach groups (such as young voters, minority populations, and those without reliable phone access) can be difficult, especially given the 2% response rate. To counterbalance the low response rates, the poll requires multiple call attempts and careful post-survey weighting to adjust for any potential underrepresentation. Additionally, while phone polling offers broad geographic reach and a standardized mode of data collection, it limits the sample to voters with phone access who are willing to participate in phone interviews, potentially introducing selection bias if certain demographics are less reachable by phone. Although New York Times/Sienna College employs random digit dialing from their sampling frame, their rendition of sample recruitment requires them to sample individuals according to quotas, resulting in nonprobability sampling. 
 
 
-## Evaluation of Questionnaire Design in the Times/Siena Poll
+### Evaluation of Questionnaire Design in the Times/Siena Poll
 
-### Strengths
+#### Strengths
 
 The Times/Siena Poll’s approach to questionnaire design reflects a careful effort to craft unbiased, relevant, and inclusive questions. By tailoring questions to current events and topics of widespread interest, the poll aims to capture public sentiment on issues that directly affect voters' attitudes, such as economic conditions or recent political debates. This responsiveness to current events strengthens the poll's relevance and allows it to track shifts in opinion over time. The poll’s commitment to neutrality is a significant strength. Each question is designed to ensure that respondents, regardless of their political views, feel that their perspectives are fairly represented. The team behind the poll spends substantial time crafting response options to reflect a balanced spectrum of views, minimizing potential response bias and enhancing the questionnaire's reliability across different demographic and ideological groups [@nytpoll]. Clarity is also a central focus in their questionnaire development. The team emphasizes ensuring that each question is clear and unambiguous, minimizing the risk of misinterpretation. This dedication to straightforward, widely understandable questions improves the validity of responses, as it reduces the chance that respondents interpret questions differently based on background or knowledge level.
 
-### Limitations
+#### Limitations
 
 Despite the strengths of the Times/Siena Poll’s questionnaire design, there are some limitations. One notable concern is that, although the poll tries to avoid leading questions, any standardized questionnaire may still unintentionally prime respondents or introduce subtle biases, especially when questions involve sensitive or polarizing topics. Although the pollster tries to avoid attrition bias by keeping each interview less than 15 minutes, in seeking to make questions clear and concise, the questionnaire may not capture the full nuance of voter opinions, especially on multifaceted issues like economic policy or social justice. While the poll strives to capture real views without introducing new ideas, respondents are still prone to a social desirability bias. This is especially possible in phone interviews, where respondents may be more inclined to provide answers they perceive as socially acceptable rather than expressing their true opinions. Although the design aims to be fair, the influence of an interviewer’s presence may subtly affect responses [@psychology_survey_response].
 
-# Additional data details {#sec-additional_data_details}
+# Appendix B{-}
 
 Pursuant to accurately predicting the winner of the presidential election with the electoral college system, there are assumptions that need to be assessed. The United States of America’s electoral college system creates a special environment where votes in some states are disproportionately more influential than that of others and candidates are not elected based on popular vote, but on the majority of electoral votes they get. 
 
@@ -413,7 +413,7 @@ To further broaden our reach without exponentially increasing advertising costs,
 
 However, using snowball sampling in an election survey introduces potential biases, particularly the risk of overrepresentation of individuals with similar political views, as respondents are likely to refer to close contacts who may share similar ideologies. To mitigate this, we will place specific restrictions on the referral program. Each respondent will be limited to referring only one other individual, minimizing the potential for overly clustered referrals. Additionally, we will require respondents to identify their relationship with each referral, helping us monitor homogeneity in our responses. By balancing the benefits of snowball sampling with these restrictions, we aim to expand the reach of our survey into difficult to reach demographics without compromising the representativeness of the sample.
 
-# Budget Allocation
+## Budget Allocation
   Advertisements for sampling recruitment: $70,000
   Prize Pool for Incentive: $5,000
   Data Processing and Cleaning: $15,000
@@ -421,15 +421,15 @@ However, using snowball sampling in an election survey introduces potential bias
   Petty Cash: $5,000
   
   
-# Idealized Questionnaire and Survey
+## Idealized Questionnaire and Survey
 
 A copy of the PDF of our survey can be found in other/datasheet/Poll Survey - Google Forms.pdf
 
 \newpage
 
-# Model details {#sec-model-details}
+## Model details {#sec-model-details}
 
-## Posterior predictive check
+### Posterior predictive check
 
 In @fig-ppcheckandposteriorvsprior-1 we implement a posterior predictive check. This shows that the posterior predictive density closely follows the observed data density. Discrepancies between the two suggest that the model may be missing some aspect of the data structure or variability, which could guide potential model adjustments or refinement.
 
@@ -459,7 +459,7 @@ posterior_vs_prior(model) +
   coord_flip()
 ```
 
-## Diagnostics
+### Diagnostics
 
 @fig-stanareyouokay-1 is a trace plot. It shows chain mixing, stationarity and no drifting. This suggests that the model's MCMC sampling achieved convergence for each parameter. The chains are well-mixed and stationary, providing confidence in the posterior estimates derived from this sampling process. 
 
