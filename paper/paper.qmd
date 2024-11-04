@@ -18,14 +18,12 @@ bibliography: references.bib
 #| include: false
 #| warning: false
 #| message: false
-options(repos = c(CRAN = "https://cloud.r-project.org"))
 library(tidyverse)
 library(readr)
 library(here)
 library(knitr)
 library(kableExtra)
 library(scales)
-install.packages("arrow")
 library(arrow)
 library(bayesplot)
 library(rstanarm)
