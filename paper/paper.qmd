@@ -107,7 +107,6 @@ $$
 $$
 
 where:
-
 - $$p_i \ \text{represents the probability of support for candidate i at a specific date.}$$
 - $$\beta_0 \ \text{is the intercept, representing baseline support.}$$
 - $$\beta_1 \ \text{captures changes in support over time (date effect).}$$
@@ -330,9 +329,6 @@ Despite the strengths of the Times/Siena Poll’s questionnaire design, there ar
 \newpage
 
 # Appendix B {-}
-
->>>>>>> cadfff05ead6aebff23ab03f96847c7f519121a6
-# Idealized Methodology
 
 Pursuant to accurately predicting the winner of the presidential election with the electoral college system, there are assumptions that need to be assessed. The United States of America’s electoral college system creates a special environment where votes in some states are disproportionately more influential than that of others and candidates are not elected based on popular vote, but on the majority of electoral votes they get. 
 
