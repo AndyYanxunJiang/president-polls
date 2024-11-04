@@ -13,13 +13,21 @@ library(tidyverse)
 library(rstanarm)
 
 #### Read data ####
-data_filtered <- read_csv(here::here("data/02-analysis_data/model_data.csv"))
+data_filtered <- read_parquet(here::here("data/02-analysis_data/model_data.parquet"))
 data_filtered <- data_filtered %>% mutate(pct = average_pct / 100)
 
 
 ### Model data ####
-model <- glm(pct ~ end_date_numeric + candidate_name, data = data_filtered, 
-             family = binomial(link = "logit"))
+model <- 
+  stan_glm(
+    formula = pct ~ end_date_numeric + candidate_name, 
+    data = data_filtered, 
+    family = gaussian(),
+    prior = normal(location = 0, scale = 2.5, autoscale = TRUE),
+    prior_intercept = normal(location = 0, scale = 2.5, autoscale = TRUE),
+    prior_aux = exponential(rate = 1, autoscale = TRUE),
+    seed = 304
+    )
 summary(model)
 
 
