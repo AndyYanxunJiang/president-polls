@@ -42,9 +42,9 @@ The analysis will further explore the geographic distribution of support across 
 
 
 # Data {#sec-data}
+The data used in this paper was obtained from the FiveThirtyEight website [@Best2024], which aggregates polling data and other relevant indicators to track the U.S. election landscape. We accessed this data using custom web scraping tools and APIs provided by FiveThirtyEight. The dataset includes information on pollster, state, start and end dates of polls, sample size, population type (e.g., registered voters or likely voters), and party affiliation.
 
 ## Overview
-
 Our analysis was conducted using R [@citeR] along with several supporting packages. We used the **tidyverse** for data manipulation [@tidyverse], **readr** for data import [@readr], and **here** for file management [@here]. 
 
 Dynamic reporting was handled with **knitr** [@knitr], while **kableExtra** allowed for enhanced table formatting [@kableExtra]. We used **scales** to adjust visualization scales [@scales], and **arrow** for efficient data processing [@arrow].
@@ -52,47 +52,43 @@ Dynamic reporting was handled with **knitr** [@knitr], while **kableExtra** allo
 For Bayesian modeling and visualization, we used **bayesplot** [@bayesplot] and **rstanarm** [@rstanarm].
 
 
-
 ## Measurement
-	
-Some paragraphs about how we go from a phenomena in the world to an entry in the dataset.
+The FiveThirtyEight dataset is updated in real-time, providing the latest polling data for the 2024 U.S. presidential election. This dataset aggregates information from multiple reputable polling sources, applying adjustments to enhance reliability, such as weighting based on pollster quality and recency of data. These measures ensure that the dataset remains a dependable reflection of current voter sentiment and trends as Election Day approaches.
 
-## Outcome variables
+## Analysis Data
+The analysis dataset includes several key variables: State, Sample Size, Population Type (e.g., Registered Voters), Party Affiliation, Candidate Preference (Trump or Harris), and Pollster. These variables allow for an analysis of voter sentiment in specific swing states, with a focus on support levels between Donald Trump and Kamala Harris.
 
-Add graphs, tables and text. Use sub-sub-headings for each outcome variable or update the subheading to be singular.
+Certain variables, such as Question ID, Start Date, End Date, and Hypothetical Questions, were removed as they were not necessary for this analysis. Additionally, data on other candidates was excluded to concentrate solely on the Trump vs. Harris matchup, aligning with the focus on the most relevant contenders in the seven swing states: Pennsylvania, Georgia, North Carolina, Michigan, Arizona, Wisconsin, Nevada.
 
+@tbl-sample provides a random sample of the analysis dataset, displaying all relevant variables used for analysis.
 
 ```{r}
+#| label: tbl-sample
+#| tbl-cap: Random sample of 10 rows from the analysis data.
 #| echo: false
 #| warning: false
 #| message: false
 
-# Set seed for reproducibility
-set.seed(316)
+set.seed(311)
 
-# Sample 10 random observations from the filtered data with Trump and Harris
+# Sample 10 random observations from the filtered data with Trump and Harris, and remove unnecessary columns
 sample_data <- data %>%
   filter(candidate_name %in% c("Donald Trump", "Kamala Harris")) %>%
-  sample_n(10)
+  sample_n(10) %>%
+  select(-start_date, -end_date, -question_id, -hypothetical, -pct)
 
-# Display the sampled data as a table with smaller text and adjusted column spacing
+# Display the sampled data as a table with refined styling
 kable(sample_data, caption = "Sample of 10 Random Observations from the Analysis Data") %>%
-  kable_styling(font_size = 8, full_width = FALSE) %>%  # Set full_width to FALSE to center the table
-  column_spec(1:ncol(sample_data), width = "2cm")  # Adjust width as needed, here set to 2cm per column
-
-
-```
-
-
-```{r}
+  kable_styling(full_width = FALSE, position = "center") %>%  # Center the table in the PDF
+  column_spec(1, width = "3cm") %>%    # Adjust specific columns for better fit
+  column_spec(2, width = "2.5cm") %>%
+  column_spec(3, extra_css = "padding-left: -5px;") %>%  # Move sample_size column slightly to the left
+  column_spec(4:5, width = "1.5cm")    # Adjust remaining columns with less text
 
 ```
 
 
 ## Predictor variables
-
-
-
 
 
 
@@ -271,7 +267,9 @@ ggplot(all_data, aes(x = end_date, y = pct, color = candidate_name)) +
 Harris’s lead in several swing states may be influenced by her campaign’s appeal to key demographic groups, particularly immigrants. The Democratic platform has emphasized social and economic benefits for immigrant communities, which may have strengthened her base in states with significant immigrant populations. Policies that promise support for healthcare, education, and other public services are likely contributing to Harris’s appeal among these groups, solidifying her lead in states like Nevada and Michigan. This demographic support provides Harris with a strategic advantage, as these communities may play a crucial role in voter turnout and loyalty.
 
 ## Influence of Endorsements and High-Profile Backing
-Recently, high-profile figures like Elon Musk have publicly backed Trump, using their influence to mobilize support for his campaign. Musk’s endorsement may energize Trump’s voter base, especially among his followers and individuals interested in business and technology. This kind of visible support from influential figures could affect last-minute voter decisions, particularly in tightly contested states where Trump’s lead is slim. If Musk’s endorsement translates into increased campaign funding or social media influence, it could bolster Trump’s standing in swing states where the margin remains close, potentially altering the final outcome on November 5th.
+Recently, high-profile figures like Elon Musk have publicly thrown their support behind Trump, leveraging their influence to rally support for his campaign [@Zahn2024]. Musk’s endorsement could invigorate Trump’s base, especially among Musk’s followers and those engaged in the fields of business and technology. This visible backing from such influential figures has the potential to sway undecided voters and influence last-minute decisions, particularly in swing states where Trump’s lead remains narrow.
+
+Musk’s endorsement might not only energize Trump’s existing supporters but could also lead to a boost in campaign funds and social media engagement, further strengthening Trump’s position. In closely contested states, where a few thousand votes can make a significant difference, this level of backing from a high-profile figure could be crucial. If Musk’s involvement draws in additional resources and amplifies Trump’s visibility, it may ultimately impact the final outcome of the election on November 5th.
 
 ## Limitations of the Analysis: Focus on Swing States
 While the analysis focuses on key swing states, it does not consider the broader national picture, which includes states with clear, one-sided advantages for either candidate. This narrowed focus on swing states provides insights into swing areas but does not give a complete picture of the national landscape. Therefore, while Harris appears to have an edge in these swing states, it is unclear whether she is leading overall. The situation in solidly red or blue states could still shift the electoral balance, meaning Trump could potentially gain ground through strong performances in traditionally Republican states.
