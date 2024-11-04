@@ -12,8 +12,6 @@ abstract: "The 2024 U.S. presidential election is shaping up to be a highly swin
 format: pdf
 number-sections: true
 bibliography: references.bib
-header-includes:
-  - \usepackage{pdfpages}
 ---
 
 ```{r}
@@ -41,7 +39,9 @@ This study builds a predictive model using aggregated polling data from a select
 
 The results of this analysis reveal a tentative lead for Kamala Harris, projecting 276 electoral votes in her favor, slightly above the 270 required to win. While she holds narrow but consistent margins in four critical swing states, her lead remains precarious in light of late-stage shifts in voter sentiment. These results emphasize the importance of demographic factors—such as Harris’s appeal among younger and immigrant voters—as well as the impact of recent high-profile endorsements for Trump, which could mobilize his base. The analysis suggests that the 2024 election will likely hinge on voter turnout in these contested states, highlighting the significance of demographic-targeted campaigns and last-minute electoral efforts in shaping the final outcome.
 
+In the **Data** section (see [Section 2](#sec-data)), we describe the sources and processing steps involved in preparing our dataset. Following that, the **Model** section (see [Section 3](#sec-model)) outlines the statistical model used to analyze the data and make predictions. 
 
+The **Results** section (see [Section 4](#sec-result)) provides an overview of the model's forecasts and key findings, while the **Discussion** (see [Section 5](#sec-discussion)) interprets these results and considers broader implications. For additional technical information, including detailed model specifications, refer to the **Model Details** subsection (see [Section 5.1](#sec-model-details)).
 
 # Data {#sec-data}
 The data used in this paper was obtained from the FiveThirtyEight website [@Best2024], which aggregates polling data and other relevant indicators to track the U.S. election landscape. We accessed this data using custom web scraping tools and APIs provided by FiveThirtyEight. The dataset includes information on pollster, state, start and end dates of polls, sample size, population type (e.g., registered voters or likely voters), and party affiliation.
@@ -120,7 +120,7 @@ where:
 The choice of a logistic regression model was guided by the nature of polling data. Nature of polling data represents proportions that naturally bound between 0 and 1. The logistic function’s S-shaped curve effectively models the relationship between time and polling percentage, accommodating non-linear trends that may arise as election day nears.
 Firstly, candidate names should be included as a categorical predictor in the model. It allows us to capture individual impact in support rates by candidate. In addition, a transformation from date to numeric is made on end_date in order to get a numerical format. It is called the end_date_numeric. It helps put date as a predictor in the model. By structuring the model this way, it can predict the percentage of the poll by both the impact of candidates and trends over time.
 
-# Results
+# Results {#sec-result}
 The analysis of polling data across key swing states for the 2024 U.S. Presidential Election reveals insights into the levels of support for candidates Donald Trump and Kamala Harris. The findings are presented through three primary visualizations: the average polling percentage by state, the distribution of polling percentages, and the difference in average polling percentage between the two candidates.
 
 ## Average Polling Percentage by State
@@ -413,7 +413,7 @@ To further broaden our reach without exponentially increasing advertising costs,
 
 However, using snowball sampling in an election survey introduces potential biases, particularly the risk of overrepresentation of individuals with similar political views, as respondents are likely to refer to close contacts who may share similar ideologies. To mitigate this, we will place specific restrictions on the referral program. Each respondent will be limited to referring only one other individual, minimizing the potential for overly clustered referrals. Additionally, we will require respondents to identify their relationship with each referral, helping us monitor homogeneity in our responses. By balancing the benefits of snowball sampling with these restrictions, we aim to expand the reach of our survey into difficult to reach demographics without compromising the representativeness of the sample.
 
-## Budget Allocation
+## Budget Allocation 
   Advertisements for sampling recruitment: $70,000
   Prize Pool for Incentive: $5,000
   Data Processing and Cleaning: $15,000
