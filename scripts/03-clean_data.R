@@ -9,6 +9,8 @@
 
 #### Workspace setup ####
 library(tidyverse)
+install.packages("arrow")
+library(arrow)
 
 #### Clean data ####
 raw_data <- read_csv("data/01-raw_data/raw_data.csv")
@@ -21,11 +23,11 @@ cleaned_data <- raw_data |>
          population, party, answer, candidate_name, hypothetical, pct)
 
 #### Save data ####
-write_csv(cleaned_data, "data/02-analysis_data/analysis_data.csv")
+write_parquet(cleaned_data, "data/02-analysis_data/analysis_data.parquet")
 
 #### Clean data for model####
 # Read the data
-data <- read.csv("data/02-analysis_data/analysis_data.csv")
+data <- read.csv("data/02-analysis_data/analysis_data.parquet")
 
 # Change the form of date
 data$end_date <- mdy(data$end_date)
@@ -41,4 +43,4 @@ data_filtered <- data_filtered %>%
   summarise(average_pct = mean(pct, na.rm = TRUE))
 
 #### Save data ####
-write_csv(data_filtered, "data/02-analysis_data/model_data.csv")
+write_parquet(data_filtered, "data/02-analysis_data/model_data.parquet")
