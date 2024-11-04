@@ -1,8 +1,8 @@
 #### Preamble ####
 # Purpose: Downloads and saves the data from the website Fivethirtyeight.
-# Author: Rui Hu, 
+# Author: Rui Hu
 # Date: 21 October 2024
-# Contact: hr.hu@mail.utoronto.ca, 
+# Contact: hr.hu@mail.utoronto.ca
 # License: N/A
 # Pre-requisites: N/A
 
