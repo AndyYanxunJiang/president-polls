@@ -122,13 +122,10 @@ Firstly, candidate names should be included as a categorical predictor in the mo
 The analysis of polling data across key swing states for the 2024 U.S. Presidential Election reveals insights into the levels of support for candidates Donald Trump and Kamala Harris. The findings are presented through three primary visualizations: the average polling percentage by state, the distribution of polling percentages, and the difference in average polling percentage between the two candidates.
 
 ## Average Polling Percentage by State
-From @fig-1, we can see that in the swing states of Arizona, Georgia, and North Carolina, Trump holds a narrow lead. In contrast, Harris leads in Pennsylvania, Wisconsin, Nevada, and Michigan. When looking at the overall average across these states, Harris slightly edges out Trump, indicating her overall advantage in these swing areas.
+From @fig-1, we can see that in the swing states of Arizona, Georgia, and North Carolina, Trump holds a narrow lead. In contrast, Harris leads in Pennsylvania, Wisconsin, Nevada, and Michigan. When looking at the overall average across these states, Harris slightly edges out Trump, indicating her overall advantage in these swing areas. In our assumed electoral map, this projects Kamala Harris over the edge with 276 electoral votes as opposed to Donald Trump's 262. This shows that our model predicts Kamala Harris to win the 2024 Presidential Election if she is able to maintain her lead over all of Pennsylvania, Wisconsin, Nevada, and Michigan.
 
-## Polling Percentage Distribution
-The box plot in @fig-2 demonstrates the range and consistency of support for both candidates across each state. Trump shows a wider range of support, reflecting variability, while Harris has relatively steady polling percentages across states, maintaining higher consistency. Harris’s support is less variable and generally centers around higher polling percentages compared to Trump’s.
 
-## Difference in Average Polling Percentage
-@fig-3 highlights the difference in average polling percentages by state, with positive values indicating Trump’s lead and negative values indicating Harris's. Trump’s lead in the three states (Arizona, Georgia, and North Carolina) is relatively narrow, with margins of less than 1 percent. In contrast, Harris’s lead in the states favoring her (Pennsylvania, Wisconsin, Nevada, and Michigan) ranges from 1 to 4 percent, indicating her stronger support in the states where she leads.
+
 
 ```{r}
 #| label: fig-1
@@ -175,6 +172,10 @@ ggplot(combined_data, aes(x = state, y = avg_pct, fill = candidate_name)) +
 
 
 ```
+## Polling Percentage Distribution
+The box plot in @fig-2 demonstrates the range and consistency of support for both candidates across each state. Trump shows a wider range of support, reflecting variability, while Harris has relatively steady polling percentages across states, maintaining higher consistency. Harris’s support is less variable and generally centers around higher polling percentages compared to Trump’s. 
+
+
 
 ```{r}
 #| label: fig-2
@@ -195,6 +196,9 @@ ggplot(data %>% filter(candidate_name %in% c("Donald Trump", "Kamala Harris")),
     axis.text.x = element_text(angle = 45, hjust = 1)
   )
 ```
+## Difference in Average Polling Percentage
+@fig-3 highlights the difference in average polling percentages by state, with positive values indicating Trump’s lead and negative values indicating Harris's. Trump’s lead in the three states (Pennsylvania, Wisconsin, Nevada, and Michigan) is relatively narrow, with margins of less than 1 percent. In contrast, Harris’s lead in the states favoring her (Pennsylvania, Wisconsin, Nevada, and Michigan) ranges from 1 to 4 percent, indicating her stronger support in the states where she leads. Consequently, this difference in average polling percentages show that Kamala Harris' lead of 276 electoral votes is supported by a reliable margin and Donald Trump's lead in Arizona, Georgia, and North Carolina is turbulent. 
+
 ```{r}
 #| label: fig-3
 #| fig-cap: "Difference in Average Polling Percentage"
@@ -221,7 +225,10 @@ ggplot(data_diff, aes(x = reorder(state, diff_pct), y = diff_pct, fill = diff_pc
 ```
 
 ## Swing State Polling Prediction Model
+
 @fig-4 shows the trend of support rate changes for each candidate before the upcoming election, as well as the model's predicted values for the next 20 days.We predicts that Kamala Harris may win based on our model.
+However, this shows the trend of support rate changes for each candidate before the upcoming election, as well as the model's predicted values for the days until the election. This support rate changes model exhibits a higher rate of growth in Donald Trump's share of support. Although Kamala Harris is in the lead, Donald Trump's growth of support rate is an element that could stifle Harris' lead and drop her below her required 270 electoral votes. 
+
 ```{r}
 #| label: fig-4
 #| fig-cap: "Swing State Polling Prediction Model"
@@ -264,6 +271,9 @@ ggplot(all_data, aes(x = end_date, y = pct, color = candidate_name)) +
 
 
 # Discussion
+## Turbulent Margins
+Based on our results from @fig-1 predicted that Kamala Harris to win the presidential election with 276 electoral votes. Furthermore, @fig-2 showed that her lead in the states of Pennsylvania, Wisconsin, Nevada, and Michigan are stronger than Donald Trump's support in Pennsylvania, Wisconsin, Nevada, and Michigan. From @fig-2, we can also observe that Kamala Harris' lead in Nevada seems to be the weakest. In the framework of the electoral college system, losing Nevada to Donald Trump would not change the results as Nevada holds 6 electoral votes, which means that Kamala Harris would still possess the necessary 270 to win the election. However, this is not the case if Kamala Harris loses support in any of the three other states of Pennsylvania, Wisconsin, and Michigan as this would place her beneath the 270 seat threshold. In fact, losing any one of these states would result in Donald Trump's victory. @fig-3 showed that the support rate of Donald Trump is increasing faster than that of Kamala Harris', threatening Harris' lead over Pennsylvania, Wisconsin, and Michigan. 
+
 
 ## Impact of Key Demographics and Policy Appeals
 Harris’s lead in several swing states may be influenced by her campaign’s appeal to key demographic groups, particularly immigrants. The Democratic platform has emphasized social and economic benefits for immigrant communities, which may have strengthened her base in states with significant immigrant populations. Policies that promise support for healthcare, education, and other public services are likely contributing to Harris’s appeal among these groups, solidifying her lead in states like Nevada and Michigan. This demographic support provides Harris with a strategic advantage, as these communities may play a crucial role in voter turnout and loyalty.
