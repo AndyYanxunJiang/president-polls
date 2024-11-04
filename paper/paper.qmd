@@ -297,9 +297,9 @@ This analysis is limited to examining current polling data in swing states and d
 
 \appendix
 
-# Appendix A {-}
+# Appendix {-}
 
-#  Sampling Methodology Employed by New York Times and Siena College:
+# Sampling Methodology Employed by New York Times and Siena College:
 
 Our analysis and prediction utilizes data collected by a single pollster and it is important to scrutinize the sampling methodology behind the sampling methods used to determine the extent of the external validity of our predictions. Primarily, the data gathered by New York Times was done so with the collaboration with Sienna College through live-interviewers reaching voters by telephone. 
 
@@ -339,9 +339,7 @@ The Times/Siena Poll’s approach to questionnaire design reflects a careful eff
 
 Despite the strengths of the Times/Siena Poll’s questionnaire design, there are some limitations. One notable concern is that, although the poll tries to avoid leading questions, any standardized questionnaire may still unintentionally prime respondents or introduce subtle biases, especially when questions involve sensitive or polarizing topics. Although the pollster tries to avoid attrition bias by keeping each interview less than 15 minutes, in seeking to make questions clear and concise, the questionnaire may not capture the full nuance of voter opinions, especially on multifaceted issues like economic policy or social justice. While the poll strives to capture real views without introducing new ideas, respondents are still prone to a social desirability bias. This is especially possible in phone interviews, where respondents may be more inclined to provide answers they perceive as socially acceptable rather than expressing their true opinions. Although the design aims to be fair, the influence of an interviewer’s presence may subtly affect responses @psychology_survey_response.
 
-\newpage
-
-# Appendix B {-}
+# Additional data details
 
 Pursuant to accurately predicting the winner of the presidential election with the electoral college system, there are assumptions that need to be assessed. The United States of America’s electoral college system creates a special environment where votes in some states are disproportionately more influential than that of others and candidates are not elected based on popular vote, but on the majority of electoral votes they get. 
 
@@ -354,7 +352,7 @@ Nation-level Popular Vote is irrelevant in our methodology since president elect
 Based on historical and polling data, some states’ electoral votes are predetermined as either Democrat or Republican. Therefore, it is more prudent to shift focus over to swing states where outcomes are uncertain. This assumption is accompanied with the challenge of determining what states qualify as “swing states”. However, on this issue, there is consensus on which states qualify as swing states. Pollsters such as  New York Times have their metric for determining which  states are 'battleground states'. As of 2024, our methodology should direct all our resources to acquiring voting data on the following states (New York Times). This assumption results in each presidential candidate starting off with a set number of electoral votes.
 
 
-##  Swing States
+## Swing States
 
 According to 2024 polling data conducted by New York Times, the swing states are determined to be the following @boyce_swing_states:
 
@@ -387,7 +385,7 @@ Although weighting adjustments helpsus represent our target population more clos
 
 
 
-##  Elements of Our Survey
+## Elements of Our Survey
 To gather accurate responses from a diverse and representative set of likely voters, our survey design carefully adheres to best practices in methodology. Given our goal to avoid attrition bias, we’ve restricted the estimated survey completion time to under ten minutes. This constraint is stricter than the fifteen-minute benchmark typically used by NYC and Siena College for telephone surveys, as online surveys require shorter durations to maintain respondent engagement. Our survey is divided into three main sections: Preamble, Eligibility, and Party Affiliation. 
 
 ### Preamble
@@ -398,17 +396,17 @@ The Preamble serves as an introductory section that aims to establish transparen
 The Eligibility section focuses on ensuring that respondents meet the criteria necessary for inclusion in our target population, specifically targeting likely voters within designated swing states to improve the relevance and accuracy of our sample for election predictions. This section begins by asking for respondents' state of residence, age, race, and other preliminary demographic information. To further narrow our sample to those most likely to vote, we employ several screening questions related to voting history, political engagement, and voting intentions. These questions help exclude individuals who are unlikely to participate in the election, thus refining our sample to reflect the likely voting population. 
 
 
-###  Party Affiliation
+### Party Affiliation
 Party Affiliation addresses respondents’ political leanings and past voting behavior. This section explores their current preference for presidential candidates and parties and asks how they voted in previous elections. By differentiating between party and candidate preference, we can identify any variance in their voting behavior and assess whether respondents’ decisions align more strongly with party or individual candidate considerations. This section also explores whether respondents are informed about their choices, asking questions to determine whether they are aware of both candidates or have researched their policies. By gathering these insights, we can create a profile of the respondent’s political orientation, which allows for a nuanced interpretation of voting intentions that goes beyond simple party preference.
 
-##  Distribution of Online Panels
+## Distribution of Online Panels
 The online panel method provides valuable flexibility in how surveys are distributed, enabling targeted outreach in regions crucial to our election prediction model. Since the distribution strategy will absorb a significant portion of the budget, this section outlines our plan for cost-effective, targeted, and controlled distribution, aimed at achieving a sample that represents voters in key swing states while addressing biases inherent to online panel surveys.
 
-###   Swing State Representation
+### Swing State Representation
 To capture a meaningful sample for predicting election results, we target respondents exclusively from key swing states where voting outcomes remain uncertain. By focusing our resources on swing states, we enhance the relevance of our sample to the Electoral College system, which relies heavily on swing state outcomes. Achieving this requires not only careful selection of digital platforms but also strategic advertising in locally relevant spaces.
 The lottery-style incentive, with a $5,000 voucher offered to one lucky respondent, serves as an appealing motivator designed to increase participation. We will advertise the survey on websites, forums, and marketplaces that have high traffic within our target states. Examples include social media channels, local news sites, and state-specific online communities. Additionally, we may utilize geo-targeted ads on platforms like Google and Facebook to directly reach residents of these swing states, optimizing our budget by focusing on the digital spaces our target demographic frequents. A significant portion of the budget will thus be allocated to these state-specific online advertisements, which not only promote the survey but also help ensure that respondents fit our target profile.
 
-###   Referral Mechanics
+###  Referral Mechanics
 To further broaden our reach without exponentially increasing advertising costs, we incorporate a referral system that rewards respondents for inviting others to complete the survey. Each referral allows the original respondent to gain an additional entry in the lottery, increasing their chances of winning. This referral incentive taps into snowball sampling, where respondents refer people within their network to participate, expanding our pool of respondents organically.
 However, using snowball sampling in an election survey introduces potential biases, particularly the risk of overrepresentation of individuals with similar political views, as respondents are likely to refer to close contacts who may share similar ideologies. To mitigate this, we will place specific restrictions on the referral program. Each respondent will be limited to referring only one other individual, minimizing the potential for overly clustered referrals. Additionally, we will require respondents to identify their relationship with each referral, helping us monitor homogeneity in our responses. By balancing the benefits of snowball sampling with these restrictions, we aim to expand the reach of our survey into difficult to reach demographics without compromising the representativeness of the sample.
 
@@ -420,7 +418,7 @@ However, using snowball sampling in an election survey introduces potential bias
   Petty Cash: $5,000
   
   
-#  Idealized Questionnaire and Survey
+# Idealized Questionnaire and Survey
 
 https://docs.google.com/forms/d/117wC8f1rBW_bd5glEdiR-7823-02A3HiD5EzQuT1GVw/edit
 
@@ -533,10 +531,6 @@ Other...
 
 \newpage
 
-# Additional data details
-
-\newpage
-
 # Model details {#sec-model-details}
 
 ## Posterior predictive check
@@ -557,26 +551,19 @@ model_data <- read_parquet(here::here("data/02-analysis_data/model_data.parquet"
 #| fig-subcap: ["Posterior prediction check", "Comparing the posterior with the prior"]
 pp_check(model) +
   theme_classic() +
-  theme(legend.position = "bottom")
+  theme(legend.position = "bottom") +
+  labs(title = "Posterior Predictive Check",
+       x = "Rate of support",
+       y = "Density")
 
 posterior_vs_prior(model) +
   theme_minimal() +
   scale_color_brewer(palette = "Set1") +
   theme(legend.position = "bottom") +
   coord_flip()
-
-#| echo: false
-#| warning: false
-#| message: false
-posterior_predictions <- posterior_predict(model, draws = 100)
-ppc_dens_overlay(y = data_filtered$average_pct/100, yrep = posterior_predictions) +
-  labs(title = "Posterior Predictive Check",
-       x = "Rate of support",
-       y = "Density")
 ```
 
 ## Diagnostics
-
 
 @fig-stanareyouokay-1 is a trace plot. It shows chain mixing, stationarity and no drifting. This suggests that the model's MCMC sampling achieved convergence for each parameter. The chains are well-mixed and stationary, providing confidence in the posterior estimates derived from this sampling process. 
 
@@ -598,7 +585,6 @@ plot(model, "rhat")
 ```
 
 \newpage
-
 
 # References
 
