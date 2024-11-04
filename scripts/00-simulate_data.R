@@ -1,9 +1,9 @@
 #### Preamble ####
 # Purpose: Simulates a dataset of US electoral divisions, including the 
 #state and party that won each division.
-# Author: Rui Hu, 
+# Author: Rui Hu
 # Date: 22 October 2024
-# Contact: hr.hu@mail.utoronto.ca, 
+# Contact: hr.hu@mail.utoronto.ca
 # License: MIT
 # Pre-requisites: The `tidyverse` package must be installed
 
