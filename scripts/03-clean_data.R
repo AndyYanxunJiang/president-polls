@@ -27,7 +27,7 @@ write_parquet(cleaned_data, "data/02-analysis_data/analysis_data.parquet")
 
 #### Clean data for model####
 # Read the data
-data <- read.csv("data/02-analysis_data/analysis_data.parquet")
+data <- read_parquet("data/02-analysis_data/analysis_data.parquet")
 
 # Change the form of date
 data$end_date <- mdy(data$end_date)
@@ -42,5 +42,7 @@ data_filtered <- data_filtered %>%
   group_by(end_date_numeric, candidate_name, end_date)%>% 
   summarise(average_pct = mean(pct, na.rm = TRUE))
 
+data_filtered <- data_filtered %>% mutate(pct = average_pct / 100)
+
 #### Save data ####
-write_parquet(data_filtered, "data/02-analysis_data/model_data.parquet")
+write_csv(data_filtered, "data/02-analysis_data/model_data.csv")
