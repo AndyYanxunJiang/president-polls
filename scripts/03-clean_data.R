@@ -9,7 +9,6 @@
 
 #### Workspace setup ####
 library(tidyverse)
-install.packages("arrow")
 library(arrow)
 
 #### Clean data ####
@@ -34,13 +33,12 @@ data$end_date <- mdy(data$end_date)
 data_filtered <- data %>%
   mutate(end_date_numeric = as.numeric(end_date))
 
-# Selct the true polls
-data_filtered <- data_filtered %>%
-  filter(hypothetical == FALSE, !is.na(sample_size))
-
+# Calculate the average pct
 data_filtered <- data_filtered %>% 
-  group_by(end_date_numeric, candidate_name, end_date)%>% 
-  summarise(average_pct = mean(pct, na.rm = TRUE))
+  filter(candidate_name %in% c("Donald Trump", "Kamala Harris")) %>%
+  group_by(candidate_name, end_date_numeric, end_date) %>%
+  summarize(average_pct = mean(pct, na.rm = TRUE)) %>%
+  mutate(state = " Overall")
 
 data_filtered <- data_filtered %>% mutate(pct = average_pct / 100)
 
