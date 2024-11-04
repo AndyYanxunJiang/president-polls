@@ -89,9 +89,11 @@ kable(sample_data, caption = "Sample of 10 Random Observations from the Analysis
 
 
 ## Predictor variables
+End date numeric:
+This variable represents the numeric conversion of the poll end date, indicating the time at which the polling data was collected. By transforming dates into numeric values, we can account for temporal trends and shifts in voter sentiment. This predictor helps identify changes in support over time and captures any momentum shifts that occur as the election draws closer.
 
-
-
+Candidate name:
+This categorical variable distinguishes between the main candidates: Donald Trump and Kamala Harris. By including candidate-specific factors, the model can account for differences in support levels attributed to individual characteristics or public perception of each candidate. Additionally, this variable enables the model to gauge the relative standing between the two contenders in different states and overall.
 
 # Model
 In this analysis, we utilize a logistic regression model to predict polling percentages for the 2024 U.S. presidential candidates over time. In order to focus on states with historical significance in elections. The model is specified as a Generalized Linear Model (GLM) with a binomial family and a logit link function, appropriate for modeling binary or proportion-based outcomes.
@@ -219,7 +221,7 @@ ggplot(data_diff, aes(x = reorder(state, diff_pct), y = diff_pct, fill = diff_pc
 ```
 
 ## Swing State Polling Prediction Model
-@fig-4 shows the trend of support rate changes for each candidate before the upcoming election, as well as the model's predicted values for the next 20 days.We predicts that Donald Trump may win based on our model.
+@fig-4 shows the trend of support rate changes for each candidate before the upcoming election, as well as the model's predicted values for the next 20 days.We predicts that Kamala Harris may win based on our model.
 ```{r}
 #| label: fig-4
 #| fig-cap: "Swing State Polling Prediction Model"
@@ -252,8 +254,9 @@ ggplot(all_data, aes(x = end_date, y = pct, color = candidate_name)) +
        x = "Date",
        y = "Rate of support") +
   theme_minimal() +
-  scale_x_date(date_labels = "%b", date_breaks = "1 month") +
-  scale_y_continuous(labels = percent_format(), limits = c(0.44, 0.48))
+  scale_x_date(date_labels = "%b", date_breaks = "1 month", 
+               limits = as.Date(c("2024-01-01", "2024-11-5"))) +
+  scale_y_continuous(labels = percent_format(), limits = c(0.44, 0.47))
 
 ```
 
