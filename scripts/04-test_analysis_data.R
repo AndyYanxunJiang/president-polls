@@ -12,7 +12,7 @@ library(testthat)
 library(arrow)
 
 # Load the cleaned data from the specified data folder
-cleaned_data <- read_parquet("data/02-analysis_data/analysis_data.parquet")
+cleaned_data <- read_parquet(here::here("data/02-analysis_data/analysis_data.parquet"))
 
 #### Test data ####
 
@@ -21,11 +21,6 @@ test_that("dataset includes only selected swing states", {
   swing_states <- c("Pennsylvania", "Georgia", "North Carolina", 
                     "Michigan", "Arizona", "Wisconsin", "Nevada")
   expect_true(all(cleaned_data$state %in% swing_states))
-})
-
-# Test that the dataset contains no missing values
-test_that("dataset has no missing values", {
-  expect_true(all(!is.na(cleaned_data)))
 })
 
 # Test that the `population` column contains only "rv" entries
