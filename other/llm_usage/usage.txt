@@ -854,3 +854,1945 @@ font_size = 8 adjusts the text size.
 full_width = TRUE makes the table use the full width of the page.
 latex_options = "scale_down" automatically scales down the table to fit within the available space, reducing the column spacing.
 This should make the table fit better in the rendered PDF. Let me know if this works for you!
+
+
+ChatGPT 4o
+
+Share
+
+
+You said:
+#### Preamble ####
+# Purpose: Tests analysis data
+# Author: Andy Jiang
+# Date: 4 November 2024
+# Contact: ayx.jiang@mail.utoronto.ca
+# Pre-requisites: cleaned the raw data
+
+
+#### Workspace setup ####
+library(tidyverse)
+library(testthat)
+library(arrow)
+
+# Load the cleaned data from the specified data folder
+cleaned_data <- read_parquet("data/02-analysis_data/analysis_data.parquet")
+
+#### Test data ####
+
+# Test that the dataset only includes the seven swing states
+test_that("dataset includes only selected swing states", {
+  swing_states <- c("Pennsylvania", "Georgia", "North Carolina", 
+                    "Michigan", "Arizona", "Wisconsin", "Nevada")
+  expect_true(all(cleaned_data$state %in% swing_states))
+})
+
+# Test that the dataset contains no missing values
+test_that("dataset has no missing values", {
+  expect_true(all(!is.na(cleaned_data)))
+})
+
+# Test that the population column contains only "rv" entries
+test_that("population column contains only 'rv'", {
+  expect_true(all(cleaned_data$population == "rv"))
+})
+
+# Test that the candidate_name column includes at least two candidates
+test_that("candidate_name column has at least two unique candidates", {
+  expect_true(length(unique(cleaned_data$candidate_name)) >= 2)
+})
+
+# Test that sample_size has only positive values
+test_that("sample_size contains positive values", {
+  expect_true(all(cleaned_data$sample_size > 0, na.rm = TRUE))
+})
+
+
+==> Testing R file using 'testthat'
+
+[ FAIL 1 | WARN 1 | SKIP 0 | PASS 0 ]
+
+── Warning (04-test_analysis_data.R:12:1): (code run outside of test_that()) ──
+package ‘ggplot2’ was built under R version 4.2.3
+Backtrace:
+     ▆
+  1. └─base::library(tidyverse) at 04-test_analysis_data.R:12:1
+  2.   ├─base::tryCatch(...)
+  3.   │ └─base (local) tryCatchList(expr, classes, parentenv, handlers)
+  4.   │   └─base (local) tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  5.   │     └─base (local) doTryCatch(return(expr), name, parentenv, handler)
+  6.   └─base::attachNamespace(ns, pos = pos, deps, exclude, include.only)
+  7.     └─base (local) runHook(".onAttach", ns, dirname(nspath), nsname)
+  8.       ├─base::tryCatch(fun(libname, pkgname), error = identity)
+  9.       │ └─base (local) tryCatchList(expr, classes, parentenv, handlers)
+ 10.       │   └─base (local) tryCatchOne(expr, names, parentenv, handlers[[1L]])
+ 11.       │     └─base (local) doTryCatch(return(expr), name, parentenv, handler)
+ 12.       └─tidyverse (local) fun(libname, pkgname)
+ 13.         └─tidyverse:::tidyverse_attach()
+ 14.           ├─base::suppressPackageStartupMessages(lapply(to_load, same_library))
+ 15.           │ └─base::withCallingHandlers(expr, packageStartupMessage = function(c) tryInvokeRestart("muffleMessage"))
+ 16.           └─base::lapply(to_load, same_library)
+ 17.             └─tidyverse (local) FUN(X[[i]], ...)
+ 18.               ├─base::do.call(...)
+ 19.               └─base::library(...)
+ 20.                 └─base (local) testRversion(pkgInfo, package, pkgpath)
+
+── Error (04-test_analysis_data.R:17:1): (code run outside of test_that()) ───
+Error: IOError: Failed to open local file 'data/02-analysis_data/analysis_data.parquet'. Detail: [errno 2] No such file or directory
+Backtrace:
+    ▆
+ 1. └─arrow::read_parquet("data/02-analysis_data/analysis_data.parquet") at 04-test_analysis_data.R:17:1
+ 2.   └─arrow:::make_readable_file(file, mmap = mmap)
+ 3.     └─arrow::mmap_open(file)
+ 4.       └─arrow:::io___MemoryMappedFile__Open(path, mode)
+[ FAIL 1 | WARN 1 | SKIP 0 | PASS 0 ]
+Warning message:
+package ‘testthat’ was built under R version 4.2.3 
+
+Test complete
+ChatGPT
+
+Thought for 4 seconds
+
+Analysis of Test Results
+You've run a series of tests on your analysis_data.parquet file using the testthat package in R. Here's a breakdown of the results and steps to resolve the issues:
+
+Test Summary:
+css
+Copy code
+[ FAIL 1 | WARN 1 | SKIP 0 | PASS 0 ]
+1 Failure
+1 Warning
+1. Warning Details
+Warning Message:
+
+go
+Copy code
+Warning message:
+package ‘ggplot2’ was built under R version 4.2.3 
+Explanation:
+
+This warning indicates that the ggplot2 package was compiled using R version 4.2.3, while you might be using a different (likely newer) R version.
+Generally, minor version discrepancies don't cause significant issues, but it's good practice to ensure packages are compatible with your current R version.
+Recommended Actions:
+
+Reinstall ggplot2: This ensures that the package is compiled with your current R version.
+R
+Copy code
+install.packages("ggplot2")
+Check R Version:
+R
+Copy code
+R.version.string
+Ensure you're using a stable and updated version of R.
+2. Failure Details
+Error Message:
+
+lua
+Copy code
+Error: IOError: Failed to open local file 'data/02-analysis_data/analysis_data.parquet'. Detail: [errno 2] No such file or directory
+Explanation:
+
+The test failed because R couldn't locate the analysis_data.parquet file in the specified directory (data/02-analysis_data/).
+This could be due to:
+The file not existing in the specified path.
+An incorrect working directory.
+The data cleaning step not being executed successfully.
+Recommended Actions:
+
+Verify File Existence:
+
+Check Directory Structure: Ensure that the data/02-analysis_data/ directory exists within your project and contains the analysis_data.parquet file.
+List Files in Directory:
+R
+Copy code
+list.files("data/02-analysis_data/")
+Confirm that analysis_data.parquet appears in the output.
+Check Working Directory:
+
+Determine Current Working Directory:
+R
+Copy code
+getwd()
+Ensure that the relative path data/02-analysis_data/analysis_data.parquet correctly points to the file from this directory.
+Set Working Directory (if necessary): If your project resides in a different directory, set the working directory appropriately.
+R
+Copy code
+setwd("/path/to/your/project")
+Replace "/path/to/your/project" with the actual path.
+Run Data Cleaning Step:
+
+Pre-requisite Note: Your preamble mentions that raw data needs to be cleaned to produce analysis_data.parquet.
+Execute Data Cleaning Script: Ensure that the script responsible for cleaning the raw data has been run successfully and that it outputs the analysis_data.parquet file in the correct directory.
+Example Data Cleaning Command:
+R
+Copy code
+# Example: Replace with your actual data cleaning steps
+raw_data <- read_csv("data/raw/raw_data.csv")
+cleaned_data <- raw_data %>%
+  filter(!is.na(state)) %>%
+  mutate(population = "rv") # Adjust as needed
+write_parquet(cleaned_data, "data/02-analysis_data/analysis_data.parquet")
+Verify File Path:
+
+Absolute vs. Relative Paths: If you're uncertain about the relative path, try using an absolute path to ensure R can locate the file.
+R
+Copy code
+cleaned_data <- read_parquet("/absolute/path/to/data/02-analysis_data/analysis_data.parquet")
+Replace "/absolute/path/to/" with your actual path.
+Permissions Check:
+
+Ensure that R has the necessary permissions to read the file and access the directory.
+3. Additional Recommendations
+Update All Packages: Keeping all packages updated can prevent compatibility issues.
+
+R
+Copy code
+update.packages(ask = FALSE)
+Session Information: Sharing your session info can help diagnose environment-related issues.
+
+R
+Copy code
+sessionInfo()
+Automate Tests: Consider integrating your tests into a continuous integration (CI) pipeline (e.g., GitHub Actions) to automatically run tests on code changes.
+
+4. Summary of Steps to Resolve the Issues
+Reinstall ggplot2 to Match R Version:
+
+R
+Copy code
+install.packages("ggplot2")
+Ensure analysis_data.parquet Exists:
+
+Verify the file's presence in data/02-analysis_data/.
+Run the data cleaning script if the file is missing.
+Confirm Working Directory:
+
+R
+Copy code
+getwd()
+Adjust if necessary using setwd().
+
+Re-run Tests: After ensuring the above steps, execute your test script again to verify that all tests pass.
+
+By addressing the missing data file issue and ensuring package compatibility, your tests should run successfully. If you encounter further issues, please provide additional details, and I'll be happy to assist!
+
+
+
+
+
+
+You said:
+the data path is correct, idk y its happening
+ChatGPT
+
+Thought for 9 seconds
+
+Resolving the No such file or directory Error in Your Tests
+I understand that you're confident the data path is correct, yet you're encountering the following error during your tests:
+
+lua
+Copy code
+Error: IOError: Failed to open local file 'data/02-analysis_data/analysis_data.parquet'. Detail: [errno 2] No such file or directory
+Let's delve deeper into potential causes and provide comprehensive solutions to help you resolve this issue.
+
+1. Confirm the Working Directory During Testing
+When running tests with testthat, the working directory might differ from your interactive R session. This discrepancy can lead to relative paths not resolving as expected.
+
+a. Check the Working Directory Within the Test
+Add a temporary test to print or assert the working directory:
+
+r
+Copy code
+test_that("check working directory", {
+  current_wd <- getwd()
+  print(paste("Current Working Directory:", current_wd))
+  expect_true(dir.exists("data/02-analysis_data/"))
+})
+Action Steps:
+
+Run the Test: Execute your test suite and observe the printed working directory.
+Verify Path: Ensure that the printed directory is the root of your project or the expected base directory where the data folder resides.
+b. Use Absolute Paths Temporarily
+To rule out path-related issues, try using an absolute path to the analysis_data.parquet file:
+
+r
+Copy code
+cleaned_data <- read_parquet("/full/path/to/data/02-analysis_data/analysis_data.parquet")
+Replace "/full/path/to/" with the actual absolute path on your system.
+
+Note: If this works, it indicates that the issue is indeed with relative path resolution during testing.
+
+2. Utilize the here Package for Robust Path Management
+The here package simplifies file path management by setting a consistent project root, making your scripts more portable and less prone to path-related errors.
+
+a. Install and Load here
+r
+Copy code
+install.packages("here")  # If not already installed
+library(here)
+b. Modify Your Test Script to Use here
+Update the path to the analysis_data.parquet file using here:
+
+r
+Copy code
+#### Workspace setup ####
+library(tidyverse)
+library(testthat)
+library(arrow)
+library(here)
+
+# Load the cleaned data using here
+cleaned_data_path <- here("data", "02-analysis_data", "analysis_data.parquet")
+cleaned_data <- read_parquet(cleaned_data_path)
+
+#### Test data ####
+
+# ... (rest of your tests)
+Benefits:
+
+Consistency: Ensures that paths are always relative to the project root, regardless of the working directory.
+Portability: Makes your code more portable across different environments and machines.
+3. Verify File Existence and Accessibility Within Tests
+Even if the path is correct, it's essential to confirm that the file exists and is accessible during the test execution.
+
+a. Add a Test to Confirm File Existence
+r
+Copy code
+test_that("data file exists", {
+  expect_true(file.exists(cleaned_data_path))
+})
+b. List Files in the Directory (Optional)
+For additional confirmation, list the files in the target directory:
+
+r
+Copy code
+test_that("list files in data directory", {
+  files <- list.files(here("data", "02-analysis_data/"))
+  print(files)
+  expect_true("analysis_data.parquet" %in% files)
+})
+Action Steps:
+
+Run the Tests: Execute your test suite and check the output of the print(files) statement.
+Verify Presence: Ensure that analysis_data.parquet appears in the listed files.
+4. Check File Permissions
+Ensure that R has the necessary permissions to read the analysis_data.parquet file.
+
+a. Verify Permissions on Unix-like Systems
+Open your terminal and navigate to the directory containing the file:
+
+bash
+Copy code
+ls -l data/02-analysis_data/analysis_data.parquet
+Ensure that the file has read permissions (r) for the user running the R session.
+
+b. On Windows Systems
+Right-Click the File: Select Properties.
+Navigate to the Security Tab: Ensure that your user has Read permissions.
+Note: If permissions are restrictive, adjust them accordingly to allow reading the file.
+
+5. Ensure the File Isn't Corrupted or Locked
+A corrupted file or one that's being used by another process might prevent R from accessing it.
+
+a. Test Reading the File Outside Tests
+Attempt to read the file in an interactive R session:
+
+r
+Copy code
+library(arrow)
+cleaned_data <- read_parquet(here("data", "02-analysis_data", "analysis_data.parquet"))
+head(cleaned_data)
+Outcomes:
+
+Successful Read: Indicates that the file is intact and accessible outside the testing environment.
+Error: Suggests file corruption or external locking issues.
+b. If Corrupted, Regenerate the File
+If the file is corrupted, rerun your data cleaning script to regenerate analysis_data.parquet.
+
+6. Validate the Project Structure
+Ensure that your project's directory structure aligns with the paths used in your tests.
+
+Expected Structure:
+
+kotlin
+Copy code
+your_project/
+├── data/
+│   └── 02-analysis_data/
+│       └── analysis_data.parquet
+├── R/
+├── tests/
+│   └── testthat/
+│       └── 04-test_analysis_data.R
+├── .here  # Created by the `here` package
+└── ...
+Action Steps:
+
+Confirm Folder Names: Ensure that folder names are correctly spelled and match the case (e.g., 02-analysis_data vs. 02-Analysis_Data).
+Check File Placement: Verify that analysis_data.parquet is indeed inside data/02-analysis_data/.
+7. Explore testthat Configuration
+Sometimes, testthat configurations or the environment can influence how paths are resolved.
+
+a. Use testthat::test_dir with Verbose Output
+Run your tests with verbose output to gain more insights:
+
+r
+Copy code
+library(testthat)
+test_dir("tests/testthat", reporter = "verbose")
+Benefits:
+
+Detailed Output: Helps identify where the path resolution might be failing.
+Progress Tracking: Allows you to see which tests pass before the failure occurs.
+b. Utilize setup and teardown Hooks
+Ensure that any necessary environment setup is performed before tests run.
+
+r
+Copy code
+# In tests/testthat/setup.R
+
+library(here)
+
+# Set any required environment variables or configurations here
+Note: Placing setup scripts in tests/testthat/setup.R ensures they run before your tests.
+
+8. Additional Debugging Techniques
+a. Print the Full Path
+Print the resolved full path to ensure correctness.
+
+r
+Copy code
+test_that("print full path to data file", {
+  full_path <- normalizePath(cleaned_data_path, mustWork = FALSE)
+  print(full_path)
+  expect_true(file.exists(full_path))
+})
+Benefits:
+
+Visualization: Helps you see the exact path testthat is attempting to access.
+Error Identification: Can reveal discrepancies or unexpected path resolutions.
+b. Use file.path for Path Construction
+Instead of using forward slashes, use file.path to construct paths, which is platform-independent.
+
+r
+Copy code
+cleaned_data_path <- file.path("data", "02-analysis_data", "analysis_data.parquet")
+cleaned_data <- read_parquet(cleaned_data_path)
+Advantages:
+
+Cross-Platform Compatibility: Ensures paths are constructed correctly on Windows, macOS, and Linux.
+Prevents Typographical Errors: Reduces the chance of missing or extra slashes.
+9. Recap and Next Steps
+Based on the above steps, here's a structured approach to resolve your issue:
+
+Integrate the here Package:
+
+Install and load here.
+Modify your test script to use here for path management.
+Confirm File Accessibility:
+
+Add tests to verify the existence and readability of the data file.
+Use absolute paths temporarily to isolate the issue.
+Check Working Directory:
+
+Ensure that the working directory during testing aligns with your project's structure.
+Verify Permissions and File Integrity:
+
+Ensure the file isn't corrupted and that R has read permissions.
+Run Tests with Enhanced Output:
+
+Use verbose reporters to gain deeper insights during test execution.
+Review Project Structure:
+
+Confirm that all directories and files are correctly named and placed.
+Seek Further Assistance if Needed:
+
+If the problem persists after these steps, consider sharing your sessionInfo() output and any additional error messages for more targeted help.
+Example Revised Test Script Using here
+Here's how your test script might look after integrating the here package and adding checks for the working directory and file existence:
+
+r
+Copy code
+#### Preamble ####
+# Purpose: Tests analysis data
+# Author: Andy Jiang
+# Date: 4 November 2024
+# Contact: ayx.jiang@mail.utoronto.ca
+# Pre-requisites: cleaned the raw data
+
+#### Workspace setup ####
+library(tidyverse)
+library(testthat)
+library(arrow)
+library(here)
+
+# Debugging: Print the current working directory
+print(paste("Current Working Directory:", getwd()))
+
+# Define the path using `here`
+cleaned_data_path <- here("data", "02-analysis_data", "analysis_data.parquet")
+
+# Debugging: Print the resolved path
+print(paste("Resolved Data Path:", cleaned_data_path))
+
+# Load the cleaned data
+cleaned_data <- read_parquet(cleaned_data_path)
+
+#### Test data ####
+
+# Test that the dataset only includes the seven swing states
+test_that("dataset includes only selected swing states", {
+  swing_states <- c("Pennsylvania", "Georgia", "North Carolina", 
+                    "Michigan", "Arizona", "Wisconsin", "Nevada")
+  expect_true(all(cleaned_data$state %in% swing_states))
+})
+
+# Test that the dataset contains no missing values
+test_that("dataset has no missing values", {
+  expect_true(all(!is.na(cleaned_data)))
+})
+
+# Test that the `population` column contains only "rv" entries
+test_that("population column contains only 'rv'", {
+  expect_true(all(cleaned_data$population == "rv"))
+})
+
+# Test that the `candidate_name` column includes at least two candidates
+test_that("candidate_name column has at least two unique candidates", {
+  expect_true(length(unique(cleaned_data$candidate_name)) >= 2)
+})
+
+# Test that `sample_size` has only positive values
+test_that("sample_size contains positive values", {
+  expect_true(all(cleaned_data$sample_size > 0, na.rm = TRUE))
+})
+
+# Additional Tests for Debugging
+test_that("data file exists", {
+  expect_true(file.exists(cleaned_data_path))
+})
+
+test_that("list files in data directory", {
+  files <- list.files(dirname(cleaned_data_path))
+  print(files)
+  expect_true("analysis_data.parquet" %in% files)
+})
+Key Changes:
+
+Integrated here: Manages paths relative to the project root.
+Added Debugging Statements: Print current working directory and resolved data path.
+Additional Tests: Confirm file existence and list files in the data directory.
+Final Thoughts
+Path-related issues can be tricky, especially when testing frameworks like testthat manage their own environments. By ensuring consistent path management using tools like the here package, verifying file accessibility, and incorporating robust debugging practices, you can effectively troubleshoot and resolve such errors.
+
+If after following these steps the issue persists, please provide:
+
+Your Project Structure: A brief overview or tree of your project's directories and files.
+Session Information: Run sessionInfo() in R and share the output.
+Additional Error Logs: Any other error messages or logs that might offer more clues.
+With this information, I can offer more targeted assistance. Don't hesitate to reach out with further details!
+
+
+
+
+
+
+You said:
+
+
+
+processing file: paper.qmd
+                                                                                                            
+output file: paper.knit.md
+
+pandoc 
+  to: latex
+  output-file: paper.tex
+  standalone: true
+  pdf-engine: xelatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  number-sections: true
+  
+metadata
+  documentclass: scrartcl
+  classoption:
+    - DIV=11
+    - numbers=noendperiod
+  papersize: letter
+  header-includes:
+    - '\KOMAoption{captions}{tableheading}'
+  block-headings: true
+  title: Forecasting the 2024 U.S. Presidential Election
+  subtitle: Using Aggregated Polling Data to Predict the Outcome of the 2024 Presidential Race
+  author:
+    - Andy Jiang
+    - Onon Burentuvshin
+    - Rui Hu
+  thanks: 'Code and data are available at: [https://github.com/AndyYanxunJiang/president-polls).'
+  date: today
+  date-format: long
+  abstract: 'The 2024 U.S. presidential election is shaping up to be a highly swing race, with polling data playing a crucial role in gauging public sentiment and forecasting the potential outcome. This paper aims to build a predictive model using a poll-of-polls approach, aggregating data from multiple pollsters to forecast the winner of the upcoming election. The analysis incorporates polling data from various sources, filtered to include only high-quality pollsters with a numeric grade above 3, to ensure the reliability of the predictions. Additionally, a detailed examination of one selected pollster’s methodology is conducted, highlighting strengths, weaknesses, and biases in the survey process. The paper concludes with an idealized polling methodology, designed within a $100K budget, to enhance the accuracy of election forecasts. Results are presented in the context of understanding polling trends, potential biases, and the evolving landscape of voter preferences as the election approaches.'
+  bibliography:
+    - references.bib
+  
+running xelatex - 1
+  This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+updating tlmgr
+
+updating existing packages
+
+compilation failed- error
+LaTeX Error: Mismatched LaTeX support files detected.
+(LaTeX)        Loading 'expl3.sty' aborted!
+(LaTeX)        
+(LaTeX)        The L3 programming layer in the LaTeX format
+(LaTeX)        is dated 2024-09-10, but in your TeX tree the files require
+(LaTeX)        at least 2024-10-09.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.78      \ExplLoaderFileDate{expl3.sty}}
+                                         % 
+
+see paper.log for more information.
+ChatGPT
+
+Thought for a few seconds
+
+Resolving LaTeX Compilation Error: Mismatched LaTeX Support Files
+You're encountering a LaTeX compilation error while rendering your Quarto document (paper.qmd) to PDF using xelatex. The error message indicates a mismatch between the LaTeX format and the expl3 package. Here's a detailed breakdown of the issue and steps to resolve it.
+
+### Error Details
+java
+Copy code
+LaTeX Error: Mismatched LaTeX support files detected.
+(Latex)        Loading 'expl3.sty' aborted!
+(Latex)        
+(Latex)        The L3 programming layer in the LaTeX format
+(Latex)        is dated 2024-09-10, but in your TeX tree the files require
+(Latex)        at least 2024-10-09.
+Cause: The LaTeX format file (which includes the core LaTeX definitions) was compiled with expl3.sty version dated 2024-09-10, but your current expl3.sty package is newer, dated 2024-10-09. This discrepancy causes LaTeX to abort loading expl3.sty to prevent potential incompatibilities.
+### Understanding the Root Cause
+LaTeX relies on a set of core files known as the format files (e.g., latex.fmt for LaTeX). These files are precompiled versions of the LaTeX macros and packages that speed up the compilation process. When packages like expl3.sty are updated, the corresponding format files must also be regenerated to ensure compatibility.
+
+In your case:
+
+Updated Package: expl3.sty was updated to 2024-10-09.
+Outdated Format: The LaTeX format was compiled with an older version of expl3.sty dated 2024-09-10.
+This mismatch triggers the error to prevent potential issues arising from incompatible package versions.
+
+### Step-by-Step Solutions
+To resolve this error, you'll need to synchronize your LaTeX packages and format files. Here's how:
+
+1. Update All LaTeX Packages
+Ensure that all LaTeX packages, including the core packages, are up-to-date.
+
+Using tlmgr (TeX Live Manager):
+
+Open your terminal or command prompt and execute:
+
+bash
+Copy code
+tlmgr update --self --all
+--self: Updates tlmgr itself.
+--all: Updates all installed packages.
+Note: Ensure you have administrative privileges if using a system-wide TeX Live installation.
+
+For macOS Users Using MacTeX:
+
+MacTeX typically includes TeX Live. Use tlmgr as shown above.
+
+For Windows Users:
+
+If you're using MiKTeX instead of TeX Live, update packages via the MiKTeX Console.
+
+2. Rebuild LaTeX Format Files
+After updating packages, rebuild the LaTeX format files to ensure they incorporate the latest package versions.
+
+Using fmtutil (Format Utility):
+
+bash
+Copy code
+fmtutil-sys --all
+fmtutil-sys: Rebuilds format files system-wide.
+--all: Rebuilds all formats.
+Alternative (User-Level):
+
+If you lack administrative rights:
+
+bash
+Copy code
+fmtutil-user --all
+fmtutil-user: Rebuilds format files for the current user.
+Specific Format (Optional):
+
+If you prefer to rebuild only the LaTeX formats:
+
+bash
+Copy code
+fmtutil-sys --byfmt latex
+Or for xelatex specifically:
+
+bash
+Copy code
+fmtutil-sys --byfmt xelatex
+3. Verify the Installation
+After updating and rebuilding, verify that the versions align.
+
+Check expl3.sty Version:
+
+Locate expl3.sty and check its date.
+
+bash
+Copy code
+kpsewhich expl3.sty
+Open the file in a text editor and verify the date in the comments.
+
+Check LaTeX Format Date:
+
+Unfortunately, LaTeX format files don't directly expose their compilation date. However, ensuring that all packages are updated and formats are rebuilt should suffice.
+
+4. Clean Auxiliary Files
+Sometimes, residual auxiliary files can cause conflicts.
+
+Delete Auxiliary Files:
+
+Remove files like .aux, .log, .toc, etc., generated during previous compilations.
+
+bash
+Copy code
+rm -f *.aux *.log *.toc *.out *.gz
+Caution: Ensure you're in the correct directory to avoid accidental deletions.
+
+5. Recompile Your Document
+Attempt to compile your Quarto document again.
+
+bash
+Copy code
+quarto render paper.qmd --to pdf
+Or, if using RStudio or another IDE, trigger the render through the interface.
+
+### Additional Considerations
+1. Ensure TeX Live is Properly Installed
+If the above steps don't resolve the issue, consider reinstalling TeX Live to ensure a clean and consistent installation.
+
+Uninstall Existing TeX Live:
+
+Follow the instructions specific to your operating system to remove TeX Live.
+
+Download and Install the Latest TeX Live:
+
+Visit the TeX Live website and follow installation instructions.
+
+2. Check for Multiple LaTeX Installations
+Having multiple LaTeX distributions (e.g., both TeX Live and MiKTeX) can lead to path conflicts.
+
+Identify LaTeX Executables:
+
+bash
+Copy code
+which latex
+which xelatex
+Ensure that the paths point to the intended distribution.
+
+Adjust PATH Variable:
+
+Modify your system's PATH to prioritize the correct LaTeX distribution.
+
+3. Consult LaTeX Logs
+If errors persist, examine the .log file generated during compilation for more detailed information.
+
+Locate the Log File:
+
+After a failed compilation, locate paper.log in your working directory.
+
+Search for Errors:
+
+Open paper.log and look for lines starting with ! to identify specific issues.
+
+4. Utilize LaTeX Package Managers
+Consider using LaTeX package managers like TeX Live Utility (macOS) or MiKTeX Console (Windows) for GUI-based management.
+
+### Summary of Actions
+Update LaTeX Packages:
+
+bash
+Copy code
+tlmgr update --self --all
+Rebuild Format Files:
+
+bash
+Copy code
+fmtutil-sys --all
+Clean Auxiliary Files:
+
+bash
+Copy code
+rm -f *.aux *.log *.toc *.out *.gz
+Recompile Document:
+
+bash
+Copy code
+quarto render paper.qmd --to pdf
+If Issues Persist:
+
+Reinstall TeX Live.
+Check for multiple LaTeX installations.
+Examine paper.log for detailed errors.
+### Preventive Measures
+Regularly Update LaTeX Distribution:
+
+Periodically run updates to keep packages and format files in sync.
+
+Avoid Partial Updates:
+
+Ensure that updates complete successfully to prevent version mismatches.
+
+Use Package Managers Consistently:
+
+Stick to one package manager (e.g., tlmgr for TeX Live) to manage updates and installations.
+
+### Additional Resources
+TeX Live Documentation: https://www.tug.org/texlive/doc.html
+Quarto Documentation: https://quarto.org/docs/
+Stack Exchange TeX Community: https://tex.stackexchange.com/ – A valuable resource for troubleshooting LaTeX issues.
+By following the above steps, you should be able to resolve the LaTeX compilation error and successfully render your Quarto document to PDF. If you continue to experience issues, please provide additional details, such as excerpts from the paper.log file, and I'll be glad to assist further.
+
+
+
+
+
+
+You said:
+
+
+
+processing file: paper.qmd
+                                                                                                            
+output file: paper.knit.md
+
+pandoc 
+  to: latex
+  output-file: paper.tex
+  standalone: true
+  pdf-engine: xelatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  number-sections: true
+  
+metadata
+  documentclass: scrartcl
+  classoption:
+    - DIV=11
+    - numbers=noendperiod
+  papersize: letter
+  header-includes:
+    - '\KOMAoption{captions}{tableheading}'
+  block-headings: true
+  title: Forecasting the 2024 U.S. Presidential Election
+  subtitle: Using Aggregated Polling Data to Predict the Outcome of the 2024 Presidential Race
+  author:
+    - Andy Jiang
+    - Onon Burentuvshin
+    - Rui Hu
+  thanks: 'Code and data are available at: [https://github.com/AndyYanxunJiang/president-polls).'
+  date: today
+  date-format: long
+  abstract: 'The 2024 U.S. presidential election is shaping up to be a highly swing race, with polling data playing a crucial role in gauging public sentiment and forecasting the potential outcome. This paper aims to build a predictive model using a poll-of-polls approach, aggregating data from multiple pollsters to forecast the winner of the upcoming election. The analysis incorporates polling data from various sources, filtered to include only high-quality pollsters with a numeric grade above 3, to ensure the reliability of the predictions. Additionally, a detailed examination of one selected pollster’s methodology is conducted, highlighting strengths, weaknesses, and biases in the survey process. The paper concludes with an idealized polling methodology, designed within a $100K budget, to enhance the accuracy of election forecasts. Results are presented in the context of understanding polling trends, potential biases, and the evolving landscape of voter preferences as the election approaches.'
+  bibliography:
+    - references.bib
+  
+running xelatex - 1
+  This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+updating tlmgr
+
+updating existing packages
+
+compilation failed- error
+LaTeX Error: Mismatched LaTeX support files detected.
+(LaTeX)        Loading 'expl3.sty' aborted!
+(LaTeX)        
+(LaTeX)        The L3 programming layer in the LaTeX format
+(LaTeX)        is dated 2024-09-10, but in your TeX tree the files require
+(LaTeX)        at least 2024-10-09.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.78      \ExplLoaderFileDate{expl3.sty}}
+                                         % 
+
+see paper.log for more information.
+ChatGPT said:
+ChatGPT
+The error you're encountering is due to a version mismatch between the LaTeX format files and the expl3 package. This happens when expl3 requires a version more recent than the one your format files were built with. Here’s how to address this issue:
+
+Step-by-Step Solution
+1. Update All LaTeX Packages and TeX Live Itself
+Open your terminal and use tlmgr to update everything, ensuring all LaTeX packages are synchronized with the latest versions:
+
+bash
+Copy code
+tlmgr update --self --all
+This updates both the expl3 package and any other dependencies that may require the latest LaTeX formats.
+
+2. Rebuild the Format Files
+After updating, rebuild your format files to incorporate the latest packages. This step ensures that the LaTeX format (latex.fmt or xelatex.fmt) will be generated with the updated versions.
+
+Run the following command to rebuild all format files:
+
+bash
+Copy code
+fmtutil-sys --all
+Or, if you only want to rebuild the xelatex format:
+
+bash
+Copy code
+fmtutil-sys --byfmt xelatex
+3. Clean Up Auxiliary Files
+To ensure there are no lingering issues, remove any temporary files from previous compilation attempts:
+
+bash
+Copy code
+rm -f *.aux *.log *.toc *.out *.gz
+4. Recompile Your Document
+Attempt to recompile your Quarto document after these updates:
+
+bash
+Copy code
+quarto render paper.qmd --to pdf
+Additional Notes
+Ensure TeX Live 2024 is Installed: If you’re not using TeX Live 2024, consider reinstalling to align with the latest versions.
+Check paper.log: If the issue persists, paper.log will provide additional information. Look for any remaining version conflicts noted within the file.
+This should resolve the version mismatch error. Let me know if you encounter further issues!
+
+
+
+
+
+
+You said:
+running xelatex - 1
+  This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+updating tlmgr
+
+updating existing packages
+
+compilation failed- error
+Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.314 ...ndom Observations from the Analysis Data}
+                                                  \\ 
+
+see paper.log for more information.
+ChatGPT said:
+ChatGPT
+The error "Missing \cr inserted" usually occurs when there’s a formatting issue in a table or a similar structure in your LaTeX code. This typically happens when a table row is missing an end-of-row marker (\\) or has incorrectly formatted content.
+
+Here’s how to address it:
+
+Step-by-Step Solution
+Check the Source Code at Line 314
+
+Since the error points to line 314 (l.314) where the issue occurred, examine the corresponding table or command around this line in your paper.qmd or generated .tex file. Look specifically at sections with tables or aligned data, as these often use \\ to indicate row breaks.
+
+Ensure Proper Table Syntax
+
+For each row in your table, verify that it ends with \\.
+Also, make sure each cell in a row is separated by &, which is required in LaTeX tabular environments.
+Inspect Automatic Table Generation (if applicable)
+
+If you are using R or Python code to generate tables automatically, check that your code outputs correctly formatted LaTeX syntax. Sometimes tools that auto-generate tables may skip a \\ or add an extra line break that confuses LaTeX.
+
+Review the .log File for Additional Clues
+
+Open paper.log and locate line 314. The .log file may provide additional context to narrow down the specific issue in the table.
+
+Example Table Correction
+
+Here’s an example structure for a correct LaTeX table:
+
+latex
+Copy code
+\begin{tabular}{|c|c|c|}
+\hline
+Column 1 & Column 2 & Column 3 \\
+\hline
+Value 1 & Value 2 & Value 3 \\
+Value 4 & Value 5 & Value 6 \\
+\hline
+\end{tabular}
+Ensure that all rows have \\ at the end, and that \hline is used consistently if required.
+
+Additional Fixes
+If you’re still encountering issues, try wrapping the table or block with an environment that doesn’t rely on line breaks, or temporarily comment out the table in your .qmd file to confirm that it’s the source of the error.
+
+After making these adjustments, try recompiling:
+
+bash
+Copy code
+quarto render paper.qmd --to pdf
+Let me know if you need further assistance or if there are additional issues in the .log file!
+
+
+
+
+
+
+You said:
+---
+title: "Forecasting the 2024 U.S. Presidential Election"
+subtitle: "Using Aggregated Polling Data to Predict the Outcome of the 2024 Presidential Race"
+author: 
+  - Andy Jiang
+  - Onon Burentuvshin
+  - Rui Hu
+thanks: "Code and data are available at: [https://github.com/AndyYanxunJiang/president-polls)."
+date: today
+date-format: long
+abstract: "The 2024 U.S. presidential election is shaping up to be a highly swing race, with polling data playing a crucial role in gauging public sentiment and forecasting the potential outcome. This paper aims to build a predictive model using a poll-of-polls approach, aggregating data from multiple pollsters to forecast the winner of the upcoming election. The analysis incorporates polling data from various sources, filtered to include only high-quality pollsters with a numeric grade above 3, to ensure the reliability of the predictions. Additionally, a detailed examination of one selected pollster’s methodology is conducted, highlighting strengths, weaknesses, and biases in the survey process. The paper concludes with an idealized polling methodology, designed within a $100K budget, to enhance the accuracy of election forecasts. Results are presented in the context of understanding polling trends, potential biases, and the evolving landscape of voter preferences as the election approaches."
+format: pdf
+number-sections: true
+bibliography: references.bib
+---
+
+{r}
+#| include: false
+#| warning: false
+#| message: false
+library(tidyverse)
+library(readr)
+library(here)
+library(knitr)
+library(kableExtra)
+library(scales)
+library(arrow)
+library(bayesplot)
+library(rstanarm)
+
+data <- read_parquet(here::here("data/02-analysis_data/analysis_data.parquet"))
+
+
+
+# Introduction
+The 2024 U.S. presidential election is shaping up to be one of the most closely watched and potentially pivotal elections in recent history. As public opinion shifts and political dynamics evolve, polling data has emerged as a critical tool for forecasting the outcome and understanding voter preferences. Polls provide a snapshot of where candidates stand at various points in time, reflecting the impact of campaigns, debates, and major events. However, the reliability and accuracy of individual polls can vary significantly based on methodology, sample size, and other factors, making it necessary to aggregate multiple sources of data for a more robust prediction.
+
+This paper aims to forecast the outcome of the 2024 U.S. presidential election by leveraging a "poll-of-polls" approach, which aggregates data from various pollsters to create a more comprehensive picture of the race. By focusing on high-quality polls and conducting a detailed analysis of the polling trends for the two main candidates, Donald Trump and Kamala Harris, we seek to uncover patterns in voter support and potential factors influencing shifts in public opinion. Additionally, the paper examines the methodologies of different pollsters to assess their strengths and weaknesses, which can help identify possible biases in the aggregated data.
+
+The analysis will further explore the geographic distribution of support across key swing states, providing insights into the electoral landscape. Finally, the paper presents an idealized polling methodology with a $100,000 budget, designed to improve the accuracy and representativeness of election forecasts. By integrating multiple data sources and critically evaluating polling practices, this study aims to contribute to the ongoing discussion on the role of polling in democratic processes and election forecasting.
+
+
+# Data {#sec-data}
+The data used in this paper was obtained from the FiveThirtyEight website [@Best2024], which aggregates polling data and other relevant indicators to track the U.S. election landscape. We accessed this data using custom web scraping tools and APIs provided by FiveThirtyEight. The dataset includes information on pollster, state, start and end dates of polls, sample size, population type (e.g., registered voters or likely voters), and party affiliation.
+
+## Overview
+Our analysis was conducted using R [@citeR] along with several supporting packages. We used the **tidyverse** for data manipulation [@tidyverse], **readr** for data import [@readr], and **here** for file management [@here]. 
+
+Dynamic reporting was handled with **knitr** [@knitr], while **kableExtra** allowed for enhanced table formatting [@kableExtra]. We used **scales** to adjust visualization scales [@scales], and **arrow** for efficient data processing [@arrow].
+
+For Bayesian modeling and visualization, we used **bayesplot** [@bayesplot] and **rstanarm** [@rstanarm].
+
+
+## Measurement
+The FiveThirtyEight dataset is updated in real-time, providing the latest polling data for the 2024 U.S. presidential election. This dataset aggregates information from multiple reputable polling sources, applying adjustments to enhance reliability, such as weighting based on pollster quality and recency of data. These measures ensure that the dataset remains a dependable reflection of current voter sentiment and trends as Election Day approaches.
+
+## Analysis Data
+The analysis dataset includes several key variables: State, Sample Size, Population Type (e.g., Registered Voters), Party Affiliation, Candidate Preference (Trump or Harris), and Pollster. These variables allow for an analysis of voter sentiment in specific swing states, with a focus on support levels between Donald Trump and Kamala Harris.
+
+Certain variables, such as Question ID, Start Date, End Date, and Hypothetical Questions, were removed as they were not necessary for this analysis. Additionally, data on other candidates was excluded to concentrate solely on the Trump vs. Harris matchup, aligning with the focus on the most relevant contenders in the seven swing states: Pennsylvania, Georgia, North Carolina, Michigan, Arizona, Wisconsin, Nevada.
+
+@tbl-sample provides a random sample of the analysis dataset, displaying all relevant variables used for analysis.
+
+{r}
+#| label: tbl-sample
+#| tbl-cap: Random sample of 10 rows from the analysis data.
+#| echo: false
+#| warning: false
+#| message: false
+
+set.seed(311)
+
+# Sample 10 random observations from the filtered data with Trump and Harris, and remove unnecessary columns
+sample_data <- data %>%
+  filter(candidate_name %in% c("Donald Trump", "Kamala Harris")) %>%
+  sample_n(10) %>%
+  select(-start_date, -end_date, -question_id, -hypothetical, -pct)
+
+# Display the sampled data as a table with refined styling
+kable(sample_data, caption = "Sample of 10 Random Observations from the Analysis Data") %>%
+  kable_styling(full_width = FALSE, position = "center") %>%  # Center the table in the PDF
+  column_spec(1, width = "3cm") %>%    # Adjust specific columns for better fit
+  column_spec(2, width = "2.5cm") %>%
+  column_spec(3, extra_css = "padding-left: -5px;") %>%  # Move sample_size column slightly to the left
+  column_spec(4:5, width = "1.5cm")    # Adjust remaining columns with less text
+
+
+
+## Predictor variables
+
+
+
+
+# Model
+In this analysis, we utilize a logistic regression model to predict polling percentages for the 2024 U.S. presidential candidates over time. In order to focus on states with historical significance in elections. The model is specified as a Generalized Linear Model (GLM) with a binomial family and a logit link function, appropriate for modeling binary or proportion-based outcomes.
+
+
+## Model set-up
+The dataset, model_data.csv, provides polling data with average_pct as the observed average polling percentage among 7 swing states. The end_date indicates the polling period's endpoint.
+To predict polling percentages beyond the available data, we created an additional sequence of 20 days beyond the dataset's last recorded date. Because we want to predict the result in November 5. This expansion allows for forecasting near-term polling trends. Also, capturing potential shifts in candidate support leading up to election day. The model was trained on existing data and applied to this extended date range using predict(model, newdata = ., type = "response").
+
+Our model setup and variable selection are as follows:
+$$
+\text{logit}(p_i) = \beta_0 + \beta_1 (\text{Date}) + \beta_2 (\text{Candidate})
+$$
+
+where:
+
+- $$p_i \ \text{represents the probability of support for candidate i at a specific date.}$$
+- $$\beta_0 \ \text{is the intercept, representing baseline support.}$$
+- $$\beta_1 \ \text{captures changes in support over time (date effect).}$$
+- $$\beta_2 \ \text{is a categorical variable accounting for each candidate.}$$
+
+### Model justification
+The choice of a logistic regression model was guided by the nature of polling data. Nature of polling data represents proportions that naturally bound between 0 and 1. The logistic function’s S-shaped curve effectively models the relationship between time and polling percentage, accommodating non-linear trends that may arise as election day nears.
+Firstly, candidate names should be included as a categorical predictor in the model. It allows us to capture individual impact in support rates by candidate. In addition, a transformation from date to numeric is made on end_date in order to get a numerical format. It is called the end_date_numeric. It helps put date as a predictor in the model. By structuring the model this way, it can predict the percentage of the poll by both the impact of candidates and trends over time.
+
+# Results
+The analysis of polling data across key swing states for the 2024 U.S. Presidential Election reveals insights into the levels of support for candidates Donald Trump and Kamala Harris. The findings are presented through three primary visualizations: the average polling percentage by state, the distribution of polling percentages, and the difference in average polling percentage between the two candidates.
+
+## Average Polling Percentage by State
+From @fig-1, we can see that in the swing states of Arizona, Georgia, and North Carolina, Trump holds a narrow lead. In contrast, Harris leads in Pennsylvania, Wisconsin, Nevada, and Michigan. When looking at the overall average across these states, Harris slightly edges out Trump, indicating her overall advantage in these swing areas.
+
+## Polling Percentage Distribution
+The box plot in @fig-2 demonstrates the range and consistency of support for both candidates across each state. Trump shows a wider range of support, reflecting variability, while Harris has relatively steady polling percentages across states, maintaining higher consistency. Harris’s support is less variable and generally centers around higher polling percentages compared to Trump’s.
+
+## Difference in Average Polling Percentage
+@fig-3 highlights the difference in average polling percentages by state, with positive values indicating Trump’s lead and negative values indicating Harris's. Trump’s lead in the three states (Arizona, Georgia, and North Carolina) is relatively narrow, with margins of less than 1 percent. In contrast, Harris’s lead in the states favoring her (Pennsylvania, Wisconsin, Nevada, and Michigan) ranges from 1 to 4 percent, indicating her stronger support in the states where she leads.
+
+{r}
+#| label: fig-1
+#| fig-cap: "Average Polling Percentage by State"
+#| echo: false
+#| warning: false
+#| message: false
+# Calculate the average polling percentage by state for Trump and Harris
+data_avg <- data %>%
+  filter(candidate_name %in% c("Donald Trump", "Kamala Harris")) %>%
+  group_by(state, candidate_name) %>%
+  summarize(avg_pct = mean(pct, na.rm = TRUE), .groups = "drop")
+
+# Calculate the overall average polling percentage for Trump and Harris
+overall_avg <- data %>%
+  filter(candidate_name %in% c("Donald Trump", "Kamala Harris")) %>%
+  group_by(candidate_name) %>%
+  summarize(avg_pct = mean(pct, na.rm = TRUE)) %>%
+  mutate(state = " Overall")  # Add a space before "Overall" to separate it visually
+
+# Combine state-level data with overall average
+combined_data <- bind_rows(data_avg, overall_avg)
+
+# Ensure "Overall" appears at the bottom with spacing
+combined_data$state <- factor(combined_data$state, levels = c(setdiff(unique(combined_data$state), " Overall"), " Overall"))
+
+# Plot the average polling percentages by state with overall comparison
+ggplot(combined_data, aes(x = state, y = avg_pct, fill = candidate_name)) +
+  geom_bar(stat = "identity", position = position_dodge(width = 0.8), aes(color = ifelse(state == " Overall", "Overall", "State")), width = 0.6) + 
+  scale_color_manual(values = c("Overall" = "black", "State" = NA), guide = "none") +  # Add dark grey outline for "Overall" bars
+  scale_fill_manual(values = c("Donald Trump" = "#F8766D", "Kamala Harris" = "#56B4E9")) +  # Custom colors for consistency
+  labs(title = "Average Polling Percentages by State",
+       x = "State",
+       y = "Average Polling Percentage",
+       fill = "Candidate") +
+  coord_flip() +  # Flip coordinates for easier reading
+  theme_minimal() +
+  theme(
+    legend.position = "bottom",
+    axis.text.y = element_text(margin = margin(r = 10)), # Add spacing to y-axis labels
+    panel.grid.major.y = element_blank(), # Remove y-axis gridlines for clarity
+    panel.spacing = unit(1, "lines") # Increase panel spacing
+  )
+
+
+{r}
+#| label: fig-2
+#| fig-cap: "Polling Percentage Distribution"
+#| echo: false
+#| warning: false
+#| message: false
+ggplot(data %>% filter(candidate_name %in% c("Donald Trump", "Kamala Harris")), 
+       aes(x = state, y = pct, fill = candidate_name)) +
+  geom_boxplot(alpha = 0.7) +
+  labs(title = "Polling Percentage Distribution by State",
+       x = "State",
+       y = "Polling Percentage",
+       fill = "Candidate") +
+  scale_fill_manual(values = c("Donald Trump" = "#F8766D", "Kamala Harris" = "#56B4E9")) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1)
+  )
+
+{r}
+#| label: fig-3
+#| fig-cap: "Difference in Average Polling Percentage"
+#| echo: false
+#| warning: false
+#| message: false
+data_diff <- data %>%
+  filter(candidate_name %in% c("Donald Trump", "Kamala Harris")) %>%
+  group_by(state) %>%
+  summarize(diff_pct = mean(pct[candidate_name == "Donald Trump"], na.rm = TRUE) - 
+                      mean(pct[candidate_name == "Kamala Harris"], na.rm = TRUE), .groups = "drop")
+
+ggplot(data_diff, aes(x = reorder(state, diff_pct), y = diff_pct, fill = diff_pct > 0)) +
+  geom_bar(stat = "identity", color = "darkgrey") +
+  scale_fill_manual(values = c("TRUE" = "#F8766D", "FALSE" = "#56B4E9"), 
+                    labels = c("Kamala Harris", "Donald Trump")) +
+  labs(title = "Difference in Average Polling Percentage by State",
+       x = "State",
+       y = "Difference in Polling Percentage",
+       fill = "Lead") +
+  coord_flip() +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+
+
+## Swing State Polling Prediction Model
+@fig-4 shows the trend of support rate changes for each candidate before the upcoming election, as well as the model's predicted values for the next 20 days.
+{r}
+#| label: fig-4
+#| fig-cap: "Swing State Polling Prediction Model"
+#| echo: false
+#| warning: false
+#| message: false
+
+invisible(Sys.setlocale("LC_TIME", "en_US"))
+data_filtered <- read_parquet(here::here("data/02-analysis_data/model_data.parquet"))
+model <- readRDS(here::here("models/model.rds"))
+data_filtered <- data_filtered %>%
+  mutate(predicted_pct = predict(model, newdata = ., type = "response"))
+
+last_date <- max(data_filtered$end_date, na.rm = TRUE)
+new_dates <- seq.Date(from = last_date + 1, by = "day", length.out = 20)
+new_data <- expand.grid(
+  end_date = new_dates,
+  candidate_name = unique(data_filtered$candidate_name)
+)
+new_data <- new_data %>%
+  mutate(
+    end_date_numeric = as.numeric(end_date), 
+  ) %>% mutate(predicted_pct = predict(model, newdata = ., type = "response"))
+all_data <- bind_rows(data_filtered, new_data)
+
+ggplot(all_data, aes(x = end_date, y = pct, color = candidate_name)) +
+  geom_point(aes(y = average_pct/100), alpha = 0.5) + 
+  geom_line(aes(y = predicted_pct), size = 1) + 
+  labs(title = "2024 US President Polls - Predicted vs True",
+       x = "Date",
+       y = "Rate of support") +
+  theme_minimal() +
+  scale_x_date(date_labels = "%b", date_breaks = "1 month") +
+  scale_y_continuous(labels = percent_format(), limits = c(0.44, 0.48))
+
+
+
+
+
+# Discussion
+
+## Impact of Key Demographics and Policy Appeals
+Harris’s lead in several swing states may be influenced by her campaign’s appeal to key demographic groups, particularly immigrants. The Democratic platform has emphasized social and economic benefits for immigrant communities, which may have strengthened her base in states with significant immigrant populations. Policies that promise support for healthcare, education, and other public services are likely contributing to Harris’s appeal among these groups, solidifying her lead in states like Nevada and Michigan. This demographic support provides Harris with a strategic advantage, as these communities may play a crucial role in voter turnout and loyalty.
+
+## Influence of Endorsements and High-Profile Backing
+Recently, high-profile figures like Elon Musk have publicly thrown their support behind Trump, leveraging their influence to rally support for his campaign [@Zahn2024]. Musk’s endorsement could invigorate Trump’s base, especially among Musk’s followers and those engaged in the fields of business and technology. This visible backing from such influential figures has the potential to sway undecided voters and influence last-minute decisions, particularly in swing states where Trump’s lead remains narrow.
+
+Musk’s endorsement might not only energize Trump’s existing supporters but could also lead to a boost in campaign funds and social media engagement, further strengthening Trump’s position. In closely contested states, where a few thousand votes can make a significant difference, this level of backing from a high-profile figure could be crucial. If Musk’s involvement draws in additional resources and amplifies Trump’s visibility, it may ultimately impact the final outcome of the election on November 5th.
+
+## Limitations of the Analysis: Focus on Swing States
+While the analysis focuses on key swing states, it does not consider the broader national picture, which includes states with clear, one-sided advantages for either candidate. This narrowed focus on swing states provides insights into swing areas but does not give a complete picture of the national landscape. Therefore, while Harris appears to have an edge in these swing states, it is unclear whether she is leading overall. The situation in solidly red or blue states could still shift the electoral balance, meaning Trump could potentially gain ground through strong performances in traditionally Republican states.
+
+## Potential Influence of Late Campaign Efforts
+With a few days remaining before the election, both campaigns are likely to intensify their outreach efforts, particularly in swing states. Trump’s recent increase in targeted advertisements and campaign rallies in swing states could energize his supporters, narrowing Harris’s lead. On the other hand, Harris’s campaign may focus on mobilizing key demographics, such as young and minority voters, to secure her advantage. Late-breaking events, public debates, or controversies could sway undecided voters and ultimately impact the election results in these states.
+
+## Limitations and Next Steps
+This analysis is limited to examining current polling data in swing states and does not account for unexpected shifts in voter sentiment or turnout on election day. Additionally, focusing exclusively on swing states omits the influence of non-swing states that may still play a role in the electoral vote tally. Future analyses could incorporate national polling data to provide a more comprehensive perspective and examine demographic breakdowns within each state to understand which groups are driving support for each candidate. Integrating data on recent campaign activities, endorsements, and voter sentiment on pressing issues could also improve the predictive accuracy of election outcomes.
+
+
+\newpage
+
+\appendix
+
+# Appendix A {-}
+
+# Sampling Methodology Employed by New York Times and Siena College:
+
+Our analysis and prediction utilizes data collected by a single pollster and it is important to scrutinize the sampling methodology behind the sampling methods used to determine the extent of the external validity of our predictions. Primarily, the data gathered by New York Times was done so with the collaboration with Sienna College through live-interviewers reaching voters by telephone. 
+
+## Target Population and Sampling Frame
+The poll targets registered voters in the United States, with a particular focus on voters in swing states for presidential races. Consequently, the target population is registered voters of the United States of America and the sampling frame is the voter file, a national list of registered voters from which NYC employs random sampling to create their pollsters [@nyt_poll]. This voter file contains information on more than 200 million Americans that includes information about their party affiliation, voting history, and  basic demographic information. From this sampling frame, respondents are randomly selected while balancing key demographic and political characteristics through both front-end sampling and post-survey weighting pursuant to appropriate representation of the entire target population [@nyt_poll].
+
+## Recruitment Methods
+The poll relies on random digit dialing to reach voters, predominantly via cell phones. While landlines are also called, the dominance of cellphone usage aligns with contemporary communication trends. This results in their rendition of random sampling, which contributes to the external validity of data. However, reaching voters by phone has become more difficult due to low response rates requiring many attempts to secure responses from certain individuals (response rates are as  low as 2% at NYC). In fact, according to an article by Emerson College, telephone polling has become entirely obsolete [@kimball_polling]. Despite this, the phone methodology is still seen as effective for its ability to quickly reach a diverse voter pool across various states as well as seen as the golden standard for polling. Although this can be seen as random sampling, the concern of low response rates and reliance on dialing to reach voters raises concerns of selection bias. There are questions as to whether a certain demographic will be more responsive to being reached through a cell phone. Moreover, voters that are reached over the phone may feel the urge to provide more ‘socially desirable’ responses that are not reflective of their true opinions. 
+
+## Non-Response Remedies
+With a response rate of 2%, there is valid concern over non-response bias underrepresenting certain demographics. The poll addresses non-response through a combination of front-end sampling adjustments (calling harder-to-reach voters) and post-survey weighting. Weighting is applied to ensure that the final sample aligns with the demographic and political composition of the electorate, based on voter file data. Non-response bias is a persistent challenge, and even though weighting helps, it's impossible to be certain that respondents are fully representative of those who do not respond. Experiments with alternative methods, such as mail surveys with incentives of cash vouchers have shown to increase response rate up to 30% [@nyt_poll]. 
+
+
+	
+
+
+
+# Sampling Approach: Stratified Sampling
+
+## Methodology
+The Times/Siena Poll employs a stratified random sampling approach to ensure that the sample accurately represents the diversity within the target population of registered voters in the United States. This method involves dividing the population into distinct subgroups, or “strata,” based on key characteristics such as state, age, gender, race, education level, and political affiliation. For example, in presidential elections, particular emphasis is placed on voters from swing states like Arizona, North Carolina, Georgia, and Pennsylvania. By focusing on these battleground states, the poll aims to capture the opinions of voters who are most likely to influence the election outcome. Once the strata are established, respondents are randomly selected within each group, ensuring that all demographic groups are appropriately represented in proportion to their actual distribution within the electorate. Furthermore, post-survey weighting is employed to more closely resemble this distribution.
+
+## Advantages
+Stratified sampling offers the advantage of higher precision in representing the population's diversity, as each subgroup is proportionally represented. By breaking down the sample into distinct groups, the Times/Siena Poll can adjust for demographic variations between states or voter groups, which is particularly useful in a diverse electorate. This approach helps to minimize sampling error by ensuring that all significant voter subgroups are included, thus increasing the reliability of the poll’s predictions. It is standard practice for them to sample 1,000 respondents for their polls. Using stratified sampling to have this sample size closely resemble that of the entire target population cuts costs and provides efficient real-time data. 
+
+## Stratified Sampling over Random Sampling
+
+If the methodology randomly sampled from the target population without regard for the distribution of demographics in the state, significant increases to the sample sizes have to be made. Random sampling will have largely less precision in representing the distribution of different demographics within a given state unless a large enough sample size were to be drawn. Although it is ideal to have probability based sampling increasingly resemble the demographic distribution quota with growing sample sizes, it is unfeasible to conduct such a large scale poll as this approach would encounter a limitation of resources. With declining response rates and the difficulty of reaching voters, New York Times/Siena's nonprobability sampling is a more realistic and efficient method of polling than probability sampling is [@tellingstories]. As such, the stratified sampling approach allows New York Times/Siena to represent the entire target population with a sample size of 1,000. 
+
+## Challenges and Trade-offs
+
+Although stratified sampling improves representativeness, it presents certain challenges in execution. First, identifying and reaching a sufficient number of respondents from harder-to-reach groups (such as young voters, minority populations, and those without reliable phone access) can be difficult, especially given the 2% response rate. To counterbalance the low response rates, the poll requires multiple call attempts and careful post-survey weighting to adjust for any potential underrepresentation. Additionally, while phone polling offers broad geographic reach and a standardized mode of data collection, it limits the sample to voters with phone access who are willing to participate in phone interviews, potentially introducing selection bias if certain demographics are less reachable by phone. Although New York Times/Sienna College employs random digit dialing from their sampling frame, their rendition of sample recruitment requires them to sample individuals according to quotas, resulting in nonprobability sampling. 
+
+
+## Evaluation of Questionnaire Design in the Times/Siena Poll
+
+### Strengths
+
+The Times/Siena Poll’s approach to questionnaire design reflects a careful effort to craft unbiased, relevant, and inclusive questions. By tailoring questions to current events and topics of widespread interest, the poll aims to capture public sentiment on issues that directly affect voters' attitudes, such as economic conditions or recent political debates. This responsiveness to current events strengthens the poll's relevance and allows it to track shifts in opinion over time. The poll’s commitment to neutrality is a significant strength. Each question is designed to ensure that respondents, regardless of their political views, feel that their perspectives are fairly represented. The team behind the poll spends substantial time crafting response options to reflect a balanced spectrum of views, minimizing potential response bias and enhancing the questionnaire's reliability across different demographic and ideological groups [@nyt_poll]. Clarity is also a central focus in their questionnaire development. The team emphasizes ensuring that each question is clear and unambiguous, minimizing the risk of misinterpretation. This dedication to straightforward, widely understandable questions improves the validity of responses, as it reduces the chance that respondents interpret questions differently based on background or knowledge level.
+
+### Limitations
+
+Despite the strengths of the Times/Siena Poll’s questionnaire design, there are some limitations. One notable concern is that, although the poll tries to avoid leading questions, any standardized questionnaire may still unintentionally prime respondents or introduce subtle biases, especially when questions involve sensitive or polarizing topics. Although the pollster tries to avoid attrition bias by keeping each interview less than 15 minutes, in seeking to make questions clear and concise, the questionnaire may not capture the full nuance of voter opinions, especially on multifaceted issues like economic policy or social justice. While the poll strives to capture real views without introducing new ideas, respondents are still prone to a social desirability bias. This is especially possible in phone interviews, where respondents may be more inclined to provide answers they perceive as socially acceptable rather than expressing their true opinions. Although the design aims to be fair, the influence of an interviewer’s presence may subtly affect responses [@psychology_survey_response].
+
+
+
+
+\newpage
+
+# Appendix B {-}
+
+# Idealized Methodology
+
+Pursuant to accurately predicting the winner of the presidential election with the electoral college system, there are assumptions that need to be assessed. The United States of America’s electoral college system creates a special environment where votes in some states are disproportionately more influential than that of others and candidates are not elected based on popular vote, but on the majority of electoral votes they get. 
+
+## Assumption 1:  
+
+Nation-level Popular Vote is irrelevant in our methodology since president electors are chosen based on electoral votes. 
+
+## Assumption 2:  
+
+Based on historical and polling data, some states’ electoral votes are predetermined as either Democrat or Republican. Therefore, it is more prudent to shift focus over to swing states where outcomes are uncertain. This assumption is accompanied with the challenge of determining what states qualify as “swing states”. However, on this issue, there is consensus on which states qualify as swing states. Pollsters such as  New York Times have their metric for determining which  states are 'battleground states'. As of 2024, our methodology should direct all our resources to acquiring voting data on the following states (New York Times). This assumption results in each presidential candidate starting off with a set number of electoral votes.
+
+
+## Swing States
+
+According to 2024 polling data conducted by New York Times, the swing states are determined to be the following @boyce_swing_states:
+
+Pennsylvania
+Georgia
+North Carolina
+Michigan
+Arizona
+Wisconsin
+Nevada
+
+
+
+## Feasibility of Reaching Voters: Justification of Online Panels
+
+According to the New York Times, with a sample of 1000 individual votes, there is a margin of error of around three to four percentages. With $100,000, there are limitations on the labor and resources that is required to poll 1000 voters while balancing out demographics through dialing. Furthermore, there is additional filtering of our sample frame to determine likely voters. Assuming New York Times’ 2% voter response rate, to sample 1000 voters, at least 50,000 voters will need to be called. It is likely that our team will be dialing abundantly more than 50,000 times since it is an unreasonable assumption that every voter we call would pick up or be available to provide a response. There is also the fact that our team does not carry the same credibility and history of acquiring poll data as the New York Times does, resulting in more reluctance for voters to share information with us.
+Therefore, it is not feasible for our methodology to employ telephone dialing as our method to reach voters. Instead, we focus on online panels and surveys with incentives for completing the survey correctly. However, online panels and surveys come with their own set of challenges and weaknesses that must be addressed in our methodology. Primarily, the problem of self-selection in online panels disrupts the random selection that allows the external validity of our predictions. Moreover, there is apossibility that we acquire responses from respondents that are not likely to vote, gaining data from outside our target population. Even if we distribute the panels randomly among swing states, responses are still corrupted by selection bias that occurs from responses that are provided from demographics that feel more passionately about the election or are more likely to respond to online panels. Unlike telephone dialing, we have less control over the specific demographic we want to target, resulting in a less stratified data that is representative of the target population overall. 
+
+## Remedies for Online Panels
+
+### Weighting Adjustments
+	
+Although online panels offer an imperfect solution to the limited resources our team will work with, there are remedies that can address underrepresentation brought by selection bias. As NYC and Siena College does, post-survey weighting can help us represent our target population more accurately. This is an effective way to adjust our sample based on demographic data and historical turnout patterns within each state. By weighting responses to mirror actual voter demographics from a particular state, the survey results can approximate a more realistic projection of the electorate. These weighting adjustments help to maintain the integrity of our sample, closely resembling the target population of a state. 
+	
+### Screening for Likely Voters
+
+Although weighting adjustments helpsus represent our target population more closely, there is nothing to stop respondents from outside our target population to participate in our panels since it will be advertised online. To produce accurate predictions of election results, our sample needs to be acquired from a target population that will participate in the election. Therefore, it becomes necessary to include screening questions designed to filter for likely voters, based on voting history or engagement levels. Our survey includes questions that pertain to voting history, interest and engagement, voting intention, and eligibility. Responses to these questions will be used to produce an aggregate “likely voter” score that filters for the target population enabling for more accurate predictions of the presidential election. 
+
+
+
+## Elements of Our Survey
+To gather accurate responses from a diverse and representative set of likely voters, our survey design carefully adheres to best practices in methodology. Given our goal to avoid attrition bias, we’ve restricted the estimated survey completion time to under ten minutes. This constraint is stricter than the fifteen-minute benchmark typically used by NYC and Siena College for telephone surveys, as online surveys require shorter durations to maintain respondent engagement. Our survey is divided into three main sections: Preamble, Eligibility, and Party Affiliation. 
+
+### Preamble
+The Preamble serves as an introductory section that aims to establish transparency and motivate respondents to complete the survey accurately. This introduction begins with an explanation of the lottery-style incentive offered for survey completion. Rather than small individual payments, participants have a chance to win a larger prize if they complete the survey, a choice that aligns with budget constraints while enhancing participation rates. To encourage honest responses, respondents are assured of the anonymity of their answers, as well as the fact that their responses will be used solely for research purposes. This transparency fosters trust and can reduce hesitation when sharing political preferences. Information about the survey’s purpose is provided sparingly to minimize any potential response bias, as we communicate that the survey concerns voting and political engagement while omitting specific details that could influence responses, such as particular issues or candidate names. Additionally, respondents have the option to input a referral code if invited by a friend or family member, which can increase their chances of winning the lottery and encourage participation through word-of-mouth. We also request information on the relationship with the referrer to monitor potential demographic clustering in cases where social or familial ties might influence responses.
+
+
+### Eligibility
+The Eligibility section focuses on ensuring that respondents meet the criteria necessary for inclusion in our target population, specifically targeting likely voters within designated swing states to improve the relevance and accuracy of our sample for election predictions. This section begins by asking for respondents' state of residence, age, race, and other preliminary demographic information. To further narrow our sample to those most likely to vote, we employ several screening questions related to voting history, political engagement, and voting intentions. These questions help exclude individuals who are unlikely to participate in the election, thus refining our sample to reflect the likely voting population. 
+
+
+### Party Affiliation
+Party Affiliation addresses respondents’ political leanings and past voting behavior. This section explores their current preference for presidential candidates and parties and asks how they voted in previous elections. By differentiating between party and candidate preference, we can identify any variance in their voting behavior and assess whether respondents’ decisions align more strongly with party or individual candidate considerations. This section also explores whether respondents are informed about their choices, asking questions to determine whether they are aware of both candidates or have researched their policies. By gathering these insights, we can create a profile of the respondent’s political orientation, which allows for a nuanced interpretation of voting intentions that goes beyond simple party preference.
+
+## Distribution of Online Panels
+The online panel method provides valuable flexibility in how surveys are distributed, enabling targeted outreach in regions crucial to our election prediction model. Since the distribution strategy will absorb a significant portion of the budget, this section outlines our plan for cost-effective, targeted, and controlled distribution, aimed at achieving a sample that represents voters in key swing states while addressing biases inherent to online panel surveys.
+
+### Swing State Representation
+To capture a meaningful sample for predicting election results, we target respondents exclusively from key swing states where voting outcomes remain uncertain. By focusing our resources on swing states, we enhance the relevance of our sample to the Electoral College system, which relies heavily on swing state outcomes. Achieving this requires not only careful selection of digital platforms but also strategic advertising in locally relevant spaces.
+The lottery-style incentive, with a $5,000 voucher offered to one lucky respondent, serves as an appealing motivator designed to increase participation. We will advertise the survey on websites, forums, and marketplaces that have high traffic within our target states. Examples include social media channels, local news sites, and state-specific online communities. Additionally, we may utilize geo-targeted ads on platforms like Google and Facebook to directly reach residents of these swing states, optimizing our budget by focusing on the digital spaces our target demographic frequents. A significant portion of the budget will thus be allocated to these state-specific online advertisements, which not only promote the survey but also help ensure that respondents fit our target profile.
+
+### Referral Mechanics
+To further broaden our reach without exponentially increasing advertising costs, we incorporate a referral system that rewards respondents for inviting others to complete the survey. Each referral allows the original respondent to gain an additional entry in the lottery, increasing their chances of winning. This referral incentive taps into snowball sampling, where respondents refer people within their network to participate, expanding our pool of respondents organically.
+However, using snowball sampling in an election survey introduces potential biases, particularly the risk of overrepresentation of individuals with similar political views, as respondents are likely to refer to close contacts who may share similar ideologies. To mitigate this, we will place specific restrictions on the referral program. Each respondent will be limited to referring only one other individual, minimizing the potential for overly clustered referrals. Additionally, we will require respondents to identify their relationship with each referral, helping us monitor homogeneity in our responses. By balancing the benefits of snowball sampling with these restrictions, we aim to expand the reach of our survey into difficult to reach demographics without compromising the representativeness of the sample.
+
+# Budget Allocation
+Advertisements for sampling recruitment: $70,000
+Prize Pool for Incentive: $5,000
+Data Processing and Cleaning: $15,000
+Miscellaneous Expenses: $5,000
+Petty Cash: $5,000
+  
+  
+# Idealized Questionnaire and Survey
+
+https://docs.google.com/forms/d/117wC8f1rBW_bd5glEdiR-7823-02A3HiD5EzQuT1GVw/edit
+
+# Structure
+
+## Preamble
+
+Title: 2024 Presidential Election Poll Data
+
+Introduction: Thank you for your participation in our $5,000 giveaway program. 
+
+For entry, please complete the survey in its entirety below. Please be informed that your answers are strictly confidential and will, under no circumstances, be shared with any party, group, or persons of affiliation. 
+
+$5,000 Cash Voucher Program Details: Completing the survey below qualifies as one entry into our giveaway. Each participant receives a unique entry identifier, and every entry will have an equal chance in our final random selection of the prize winner. Please note that each individual may complete only one survey.
+
+Referral Program: Our referral program offers you the chance to increase your odds of winning. After completing the survey, you’ll receive a unique referral code. If a friend or associate completes the survey using your code, your total number of entries doubles, effectively doubling your chances of winning the $5,000 prize.
+
+
+Finally, we wish to clarify that this survey is conducted purely for research purposes and is entirely unaffiliated with any political party, organization, or individual in a position of power. Our goal is to gain insight into the evolving political landscape and levels of public engagement.
+
+  
+
+Referral Code (please ignore if inapplicable)
+
+If you have entered a referral code above, please indicate the relationship with the referee from the best choice below.
+Friend
+Associate
+Relative
+Other…
+
+## Eligibility
+Do you meet your state's residency requirements?
+Yes
+No (End Survey)
+Please select "N/A" from the options below if you reside in North Dakota. 
+Which of the following best describes you?
+I am registered to vote
+I am not registered to vote
+I plan to register
+N/A
+Full Name (For identification of $5,000 cash winner)
+From which state will you be vote for the next president of the United States of America?
+Where can we reach you when we announce the winner?
+E-mail
+Telephone
+Other…
+Contact information
+**We will not use this for any other purpose than to announce winners. It will only be used to reach our lucky winner for instructions on receiving the cash prize.
+Which of the following age groups best describes you?
+18-25
+26-31
+32-40
+41-50
+51-60
+61-80
+81-125
+Under 18
+Which of the following best describes you?
+American Indian or Alaskan Native
+Asian
+African American
+Hispanic or Latino
+Native Hawaiian or Pacific Islander
+White
+Middle Eastern or North African
+Other…
+What is your gender?
+Male
+Female
+Prefer not to say
+Other…
+Which of the following situations best describe you?
+I did not vote in the 2020 presidential election
+I planned to vote but wasn’t able to
+I voted in the 2020 presidential election
+How likely are you to vote in the upcoming election?
+Very unlikely
+1
+2
+3
+Very likely
+Have you attended a presidential rally or their campaigns this year?
+Yes
+No
+Only in the past
+On a scale of 1 to 3, how closely do you follow the presidential race?
+Not at all
+1
+2
+3
+4
+5
+Very closely
+
+## Party Affiliation
+Which party do you prefer a candidate to be chosen from?
+Democratic Party's candidate
+Republican Party's candidate
+Another Party's candidate
+In the 2020 presidential election, who did you vote for?  If you did not vote, who would you have voted for?
+Donald Trump
+Joe Biden
+Neither
+Other…
+If planning to vote, which presidential candidate are you planning to vote for?
+If you are abstaining, please select which candidate you feel more strongly about.
+Donald Trump
+Kamala Harris
+Other...
+
+\newpage
+
+# Additional data details
+
+# Model details {#sec-model-details}
+
+
+
+## Posterior predictive check
+
+
+{r}
+#| echo: false
+#| warning: false
+#| message: false
+posterior_predictions <- posterior_predict(model, draws = 100)
+ppc_dens_overlay(y = data_filtered$average_pct/100, yrep = posterior_predictions) +
+  labs(title = "Posterior Predictive Check",
+       x = "Rate of support",
+       y = "Density")
+
+
+## Diagnostics
+
+
+{r}
+
+
+\newpage
+
+
+# References
+
+ChatGPT said:
+ChatGPT
+It appears your document is extensive, with well-structured sections, detailed methodology, and numerous tables and visualizations. Given the specific LaTeX error previously encountered, here are some additional suggestions to ensure smooth rendering in your Quarto setup:
+
+1. Check for Table Formatting Issues
+Since you initially encountered Missing \cr inserted errors, ensure that each row of your tables and any line break commands (\\) within kable tables are correctly formatted. In particular:
+
+Verify each row ends with \\ in manually constructed LaTeX tables.
+
+If using kable and kableExtra, simplify by removing complex styling temporarily to identify if any specific styling might be causing the issue. You could try:
+
+r
+Copy code
+kable(sample_data, caption = "Sample of 10 Random Observations from the Analysis Data") %>%
+  kable_styling(full_width = FALSE, position = "center")
+This will help isolate any complex formatting from column_spec or extra CSS adjustments that could lead to the \cr insertion error.
+
+2. Verify Plot and Table Captions
+Ensure that your plot and table captions don’t have unsupported LaTeX symbols or accidental line breaks. For instance:
+
+r
+Copy code
+labs(title = "Average Polling Percentages by State")
+If you have multiline captions, consider shortening them or removing any special characters.
+
+3. Check for Unintended LaTeX Line Breaks
+In LaTeX, \\ is a command for a new line in tables or specific environments, and unintended uses can result in errors. Inspect your text blocks to make sure \\ appears only where required, such as:
+
+markdown
+Copy code
+title: "Forecasting the 2024 U.S. Presidential Election" \\ subtitle: "Using Aggregated Polling Data to Predict the Outcome of the 2024 Presidential Race"
+Avoid placing \\ at the end of paragraphs, as this could be misinterpreted by the compiler.
+
+4. Inspect paper.log for Additional Details
+Since the error message can sometimes be generic, check paper.log around line 314, where the initial error was reported. This will help you find any specific content causing the LaTeX compiler to fail.
+
+5. Test Rendering in Smaller Sections
+To troubleshoot without rerunning the entire document:
+
+Comment out large sections (e.g., # Results or # Discussion) and render incrementally.
+This can help pinpoint problematic sections, especially in complex documents with multiple tables and plots.
+6. Alternative Renders
+Try a simplified pandoc or HTML render in Quarto to see if any content might be causing LaTeX-specific errors. You can also use quarto preview to render as HTML temporarily:
+
+bash
+Copy code
+quarto preview paper.qmd --to html
+This way, you can identify any LaTeX-only formatting issues without waiting for a full PDF render.
+
+After these checks, re-run your render with:
+
+bash
+Copy code
+quarto render paper.qmd --to pdf
+These adjustments should help isolate and resolve the remaining LaTeX errors. Let me know if any specific line in the .log file remains unclear for further assistance!
+
+
+
+
+
+
+You said:
+You have divergent branches and need to specify how to reconcile them.
+hint: You can do so by running one of the following commands sometime before
+hint: your next pull:
+hint: 
+hint:   git config pull.rebase false  # merge
+hint:   git config pull.rebase true   # rebase
+hint:   git config pull.ff only       # fast-forward only
+hint: 
+hint: You can replace "git config" with "git config --global" to set a default
+hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+hint: or --ff-only on the command line to override the configured default per
+hint: invocation.
+fatal: Need to specify how to reconcile divergent branches.
+ChatGPT said:
+ChatGPT
+The error message you’re seeing indicates that Git is unsure how to handle differences between your local branch and the remote branch when trying to perform a git pull. This happens when there are divergent commits in both branches that need to be reconciled. Here’s how to proceed based on the options provided:
+
+1. Understand the Options
+Merge: Combines the divergent commits with a merge commit.
+Rebase: Applies your local commits on top of the latest commits from the remote branch.
+Fast-Forward Only: Updates only if the local branch has no new commits, otherwise aborts the operation.
+2. Choose a Reconciliation Method
+Option 1: Merge
+This is the default approach and is often the simplest choice if you want a merge commit to join the branches:
+
+bash
+Copy code
+git config pull.rebase false
+git pull
+Option 2: Rebase
+If you prefer a linear history, where your commits are replayed on top of the latest changes from the remote branch:
+
+bash
+Copy code
+git config pull.rebase true
+git pull
+Option 3: Fast-Forward Only
+This option will only update if your branch has no new commits. If you’ve made changes, the pull will be aborted to prevent potential conflicts:
+
+bash
+Copy code
+git config pull.ff only
+git pull
+3. Set a Global Preference (Optional)
+If you want to make this setting apply to all repositories, add the --global flag:
+
+bash
+Copy code
+git config --global pull.rebase false   # for merge
+git config --global pull.rebase true    # for rebase
+git config --global pull.ff only        # for fast-forward only
+4. Proceed with the Pull
+After setting the configuration, run:
+
+bash
+Copy code
+git pull
+This will apply the selected method, and Git will handle the pull based on your preference. Let me know if you need further clarification on any of these options!
+
+
+
+
+
+
+You said:
+Error: unexpected symbol in "git config"
+In addition: Warning message:
+In check_dep_version() : ABI version mismatch: 
+lme4 was built with Matrix ABI version 1
+Current Matrix ABI version is 0
+Please re-install lme4 from source or restore original ‘Matrix’ package
+> 
+ChatGPT said:
+ChatGPT
+It appears that you entered the git config command within an R session, which doesn’t recognize shell commands like Git configuration commands directly.
+
+Here’s how to handle both the Git issue and the R package issue separately:
+
+1. Running the Git Command in the Correct Environment
+The git config command needs to be run in your command line or terminal, not in the R console. Here’s what to do:
+
+Exit the R session or open a new terminal window.
+
+Run the Git configuration command in the terminal. For example:
+
+bash
+Copy code
+git config pull.rebase false
+git pull
+This command will specify a merge strategy for Git, allowing the pull to proceed.
+
+2. Resolving the lme4 and Matrix Package Version Mismatch in R
+The warning about lme4 and Matrix is due to an ABI (Application Binary Interface) version mismatch. You can fix this by reinstalling the lme4 and Matrix packages from source in your R session:
+
+Restart R to ensure a clean environment.
+
+Reinstall the Matrix package first:
+
+r
+Copy code
+install.packages("Matrix", type = "source")
+Then reinstall the lme4 package from source as well:
+
+r
+Copy code
+install.packages("lme4", type = "source")
+This should address the ABI mismatch and remove the warning.
+
+After completing these steps in the correct environments, you should be set up both with Git and with the required R packages. Let me know if you need further help with either!
+
+
+
+
+
+
+You said:
+i dont wanna commit my change
+ChatGPT said:
+ChatGPT
+If you don’t want to commit your changes but still want to pull the latest changes from the remote branch, you have a few options to avoid committing or losing your local changes. Here are the steps:
+
+Option 1: Stash Your Changes Temporarily
+You can stash your changes, which saves them temporarily without committing, allowing you to pull updates and then reapply your changes afterward.
+
+Stash the changes:
+
+bash
+Copy code
+git stash
+Pull the latest changes:
+
+bash
+Copy code
+git pull
+Reapply (pop) the stashed changes:
+
+bash
+Copy code
+git stash pop
+This sequence saves your current changes, pulls the latest code, and then reapplies your changes on top of the latest commits.
+
+Option 2: Use git pull --rebase
+Rebasing your changes on top of the latest remote commits allows you to avoid a merge commit while keeping your local changes uncommitted.
+
+Run the following command:
+
+bash
+Copy code
+git pull --rebase
+This will attempt to apply the latest commits from the remote branch on top of your local changes. If there are conflicts, Git will prompt you to resolve them.
+
+Option 3: Pull with --ff-only to Only Update if No Local Commits
+If you are open to updating only if there is no conflict with your local changes:
+
+Run:
+
+bash
+Copy code
+git pull --ff-only
+This command will pull the changes only if your branch can be updated with a fast-forward merge, meaning no merge commit will be created.
+
+Notes
+To permanently set a preference for merging, rebasing, or fast-forward, you can use git config commands in the terminal (outside R).
+If you’re unsure about any steps, feel free to ask for clarification on any option.
+
+
+
+
+
+You said:
+error: Pulling is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+
+i dont want my new changes to merge
+ChatGPT said:
+ChatGPT
+If you want to discard your local changes and simply pull the latest changes from the remote branch, you can reset your local branch to match the remote branch. Here’s how to do it:
+
+1. Reset Your Branch to Match the Remote Branch
+This will discard any local changes, including uncommitted changes and unmerged conflicts, and make your branch identical to the remote.
+
+Reset your branch to the remote branch:
+
+bash
+Copy code
+git reset --hard origin/your-branch-name
+Replace your-branch-name with the actual name of your branch (e.g., main or master).
+
+Pull the latest changes:
+
+bash
+Copy code
+git pull
+This should fetch and update your branch with the latest changes from the remote without including your previous local changes.
+
+Important Note
+Using git reset --hard will discard all uncommitted changes. Make sure you don’t need any of those changes before proceeding.
+
+If you have questions about this process or need to preserve specific files, let me know!
+
+
+
+
+
+
+You said:
+
+
+
+processing file: paper.qmd
+                                                                                                                           
+output file: paper.knit.md
+
+pandoc 
+  to: latex
+  output-file: paper.tex
+  standalone: true
+  pdf-engine: xelatex
+  variables:
+    graphics: true
+    tables: true
+  default-image-extension: pdf
+  number-sections: true
+  
+metadata
+  documentclass: scrartcl
+  classoption:
+    - DIV=11
+    - numbers=noendperiod
+  papersize: letter
+  header-includes:
+    - '\KOMAoption{captions}{tableheading}'
+  block-headings: true
+  title: Forecasting the 2024 U.S. Presidential Election
+  subtitle: Using Aggregated Polling Data to Predict the Outcome of the 2024 Presidential Race
+  author:
+    - Andy Jiang
+    - Onon Burentuvshin
+    - Rui Hu
+  thanks: 'Code and data are available at: [https://github.com/AndyYanxunJiang/president-polls).'
+  date: today
+  date-format: long
+  abstract: 'The 2024 U.S. presidential election is shaping up to be a highly swing race, with polling data playing a crucial role in gauging public sentiment and forecasting the potential outcome. This paper aims to build a predictive model using a poll-of-polls approach, aggregating data from multiple pollsters to forecast the winner of the upcoming election. The analysis incorporates polling data from various sources, filtered to include only high-quality pollsters with a numeric grade above 3, to ensure the reliability of the predictions. Additionally, a detailed examination of one selected pollster’s methodology is conducted, highlighting strengths, weaknesses, and biases in the survey process. The paper concludes with an idealized polling methodology, designed within a $100K budget, to enhance the accuracy of election forecasts. Results are presented in the context of understanding polling trends, potential biases, and the evolving landscape of voter preferences as the election approaches.'
+  bibliography:
+    - references.bib
+  
+running xelatex - 1
+  This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  
+updating tlmgr
+
+updating existing packages
+
+compilation failed- error
+Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.314 ...ndom Observations from the Analysis Data}
+                                                  \\ 
+
+see paper.log for more information.
+ChatGPT said:
+ChatGPT
+The "Missing \cr inserted" error typically points to an issue with a table or a similar block where LaTeX expects a line break (\\) but encounters something unexpected instead. Since it’s occurring around line 314 with a caption, it’s likely in a kable table or a LaTeX table in your document.
+
+Here are the steps to troubleshoot and resolve this error:
+
+Step-by-Step Solution
+1. Check the Table Block at Line 314
+Look for the table with the caption "Sample of 10 Random Observations from the Analysis Data". This is likely causing the error.
+
+In your code block for this table, make sure it is formatted correctly. For instance:
+
+r
+Copy code
+kable(sample_data, caption = "Sample of 10 Random Observations from the Analysis Data") %>%
+  kable_styling(full_width = FALSE, position = "center")
+2. Simplify the Table Styling Temporarily
+Try removing or simplifying the kable_styling options to see if this resolves the issue:
+
+r
+Copy code
+kable(sample_data, caption = "Sample of 10 Random Observations from the Analysis Data")
+This will help identify if any specific styling, such as column_spec adjustments or extra CSS, is causing the problem.
+
+3. Check for \\ in the Caption or Other Commands
+Make sure there are no stray \\ line break commands inside the table caption or column specifications. For example, remove any accidental line breaks or extra symbols in:
+
+r
+Copy code
+caption = "Sample of 10 Random Observations from the Analysis Data"
+Ensure it’s a single-line caption without any \\ characters.
+
+4. Review paper.log Around Line 314
+The .log file provides detailed insights into where LaTeX encountered issues. Open paper.log, navigate to line 314, and look for any additional information on the error context.
+
+5. Render After Each Change
+After making adjustments, render the document again to check if the issue is resolved:
+
+bash
+Copy code
+quarto render paper.qmd --to pdf
+This approach should help you pinpoint and resolve the table formatting issue causing the \cr error. Let me know if further clarification is needed!
+
+
+
+
+
+
+
+
+
+
+
+ChatGPT can make mistakes. Check important info.
+?
