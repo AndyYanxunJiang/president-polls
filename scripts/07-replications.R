@@ -1,19 +1,19 @@
 #### Preamble ####
-# Purpose: Replicated graphs from... [...UPDATE THIS...]
-# Author: Rohan Alexander [...UPDATE THIS...]
-# Date: 11 February 2023 [...UPDATE THIS...]
-# Contact: rohan.alexander@utoronto.ca [...UPDATE THIS...]
+# Purpose: Replicates and visualizes key polling trends and support graphs for the 2024 U.S. Presidential Election.
+# Author: Rui Hu, Andy Jiang, Onon Burentuvshin
+# Date: 4 November 2024
+# Contact: hr.hu@mail.utoronto.ca, ayx.jiang@mail.utoronto.ca
 # License: MIT
-# Pre-requisites: [...UPDATE THIS...]
-# Any other information needed? [...UPDATE THIS...]
+# Pre-requisites: N\A
+# Any other information needed? N\A
 
 
 #### Workspace setup ####
 library(tidyverse)
-# [...UPDATE THIS...]
+library(arrow)
 
 #### Load data ####
-# [...ADD CODE HERE...]
+polling_data <- read_parquet(here::here("data/02-analysis_data/analysis_data.parquet"))
 
 
 
